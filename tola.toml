@@ -1,0 +1,11 @@
+[site.info]
+title = "gomazarashi.github.io"
+author = "gomazarashi"
+description = "個人サイト（仮）"
+language = "ja"
+url = "https://gomazarashi.github.io"
+
+[build]
+content = "content"
+output = "public"
+deps = ["templates", "utils"]
