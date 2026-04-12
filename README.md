@@ -13,7 +13,7 @@ Typst / Tola を使って静的サイトを生成し、GitHub Pages で公開す
 
 ## 初回セットアップ
 
-1. リポジトリをcloneする。
+1. リポジトリをクローンする。
 2. 開発シェルに入る。
 
 ```bash
@@ -31,17 +31,20 @@ just doctor
 ```bash
 just build
 ```
+
 - サイトをビルドする（出力: `public/`）。
 
 ```bash
 just serve
 ```
+
 - ローカル開発サーバーを起動する。
 
 ```bash
 just rebuild
 ```
-- `clean` + `build` を実行して再生成する。
+
+- `public/` と `.tola/` を削除してから再生成する。
 
 ## ディレクトリ運用
 
