@@ -23,6 +23,6 @@ clean:
 rebuild: clean build
 
 doctor: check
-  @echo "just:  $$(just --version)"
-  @echo "tola:  $$(tola --version)"
-  @echo "typst: $$(typst --version)"
+  @just --version
+  @tola --version
+  @typst --version
