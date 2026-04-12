@@ -18,7 +18,7 @@ serve:
   tola serve
 
 clean:
-  rm -rf public
+  rm -rf public .tola
 
 rebuild: clean build
 
