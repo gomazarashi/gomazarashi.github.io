@@ -1,3 +1,5 @@
+# tola.toml
+
 [site.info]
 title = "gomazarashi.github.io"
 author = "gomazarashi"
@@ -5,7 +7,11 @@ description = "個人サイト（仮）"
 language = "ja"
 url = "https://gomazarashi.github.io"
 
+[site.header]
+styles = ["assets/styles/site.css"]
+
 [build]
 content = "content"
 output = "public"
 deps = ["templates", "utils"]
+assets.nested = ["assets/styles"]
