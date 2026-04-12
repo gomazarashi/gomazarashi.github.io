@@ -2,3 +2,6 @@
 
 # build output
 /public/
+
+# tola working files
+.tola/
