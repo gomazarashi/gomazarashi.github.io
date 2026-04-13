@@ -3,7 +3,7 @@
   description = "gomazarashi.github.io development environment";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     flake-utils.url = "github:numtide/flake-utils";
     tola.url = "github:tola-ssg/tola-ssg/v0.7.1";
   };
