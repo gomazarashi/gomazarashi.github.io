@@ -4,7 +4,8 @@
 Typst / Tola を使って静的サイトを生成し、GitHub Pages で公開する前提です。
 
 公開中のサイト:
-`https://gomazarashi.github.io/`
+
+https://gomazarashi.github.io/
 
 ## 使用技術
 
