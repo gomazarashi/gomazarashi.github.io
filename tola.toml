@@ -12,6 +12,6 @@ styles = ["assets/styles/site.css"]
 
 [build]
 content = "content"
-output = "public"
+output = "docs"
 deps = ["templates", "utils"]
 assets.nested = ["assets/styles"]

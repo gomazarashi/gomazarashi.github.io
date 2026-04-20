@@ -35,7 +35,7 @@ just doctor
 just build
 ```
 
-- サイトをビルドする（出力: `public/`）。
+- サイトをビルドする（出力: `docs/`）。
 
 ```bash
 just serve
@@ -47,13 +47,16 @@ just serve
 just rebuild
 ```
 
-- `public/` と `.tola/` を削除してから再生成する。
+- `docs/` と `.tola/` を削除してから再生成する。
 
 ## ディレクトリ運用
 
-- `public/` はビルド成果物の出力先。
+- `docs/` はビルド成果物の出力先。
 - `.tola/` は Tola の内部作業ディレクトリ。
-- `public/` と `.tola/` は Git 管理しない運用（`.gitignore` 設定済み）。
+- `docs/` は Git 管理し、`just build` で更新してから commit / push する。
+- GitHub Pages は `Deploy from a branch` を選び、公開元を `main` ブランチの `/docs` に設定する。
+- `public/` は旧ビルド出力先として不要だが、誤生成された場合に備えて引き続き Git 管理しない。
+- `.tola/` は Git 管理しない運用（`.gitignore` 設定済み）。
 
 ## 記事ファイル命名規則
 
