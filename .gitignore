@@ -4,7 +4,7 @@
 /public/
 
 # tola working files
-.tola/
+/.tola/
 
 # codex
 .codex
