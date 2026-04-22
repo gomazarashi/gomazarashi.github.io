@@ -1,11 +1,11 @@
 # tola.toml
 
 [site.info]
-title = "gomazarashi.github.io"
+title = "gomazarashi.com"
 author = "gomazarashi"
 description = "個人サイト（仮）"
 language = "ja"
-url = "https://gomazarashi.github.io"
+url = "https://gomazarashi.com"
 
 [site.header]
 styles = ["assets/styles/site.css"]

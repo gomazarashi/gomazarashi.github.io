@@ -2,96 +2,66 @@
 
 = gomazarashi Labs
 
-#html.div(class: "home-intro")[
-  #html.p(class: "lead")[
-    このサイトはTypst + Tola を用いて作成されています。
+#html.div(class: "hero reveal")[
+  #html.p(class: "hero-kicker")[Typst / Translation / Engineering]
+  #html.p(class: "hero-lead")[
+    Typst を中心にしたメモと記事をまとめています。
+  ]
+  #html.p(class: "hero-description")[
+    翻訳、技術記事、開発環境の記録を、あとで見返しやすい形で整理して公開しています。
+  ]
+
+  #html.div(class: "hero-actions")[
+    #link("/posts/")[記事一覧を見る]
+    #link("/posts/20260412-first-post/")[最新記事を読む]
   ]
 ]
 
-== Overview
+== このサイトで扱う内容
 
-gomazarashi Labs は、gomazarashi の技術記事や作成した資料、活動などをまとめるためのサイトです。
-自サイト内の記事に加えて、外部に掲載した記事や資料への導線も、ここから順次整理していきます。
-
-== About
-
-gomazarashi は、Typst の翻訳と技術記事執筆を中心に活動しています。
-Typst ドキュメントの日本語翻訳に関わりつつ、関連する内容を中心に記事を書いています。
-また、記事執筆や翻訳と並行して個人開発も行っています。
-
-=== Technical Areas
-
-#html.div(class: "technical-areas")[
-  #html.div(class: "area-card")[
-    #html.p(class: "area-label")[Writing / Language]
-    #html.div(class: "area-list")[
-      - Typst
-      - Python
-      - Translation
-      - Technical Writing
+#html.div(class: "feature-grid")[
+  #html.div(class: "feature-card reveal")[
+    #html.p(class: "feature-label")[Writing & Translation]
+    #html.p(class: "feature-title")[翻訳とドキュメント]
+    #html.p(class: "feature-text")[
+      Typst 関連の翻訳メモと、ドキュメント作成の実践をまとめています。
     ]
   ]
 
-  #html.div(class: "area-card")[
-    #html.p(class: "area-label")[Environment / Operations]
-    #html.div(class: "area-list")[
-      - Nix
-      - Docker
-      - nginx
-      - Static Site Operation
+  #html.div(class: "feature-card reveal")[
+    #html.p(class: "feature-label")[Tooling & Workflow]
+    #html.p(class: "feature-title")[開発環境と運用]
+    #html.p(class: "feature-text")[
+      Nix、Docker、静的サイト運用など、日常で使う手順を記録しています。
+    ]
+  ]
+
+  #html.div(class: "feature-card reveal")[
+    #html.p(class: "feature-label")[Python & Automation]
+    #html.p(class: "feature-title")[Python と自動化]
+    #html.p(class: "feature-text")[
+      反復作業を減らすための小さなスクリプトや、検証の記録を公開しています。
     ]
   ]
 ]
 
-== Latest Posts
+== Latest Post
 
-自サイト内で公開している最近の記事です。
-現時点では固定の導線として整理し、記事数が増えた段階で一覧の扱いを見直します。
-
-#html.div(class: "link-panel-group")[
-  #html.div(class: "link-panel")[
-    #html.p(class: "panel-label")[Latest]
-    #html.div(class: "panel-list")[
-      - #link("/posts/first-post/")[最初の記事]
-      - #link("/posts/example-second-post/")[二本目の記事の仮リンク]
-      - #link("/posts/example-third-post/")[三本目の記事の仮リンク]
-    ]
+#html.div(class: "latest-post reveal")[
+  #html.p(class: "latest-date")[2026-04-12]
+  #html.p(class: "latest-title")[#link("/posts/20260412-first-post/")[First Post]]
+  #html.p(class: "latest-summary")[
+    サイト公開時に作成した最初の記事です。
+    今後はこの欄に新着記事を追加します。
   ]
 ]
 
 == External Writing
 
-外部サイトに掲載している記事や資料への導線です。
-媒体単位の入口と、代表的な記事をあわせて整理しています。
-
-#html.div(class: "link-panel-group")[
-  #html.div(class: "link-panel")[
-    #html.p(class: "panel-label")[Platforms]
-    #html.div(class: "panel-list")[
-      - #link("https://example.com/qiita")[Qiita]
-      - #link("https://example.com/oucrc")[OUCRC.net]
-    ]
-  ]
-
-  #html.div(class: "link-panel")[
-    #html.p(class: "panel-label")[Selected Writing]
-    #html.div(class: "panel-list")[
-      - #link("https://example.com/external-article-1")[代表記事 1]
-      - #link("https://example.com/external-article-2")[代表記事 2]
-    ]
-  ]
-]
-
-== Posts
-
-公開済みの記事は Posts ページにまとめています。
-記事一覧から新しい順に確認できます。
-
-#html.div(class: "link-panel-group")[
-  #html.div(class: "link-panel")[
-    #html.p(class: "panel-label")[Archive]
-    #html.p(class: "panel-text")[
-      #link("/posts/")[Posts を見る]
-    ]
+#html.div(class: "external-panel reveal")[
+  #html.p(class: "panel-label")[External Links]
+  #html.p(class: "panel-text")[
+    外部媒体へのリンクは準備中です。
+    まとまり次第、ここに追加します。
   ]
 ]

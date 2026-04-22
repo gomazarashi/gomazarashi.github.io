@@ -5,7 +5,7 @@ Typst / Tola を使って静的サイトを生成し、GitHub Pages で公開す
 
 公開中のサイト:
 
-https://gomazarashi.github.io/
+https://gomazarashi.com/
 
 ## 使用技術
 

@@ -1,17 +1,19 @@
 /* assets/styles/site.css */
 
 :root {
-  --site-max-width: 42rem;
-  --site-side-padding: 1rem;
-  --site-text-color: #222;
-  --site-link-color: #0b57d0;
-
-  --site-muted-color: #5f6368;
-  --site-border-color: #d9dde3;
-  --site-border-strong-color: #c8ced8;
-  --site-soft-bg: #f7f8fa;
-  --site-panel-bg: #fbfcfd;
-  --site-accent-soft-bg: #eaf2ff;
+  --site-max-width: 64rem;
+  --site-side-padding: 1.25rem;
+  --site-text-color: #1d2a35;
+  --site-heading-color: #0e2230;
+  --site-link-color: #005f73;
+  --site-link-hover: #0a9396;
+  --site-muted-color: #4d5f6b;
+  --site-border-color: #cfdde5;
+  --site-border-strong-color: #aac1cc;
+  --site-panel-bg: #f8fbfc;
+  --site-accent-bg: #e6f5f7;
+  --site-accent-warm: #ee9b00;
+  --site-page-bg: #f3f8fa;
 }
 
 *,
@@ -28,132 +30,268 @@ html {
 body {
   max-width: var(--site-max-width);
   margin: 0 auto;
-  padding: 1.5rem var(--site-side-padding) 3rem;
+  padding: 2.25rem var(--site-side-padding) 3.5rem;
   color: var(--site-text-color);
   font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
+    "IBM Plex Sans JP",
+    "BIZ UDPGothic",
+    "Hiragino Sans",
+    "Noto Sans JP",
     sans-serif;
-  line-height: 1.8;
+  line-height: 1.85;
   overflow-wrap: anywhere;
+  background:
+    radial-gradient(circle at 15% 10%, #ffffff 0%, #ffffff88 28%, #ffffff00 45%),
+    radial-gradient(circle at 90% 15%, #d8f2f4 0%, #d8f2f400 35%),
+    linear-gradient(170deg, #f5fafb 0%, var(--site-page-bg) 50%, #eef5f8 100%);
 }
 
+h1,
 h2,
-h3,
-h4 {
+h3 {
+  color: var(--site-heading-color);
+  font-family:
+    "Shippori Mincho B1",
+    "Noto Serif JP",
+    "Hiragino Mincho ProN",
+    serif;
   line-height: 1.35;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
 }
 
-h2 {
+h1 {
   margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-size: clamp(2.05rem, 4.6vw, 3.15rem);
+  line-height: 1.2;
 }
 
 h2 {
-  padding-bottom: 0.3rem;
+  margin-top: 2.1rem;
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.25rem, 2.9vw, 1.65rem);
+  padding-bottom: 0.35rem;
   border-bottom: 1px solid var(--site-border-color);
 }
 
 p,
-ul,
-p {
+ul {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
 a {
   color: var(--site-link-color);
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--site-link-color), #ffffff 45%);
+  transition: color 180ms ease, border-color 180ms ease;
 }
 
-.home-intro {
-  margin: 0 0 1.5rem;
-  padding: 1rem 1rem 1.05rem;
+a:hover {
+  color: var(--site-link-hover);
+  border-bottom-color: var(--site-link-hover);
+}
+
+.hero {
+  position: relative;
+  margin: 0 0 1.8rem;
+  padding: 1.35rem 1.3rem 1.45rem;
   border: 1px solid var(--site-border-color);
-  border-radius: 12px;
-  background: linear-gradient(to bottom, #fff, var(--site-soft-bg));
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, #ffffffde 0%, #f3fbfcf0 55%, #eef8fbf0 100%);
+  box-shadow:
+    0 10px 26px #00303a0f,
+    inset 0 1px 0 #ffffff;
+  overflow: hidden;
 }
 
-.lead {
-  margin: 0;
-  color: var(--site-muted-color);
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 13rem;
+  height: 13rem;
+  right: -4.5rem;
+  top: -5.25rem;
+  background: radial-gradient(circle, #94d2bd55 0%, #94d2bd00 70%);
+  pointer-events: none;
 }
 
-.technical-areas {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
-  margin-top: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.area-card {
-  padding: 0.95rem 1rem;
-  border: 1px solid var(--site-border-color);
-  border-radius: 12px;
-  background: var(--site-panel-bg);
-}
-
-.area-label {
-  margin: 0 0 0.65rem;
-  color: var(--site-muted-color);
-  font-size: 0.82rem;
+.hero-kicker {
+  margin: 0 0 0.5rem;
+  color: var(--site-link-color);
+  font-size: 0.77rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.area-list {
+.hero-lead {
+  margin: 0 0 0.7rem;
+  color: var(--site-heading-color);
+  font-family:
+    "Shippori Mincho B1",
+    "Noto Serif JP",
+    serif;
+  font-size: clamp(1.22rem, 2.7vw, 1.7rem);
+  line-height: 1.45;
+}
+
+.hero-description {
   margin: 0;
-  padding-left: 1.2rem;
+  max-width: 46rem;
+  color: var(--site-muted-color);
 }
 
-.area-list li + li {
-  margin-top: 0.3rem;
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
 }
 
-.link-panel-group {
+.hero-actions a {
+  display: inline-block;
+  padding: 0.44rem 0.88rem;
+  border-radius: 999px;
+  border: 1px solid var(--site-border-strong-color);
+  background: #ffffffcc;
+  color: var(--site-heading-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hero-actions a:hover {
+  border-color: color-mix(in srgb, var(--site-link-color), #ffffff 18%);
+  color: var(--site-link-color);
+}
+
+.feature-grid {
   display: grid;
-  gap: 0.85rem;
-  margin-top: 0.75rem;
-  margin-bottom: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.95rem;
+  margin-top: 0.7rem;
+  margin-bottom: 1.1rem;
 }
 
-.link-panel {
-  padding: 0.95rem 1rem;
+.feature-card {
+  padding: 1rem 1rem 1.1rem;
   border: 1px solid var(--site-border-color);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--site-panel-bg);
+  box-shadow: 0 4px 14px #0f3b4b0a;
+}
+
+.feature-label {
+  margin: 0 0 0.55rem;
+  color: var(--site-muted-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.feature-title {
+  margin: 0 0 0.45rem;
+  color: var(--site-heading-color);
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.52;
+}
+
+.feature-text {
+  margin: 0;
+  color: var(--site-muted-color);
+  font-size: 0.95rem;
+}
+
+.latest-post {
+  padding: 1rem 1.05rem 1.05rem;
+  border: 1px solid color-mix(in srgb, var(--site-accent-warm), #ffffff 50%);
+  border-radius: 14px;
+  background:
+    linear-gradient(160deg, #fffdfa 0%, #fff9ef 62%, #fff6e3 100%);
+}
+
+.latest-date {
+  margin: 0 0 0.4rem;
+  color: #9a6700;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.latest-title {
+  margin: 0 0 0.45rem;
+  color: var(--site-heading-color);
+  font-family:
+    "Shippori Mincho B1",
+    "Noto Serif JP",
+    serif;
+  font-size: 1.22rem;
+  font-weight: 700;
+}
+
+.latest-summary {
+  margin: 0;
+  color: #6f5b2f;
+}
+
+.external-panel {
+  padding: 0.95rem 1rem 1.02rem;
+  border: 1px dashed var(--site-border-strong-color);
+  border-radius: 14px;
+  background: var(--site-accent-bg);
 }
 
 .panel-label {
   display: inline-block;
-  margin: 0 0 0.7rem;
-  padding: 0.14rem 0.55rem;
-  border: 1px solid var(--site-border-strong-color);
+  margin: 0 0 0.65rem;
+  padding: 0.1rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--site-link-color), #ffffff 30%);
   border-radius: 999px;
-  background: var(--site-accent-soft-bg);
+  background: #ffffff;
   color: var(--site-link-color);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  line-height: 1.4;
-}
-
-.panel-list {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.panel-list li + li {
-  margin-top: 0.35rem;
+  letter-spacing: 0.04em;
 }
 
 .panel-text {
   margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: rise-in 560ms ease both;
+}
+
+.feature-card.reveal:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.feature-card.reveal:nth-child(3) {
+  animation-delay: 160ms;
 }
 
 @media (max-width: 640px) {
@@ -162,10 +300,67 @@ a {
   }
 
   body {
-    padding: 1rem var(--site-side-padding) 2rem;
+    padding: 1.15rem var(--site-side-padding) 2.2rem;
   }
 
-  .technical-areas {
+  .hero {
+    padding: 1.1rem 1rem 1.2rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 960px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+@supports not (color: color-mix(in srgb, black, white)) {
+  a {
+    border-bottom-color: #7aa8b3;
+  }
+
+  .hero-actions a:hover {
+    border-color: var(--site-link-color);
+  }
+
+  .latest-post {
+    border-color: #e7d4ab;
+  }
+
+  .panel-label {
+    border-color: #8db4bf;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-actions {
+    gap: 0.55rem;
+  }
+
+  .hero-actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .feature-grid {
     grid-template-columns: 1fr;
   }
 }

@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^just build$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
