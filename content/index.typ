@@ -29,41 +29,41 @@
 
 #html.div(class: "tech-stack-grid")[
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[言語とマークアップ]
+    #html.p(class: "tech-layer")[言語・マークアップ]
     #html.div(class: "tech-list")[
       - Python
       - Typst
-      - Bash / Shell
+      - Bash
       - YAML
     ]
   ]
 
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[フレームワークとツール]
+    #html.p(class: "tech-layer")[ビルド・開発基盤]
     #html.div(class: "tech-list")[
-      - Nix & NixOS
-      - Docker & Compose
-      - just (task runner)
+      - Tola
+      - Nix / NixOS
+      - Docker / Docker Compose
+      - just
       - Git
     ]
   ]
 
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[開発・運用]
+    #html.p(class: "tech-layer")[運用・自動化]
     #html.div(class: "tech-list")[
-      - 静的サイト生成
-      - nginx
+      - Nginx
       - GitHub Actions
-      - SSH・コマンドライン
+      - OpenSSH
     ]
   ]
 
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[プラットフォーム・サービス]
+    #html.p(class: "tech-layer")[プラットフォーム]
     #html.div(class: "tech-list")[
-      - GitHub / Git hosting
+      - GitHub
       - GitHub Pages
-      - Linux (Nix/NixOS)
+      - Linux
     ]
   ]
 ]

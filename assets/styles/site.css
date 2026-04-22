@@ -274,10 +274,9 @@ li + li {
 .tech-layer {
   margin: 0 0 0.65rem;
   color: #4a7c7e;
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .tech-list {
@@ -308,8 +307,7 @@ li + li {
   color: #4a7c7e;
   font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .colophon-stack {
