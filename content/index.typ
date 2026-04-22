@@ -33,37 +33,22 @@
     #html.div(class: "tech-list")[
       - Python
       - Typst
-      - Bash
-      - YAML
     ]
   ]
 
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[ビルド・開発基盤]
+    #html.p(class: "tech-layer")[開発基盤]
     #html.div(class: "tech-list")[
-      - Tola
+      - Git
       - Nix / NixOS
       - Docker / Docker Compose
-      - just
-      - Git
     ]
   ]
 
   #html.div(class: "tech-card reveal")[
     #html.p(class: "tech-layer")[運用・自動化]
     #html.div(class: "tech-list")[
-      - Nginx
       - GitHub Actions
-      - OpenSSH
-    ]
-  ]
-
-  #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[プラットフォーム]
-    #html.div(class: "tech-list")[
-      - GitHub
-      - GitHub Pages
-      - Linux
     ]
   ]
 ]
