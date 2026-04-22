@@ -30,26 +30,52 @@
 #html.div(class: "tech-stack-grid")[
   #html.div(class: "tech-card reveal")[
     #html.p(class: "tech-layer")[言語・マークアップ]
-    #html.div(class: "tech-list")[
-      - Python
-      - Typst
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[よく使う]
+      #html.div(class: "tech-tier-list")[
+        - Typst
+      ]
+    ]
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[経験あり]
+      #html.div(class: "tech-tier-list")[
+        - Python
+        - Bash
+      ]
     ]
   ]
 
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[開発基盤]
-    #html.div(class: "tech-list")[
-      - Git
-      - Nix / NixOS
-      - Docker / Docker Compose
+    #html.p(class: "tech-layer")[ビルド・開発基盤]
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[よく使う]
+      #html.div(class: "tech-tier-list")[
+        - Tola
+        - Nix / NixOS
+      ]
+    ]
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[経験あり]
+      #html.div(class: "tech-tier-list")[
+        - Git
+        - Docker / Docker Compose
+      ]
     ]
   ]
 
   #html.div(class: "tech-card reveal")[
     #html.p(class: "tech-layer")[運用・自動化]
-    #html.div(class: "tech-list")[
-      - GitHub Actions
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[経験あり]
+      #html.div(class: "tech-tier-list")[
+        - GitHub Actions
+        - Nginx
+      ]
     ]
+  ]
+
+  #html.div(class: "tech-card reveal")[
+    #html.p(class: "tech-layer")[プラットフォーム]
   ]
 ]
 
