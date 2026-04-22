@@ -26,32 +26,57 @@
 ]
 
 == 技術スキル
-
 #html.div(class: "tech-stack-grid")[
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[言語・マークアップ]
+    #html.p(class: "tech-layer")[プログラミング / マークアップ]
     #html.div(class: "tech-tier")[
       #html.p(class: "tech-tier-title")[よく使う]
       #html.div(class: "tech-tier-list")[
         - Typst
+        - TeX
+        - Python
+        - HTML
+        - CSS
+        - JavaScript
       ]
     ]
     #html.div(class: "tech-tier")[
       #html.p(class: "tech-tier-title")[経験あり]
       #html.div(class: "tech-tier-list")[
-        - Python
-        - Bash
+        - C++
+        - C
+        - R
+        - P4
+      ]
+    ]
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[勉強中]
+      #html.div(class: "tech-tier-list")[
+        - Rust
+        - TypeScript
       ]
     ]
   ]
 
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[ビルド・開発基盤]
+    #html.p(class: "tech-layer")[フレームワーク / ライブラリ]
     #html.div(class: "tech-tier")[
       #html.p(class: "tech-tier-title")[よく使う]
       #html.div(class: "tech-tier-list")[
-        - Tola
+        - Django
+      ]
+    ]
+  ]
+
+  #html.div(class: "tech-card reveal")[
+    #html.p(class: "tech-layer")[開発環境 / OS / ツール]
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[よく使う]
+      #html.div(class: "tech-tier-list")[
+        - Ubuntu
         - Nix / NixOS
+        - uv
+        - pytest
       ]
     ]
     #html.div(class: "tech-tier")[
@@ -64,7 +89,13 @@
   ]
 
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[運用・自動化]
+    #html.p(class: "tech-layer")[配信 / 運用]
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[よく使う]
+      #html.div(class: "tech-tier-list")[
+        - GitHub Pages
+      ]
+    ]
     #html.div(class: "tech-tier")[
       #html.p(class: "tech-tier-title")[経験あり]
       #html.div(class: "tech-tier-list")[
@@ -75,7 +106,23 @@
   ]
 
   #html.div(class: "tech-card reveal")[
-    #html.p(class: "tech-layer")[プラットフォーム]
+    #html.p(class: "tech-layer")[データベース]
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[勉強中]
+      #html.div(class: "tech-tier-list")[
+        - PostgreSQL
+      ]
+    ]
+  ]
+
+  #html.div(class: "tech-card reveal")[
+    #html.p(class: "tech-layer")[監視・可観測性]
+    #html.div(class: "tech-tier")[
+      #html.p(class: "tech-tier-title")[経験あり]
+      #html.div(class: "tech-tier-list")[
+        - Grafana
+      ]
+    ]
   ]
 ]
 
