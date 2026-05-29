@@ -5,9 +5,6 @@
 
 #html.div(class: "content-shell")[
   #html.div(class: "hero-panel hero-accent")[
-    #html.p(class: "hero-copy")[
-      Typst と Tola を使って、技術記事、翻訳、個人開発の記録を整理しています。
-    ]
     #html.p(class: "hero-note")[
       記事、翻訳、運用メモをまとめて公開するための個人サイトです。
     ]
