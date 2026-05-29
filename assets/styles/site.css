@@ -8,10 +8,9 @@
   --line: #b8c8d1;
   --tile-light: #fdfefe;
   --tile-dark: #183847;
-  --tile-cyan: #188f9f;
-  --tile-teal: #007c89;
-  --tile-blue: #2e6d97;
-  --tile-slate: #3a5566;
+  --tile-accent: #007c89;
+  --tile-secondary: #2f6482;
+  --tile-slate: #415968;
   --accent: #007c89;
   --accent-warm: #d77a2d;
   --accent-warm-soft: #f4dfcf;
@@ -166,18 +165,14 @@ a:focus-visible {
   color: #f2f8fb;
 }
 
-.tile-cyan {
-  background: var(--tile-cyan);
-  color: #f4feff;
-}
-
+.tile-cyan,
 .tile-teal {
-  background: var(--tile-teal);
+  background: var(--tile-accent);
   color: #f4feff;
 }
 
 .tile-blue {
-  background: var(--tile-blue);
+  background: var(--tile-secondary);
   color: #f5fbff;
 }
 
