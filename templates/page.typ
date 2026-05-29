@@ -4,10 +4,17 @@
 
 #let page(title: none, body) = {
   site[
-    #if title != none [
-      = #title
-    ]
+    html.div(class: "page-layout")[
+      if title != none [
+        html.div(class: "page-header tile tile-hero")[
+          html.p(class: "section-kicker")[overview]
+          html.p(class: "page-title")[title]
+        ]
+      ]
 
-    #body
+      html.div(class: "page-body")[
+        body
+      ]
+    ]
   ]
 }

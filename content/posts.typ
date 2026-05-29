@@ -2,6 +2,18 @@
 
 = Posts
 
-記事一覧です。
+#html.div(class: "metro-section")[
+  #html.p(class: "page-lead")[
+    公開済みの記事を新しい順にまとめています。
+  ]
+]
 
-- 20260412-first-post
+#html.div(class: "metro-section")[
+  #html.div(class: "post-list")[
+    #html.div(class: "post-list-item tile tile-light")[
+      #html.p(class: "entry-date")[2026-04-12]
+      #html.p(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
+      #html.p(class: "tile-copy")[個人サイトの初期表示確認のために作成した最初の記事です。]
+    ]
+  ]
+]
