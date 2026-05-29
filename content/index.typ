@@ -1,6 +1,7 @@
 // content/index.typ
 
-= gomazarashi Labs
+#import "../templates/page.typ": page
+#show: page.with(title: [gomazarashi Labs])
 
 #html.div(class: "content-shell")[
   #html.div(class: "hero-panel hero-accent")[

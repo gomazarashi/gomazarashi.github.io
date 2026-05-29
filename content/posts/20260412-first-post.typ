@@ -1,6 +1,7 @@
 // content/posts/20260412-first-post.typ
 
-= First Post
+#import "../../templates/post.typ": post
+#show: post.with(title: [First Post])
 
 これは最初の記事です。
 
