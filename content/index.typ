@@ -2,186 +2,173 @@
 
 = gomazarashi Labs
 
-#html.div(class: "metro-hero tile tile-accent")[
-  #html.p(class: "hero-kicker")[personal publishing hub]
-  #html.p(class: "hero-copy")[
-    Typst と Tola を使って、技術記事、翻訳、個人開発の記録を整理しています。
-  ]
-  #html.div(class: "metro-actions")[
-    #link("/posts/")[記事一覧]
-    #link("/posts/20260412-first-post/")[最新記事]
-  ]
-]
-
-#html.div(class: "metro-section")[
-  #html.p(class: "section-kicker")[about]
-  #html.div(class: "tile-grid tile-grid-wide")[
-    #html.div(class: "tile tile-dark")[
-      #html.p(class: "tile-title")[このサイトについて]
-      #html.p(class: "tile-copy")[
-        技術記事、翻訳、作成した資料、個人開発の内容をまとめるための個人サイトです。
-      ]
-      #html.p(class: "tile-copy")[
-        自サイト内の記事に加えて、外部媒体の執筆物や関連資料への導線もここに集約します。
-      ]
+#html.div(class: "content-shell")[
+  #html.div(class: "hero-panel hero-accent")[
+    #html.p(class: "hero-copy")[
+      Typst と Tola を使って、技術記事、翻訳、個人開発の記録を整理しています。
     ]
-
-    #html.div(class: "tile tile-light")[
-      #html.p(class: "tile-title")[構築環境]
-      #html.div(class: "tile-list")[
-        - *コンテンツ・マークアップ*: #link("https://typst.app")[Typst]
-        - *静的サイト生成*: #link("https://github.com/tola-ssg/tola-ssg")[Tola]
-        - *開発環境*: #link("https://nixos.org")[Nix]
-        - *ホスティング・デプロイ*: #link("https://pages.github.com")[GitHub Pages]
-      ]
-      #html.p(class: "tile-note")[
-        Repository: #link("https://github.com/gomazarashi/gomazarashi.github.io")[github.com/gomazarashi/gomazarashi.github.io]
-      ]
+    #html.p(class: "hero-note")[
+      記事、翻訳、運用メモをまとめて公開するための個人サイトです。
+    ]
+    #html.div(class: "hero-actions")[
+      #link("/posts/")[記事一覧]
+      #link("/posts/20260412-first-post/")[最新記事]
     ]
   ]
-]
 
-#html.div(class: "metro-section")[
-  #html.p(class: "section-kicker")[technical areas]
-  #html.div(class: "tile-grid")[
-    #html.div(class: "tile tile-cyan")[
-      #html.p(class: "tile-title")[プログラミング / マークアップ]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[よく使う]
-        #html.div(class: "tile-list")[
-          - Typst
-          - TeX
-          - Python
-          - HTML
-          - CSS
-          - JavaScript
+  #html.div(class: "content-section")[
+    #html.p(class: "section-title")[このサイトについて]
+    #html.div(class: "simple-grid")[
+      #html.div(class: "simple-card card-accent-soft")[
+        #html.p(class: "card-title")[概要]
+        #html.p(class: "tile-copy")[
+          技術記事、翻訳、作成した資料、個人開発の内容をまとめるための個人サイトです。
+        ]
+        #html.p(class: "tile-copy")[
+          自サイト内の記事に加えて、関連する外部の情報も順次整理していきます。
         ]
       ]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[経験あり]
-        #html.div(class: "tile-list")[
-          - C++
-          - C
-          - R
-          - P4
-        ]
-      ]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[勉強中]
-        #html.div(class: "tile-list")[
-          - Rust
-          - TypeScript
-        ]
-      ]
-    ]
 
-    #html.div(class: "tile tile-blue")[
-      #html.p(class: "tile-title")[フレームワーク / ライブラリ]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[よく使う]
-        #html.div(class: "tile-list")[
-          - Django
+      #html.div(class: "simple-card card-neutral")[
+        #html.p(class: "card-title")[構築環境]
+        #html.div(class: "simple-list")[
+          - *コンテンツ・マークアップ*  
+            #html.span(class: "inline-link")[#link("https://typst.app")[Typst]]
+          - *静的サイト生成*  
+            #html.span(class: "inline-link")[#link("https://github.com/tola-ssg/tola-ssg")[Tola]]
+          - *開発環境*  
+            #html.span(class: "inline-link")[#link("https://nixos.org")[Nix]]
+          - *ホスティング・デプロイ*  
+            #html.span(class: "inline-link")[#link("https://pages.github.com")[GitHub Pages]]
         ]
-      ]
-    ]
-
-    #html.div(class: "tile tile-teal")[
-      #html.p(class: "tile-title")[開発環境 / OS / ツール]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[よく使う]
-        #html.div(class: "tile-list")[
-          - Ubuntu
-          - Nix / NixOS
-          - uv
-          - pytest
-        ]
-      ]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[経験あり]
-        #html.div(class: "tile-list")[
-          - Git
-          - Docker / Docker Compose
-        ]
-      ]
-    ]
-
-    #html.div(class: "tile tile-dark")[
-      #html.p(class: "tile-title")[配信 / 運用]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[よく使う]
-        #html.div(class: "tile-list")[
-          - GitHub Pages
-        ]
-      ]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[経験あり]
-        #html.div(class: "tile-list")[
-          - GitHub Actions
-          - Nginx
-        ]
-      ]
-    ]
-
-    #html.div(class: "tile tile-light")[
-      #html.p(class: "tile-title")[データベース]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[勉強中]
-        #html.div(class: "tile-list")[
-          - PostgreSQL
-        ]
-      ]
-    ]
-
-    #html.div(class: "tile tile-slate")[
-      #html.p(class: "tile-title")[監視・可観測性]
-      #html.div(class: "skill-block")[
-        #html.p(class: "skill-label")[経験あり]
-        #html.div(class: "tile-list")[
-          - Grafana
+        #html.p(class: "card-note")[Repository]
+        #html.p(class: "tile-copy")[
+          #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/gomazarashi.github.io")[github.com/gomazarashi/gomazarashi.github.io]]
         ]
       ]
     ]
   ]
-]
 
-#html.div(class: "metro-section")[
-  #html.p(class: "section-kicker")[latest posts]
-  #html.div(class: "tile-grid tile-grid-wide")[
-    #html.div(class: "tile tile-light")[
-      #html.p(class: "tile-title")[最新記事]
-      #html.p(class: "entry-date")[2026-04-12]
-      #html.p(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
-      #html.p(class: "tile-copy")[
-        サイト公開時に作成した最初の記事です。今後はこの欄を起点に新着記事を整理します。
+  #html.div(class: "content-section")[
+    #html.p(class: "section-title")[技術領域]
+    #html.div(class: "simple-grid")[
+      #html.div(class: "simple-card card-accent")[
+        #html.p(class: "card-title")[プログラミング / マークアップ]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[よく使う]
+          #html.div(class: "simple-list")[
+            - Typst
+            - TeX
+            - Python
+            - HTML
+            - CSS
+            - JavaScript
+          ]
+        ]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[経験あり]
+          #html.div(class: "simple-list")[
+            - C++
+            - C
+            - R
+            - P4
+          ]
+        ]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[勉強中]
+          #html.div(class: "simple-list")[
+            - Rust
+            - TypeScript
+          ]
+        ]
       ]
-    ]
 
-    #html.div(class: "tile tile-cyan")[
-      #html.p(class: "tile-title")[Posts]
-      #html.p(class: "tile-copy")[
-        公開済みの記事は一覧ページにまとめています。古い記事もここからたどれます。
+      #html.div(class: "simple-card card-muted")[
+        #html.p(class: "card-title")[フレームワーク / ライブラリ]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[よく使う]
+          #html.div(class: "simple-list")[
+            - Django
+          ]
+        ]
       ]
-      #html.p(class: "tile-link")[#link("/posts/")[記事一覧を開く]]
+
+      #html.div(class: "simple-card card-accent")[
+        #html.p(class: "card-title")[開発環境 / OS / ツール]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[よく使う]
+          #html.div(class: "simple-list")[
+            - Ubuntu
+            - Nix / NixOS
+            - uv
+            - pytest
+          ]
+        ]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[経験あり]
+          #html.div(class: "simple-list")[
+            - Git
+            - Docker / Docker Compose
+          ]
+        ]
+      ]
+
+      #html.div(class: "simple-card card-muted")[
+        #html.p(class: "card-title")[配信 / 運用]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[よく使う]
+          #html.div(class: "simple-list")[
+            - GitHub Pages
+          ]
+        ]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[経験あり]
+          #html.div(class: "simple-list")[
+            - GitHub Actions
+            - Nginx
+          ]
+        ]
+      ]
+
+      #html.div(class: "simple-card card-neutral")[
+        #html.p(class: "card-title")[データベース]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[勉強中]
+          #html.div(class: "simple-list")[
+            - PostgreSQL
+          ]
+        ]
+      ]
+
+      #html.div(class: "simple-card card-accent-soft")[
+        #html.p(class: "card-title")[監視・可観測性]
+        #html.div(class: "skill-group")[
+          #html.p(class: "skill-heading")[経験あり]
+          #html.div(class: "simple-list")[
+            - Grafana
+          ]
+        ]
+      ]
     ]
   ]
-]
 
-#html.div(class: "metro-section")[
-  #html.p(class: "section-kicker")[external writing]
-  #html.div(class: "tile-grid")[
-    #html.div(class: "tile tile-blue")[
-      #html.p(class: "tile-title")[外部メディア]
-      #html.p(class: "tile-copy")[
-        外部媒体へのリンクは準備中です。媒体別の入口と代表記事をまとまり次第ここに追加します。
+  #html.div(class: "content-section")[
+    #html.p(class: "section-title")[最新記事]
+    #html.div(class: "simple-grid")[
+      #html.div(class: "simple-card card-accent-soft")[
+        #html.p(class: "entry-date")[2026-04-12]
+        #html.p(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
+        #html.p(class: "tile-copy")[
+          サイト公開時に作成した最初の記事です。今後はこの欄を起点に新着記事を整理します。
+        ]
       ]
-    ]
 
-    #html.div(class: "tile tile-teal")[
-      #html.p(class: "tile-title")[予定している整理]
-      #html.div(class: "tile-list")[
-        - 媒体ごとの一覧リンク
-        - 代表記事の抜粋
-        - 技術テーマ別の導線
+      #html.div(class: "simple-card card-neutral")[
+        #html.p(class: "card-title")[記事一覧]
+        #html.p(class: "tile-copy")[
+          公開済みの記事は一覧ページにまとめています。古い記事もここからたどれます。
+        ]
+        #html.p(class: "hero-link")[#link("/posts/")[記事一覧を見る]]
       ]
     ]
   ]
