@@ -3,6 +3,8 @@
 # build output
 /public/
 
+*.pdf
+
 # tola working files
 /.tola/
 
