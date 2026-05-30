@@ -1,7 +1,15 @@
 // content/index.typ
 
 #import "../templates/page.typ": page
+#import "@preview/booticons:0.0.1": bsicon
 #show: page.with(title: [gomazarashi Labs])
+
+#let github-link(url, label) = link(url)[
+  #html.span(class: "github-link")[
+    #html.span(class: "github-link-icon")[#bsicon("github", height: 0.9em)]
+    #html.span(class: "github-link-label")[#label]
+  ]
+]
 
 #html.div(class: "content-shell")[
   #html.div(class: "content-section")[
@@ -35,7 +43,7 @@
         ]
         #html.p(class: "card-note")[Repository]
         #html.p(class: "tile-copy")[
-          #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/gomazarashi.github.io")[github.com/gomazarashi/gomazarashi.github.io]]
+          #html.span(class: "inline-link")[#github-link("https://github.com/gomazarashi/gomazarashi.github.io", [github.com/gomazarashi/gomazarashi.github.io])]
         ]
       ]
     ]
