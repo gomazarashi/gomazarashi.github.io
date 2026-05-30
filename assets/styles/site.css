@@ -1,5 +1,7 @@
 /* assets/styles/site.css */
 
+@import url("https://fonts.googleapis.com/css2?family=Gugi&display=swap");
+
 :root {
   --bg: #f3f5f7;
   --surface: #ffffff;
@@ -100,6 +102,7 @@ body {
 
 .page-title {
   margin: 0;
+  font-family: "Gugi", "Yu Gothic UI", "Meiryo", sans-serif;
   font-size: clamp(1.8rem, 5vw, 2.4rem);
   font-weight: 400;
   line-height: 1.15;
