@@ -4,16 +4,6 @@
 #show: page.with(title: [gomazarashi Labs])
 
 #html.div(class: "content-shell")[
-  #html.div(class: "hero-panel hero-accent")[
-    #html.p(class: "hero-note")[
-      記事、翻訳、運用メモをまとめて公開するための個人サイトです。
-    ]
-    #html.div(class: "hero-actions")[
-      #link("/posts/")[記事一覧]
-      #link("/posts/20260412-first-post/")[最新記事]
-    ]
-  ]
-
   #html.div(class: "content-section")[
     #html.p(class: "section-title")[このサイトについて]
     #html.div(class: "simple-grid")[
