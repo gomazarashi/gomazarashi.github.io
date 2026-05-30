@@ -318,9 +318,43 @@ html[data-theme="dark"] .theme-toggle-icon-sun {
   background: var(--surface);
 }
 
+.tool-card {
+  color: #f7fbfc;
+}
+
+.tool-card-text-diff {
+  background: #00a4ef;
+  border-color: #0078d7;
+}
+
+.tool-card-text-counter {
+  background: #0078d7;
+  border-color: #005a9e;
+}
+
+.tool-card-nata {
+  background: #b85c38;
+  border-color: #8f4428;
+}
+
 html[data-theme="dark"] .card-accent {
   background: #2f6f7c;
   border-color: #3b8897;
+}
+
+html[data-theme="dark"] .tool-card-text-diff {
+  background: #007fb9;
+  border-color: #00a4ef;
+}
+
+html[data-theme="dark"] .tool-card-text-counter {
+  background: #005fa8;
+  border-color: #00bcf2;
+}
+
+html[data-theme="dark"] .tool-card-nata {
+  background: #8f4428;
+  border-color: #c96c46;
 }
 
 .card-title,
@@ -347,8 +381,21 @@ html[data-theme="dark"] .card-accent {
 .card-accent .skill-heading,
 .card-muted .skill-heading,
 .card-accent .entry-date,
-.card-muted .entry-date {
+.card-muted .entry-date,
+.tool-card .card-note {
   color: rgba(247, 251, 252, 0.8);
+}
+
+.tool-card .tile-copy,
+.tool-card .card-title,
+.tool-card .hero-link a,
+.tool-card .inline-link a {
+  color: #f7fbfc;
+}
+
+.tool-card .hero-link a {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .tile-copy,

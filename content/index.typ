@@ -143,7 +143,7 @@
   #html.div(class: "content-section")[
     #html.p(class: "section-title")[公開ツール]
     #html.div(class: "simple-grid")[
-      #html.div(class: "simple-card card-accent-soft")[
+      #html.div(class: "simple-card tool-card tool-card-text-diff")[
         #html.p(class: "card-title")[text-diff]
         #html.p(class: "tile-copy")[
           ブラウザ内だけでテキスト差分を比較するツールです。
@@ -158,7 +158,7 @@
         ]
       ]
 
-      #html.div(class: "simple-card card-neutral")[
+      #html.div(class: "simple-card tool-card tool-card-text-counter")[
         #html.p(class: "card-title")[simple-text-counter]
         #html.p(class: "tile-copy")[
           入力内容を送信せずに文字数を数える静的ツールです。
@@ -173,7 +173,7 @@
         ]
       ]
 
-      #html.div(class: "simple-card card-muted")[
+      #html.div(class: "simple-card tool-card tool-card-nata")[
         #html.p(class: "card-title")[nata]
         #html.p(class: "tile-copy")[
           PDFをページ単位で扱う Rust 製CLIツールです。
