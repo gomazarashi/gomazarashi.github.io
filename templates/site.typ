@@ -12,7 +12,19 @@
               #html.span(class: "site-nav-separator")[#text("/")]
               #html.a(href: "/posts/")[記事一覧]
             ]
-            #html.button(class: "theme-toggle", id: "theme-toggle", type: "button")[Dark]
+            #html.button(
+              class: "theme-toggle",
+              id: "theme-toggle",
+              type: "button",
+              aria-label: "ダークモードに切り替え",
+            )[
+              #html.span(class: "theme-toggle-track")[
+                #html.span(class: "theme-toggle-icon theme-toggle-icon-sun", aria-hidden: true)[]
+                #html.span(class: "theme-toggle-knob", aria-hidden: true)[
+                  #html.span(class: "theme-toggle-icon theme-toggle-icon-moon")[]
+                ]
+              ]
+            ]
           ]
         ]
         #body

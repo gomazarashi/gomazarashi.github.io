@@ -12,12 +12,10 @@ function applyTheme(theme) {
 
 function syncToggle(button, theme) {
   const isDark = theme === darkTheme;
-  button.textContent = isDark ? "Light" : "Dark";
   button.setAttribute("aria-pressed", String(isDark));
-  button.setAttribute(
-    "title",
-    isDark ? "ライトモードに切り替え" : "ダークモードに切り替え"
-  );
+  const nextThemeLabel = isDark ? "ライトモード" : "ダークモード";
+  button.setAttribute("aria-label", `${nextThemeLabel}に切り替え`);
+  button.setAttribute("title", `${nextThemeLabel}に切り替え`);
 }
 
 const savedTheme = localStorage.getItem(themeStorageKey);
