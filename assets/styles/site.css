@@ -318,6 +318,11 @@ html[data-theme="dark"] .theme-toggle-icon-sun {
   background: var(--surface);
 }
 
+html[data-theme="dark"] .card-accent {
+  background: #2f6f7c;
+  border-color: #3b8897;
+}
+
 .card-title,
 .entry-title {
   margin: 0 0 0.45rem;
