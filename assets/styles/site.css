@@ -161,6 +161,10 @@ body {
   gap: 1rem;
 }
 
+.simple-grid-stack {
+  grid-template-columns: 1fr;
+}
+
 .simple-card {
   min-height: 0;
   padding: 1.05rem 1.1rem;

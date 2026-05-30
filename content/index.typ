@@ -6,7 +6,7 @@
 #html.div(class: "content-shell")[
   #html.div(class: "content-section")[
     #html.p(class: "section-title")[このサイトについて]
-    #html.div(class: "simple-grid")[
+    #html.div(class: "simple-grid simple-grid-stack")[
       #html.div(class: "simple-card card-accent-soft")[
         #html.p(class: "card-title")[概要]
         #html.p(class: "tile-copy")[
