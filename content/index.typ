@@ -22,6 +22,10 @@
         #html.div(class: "simple-list")[
           - *コンテンツ・マークアップ*  
             #html.span(class: "inline-link")[#link("https://typst.app")[Typst]]
+          - *スタイリング*  
+            CSS
+          - *クライアントサイド*  
+            JavaScript
           - *静的サイト生成*  
             #html.span(class: "inline-link")[#link("https://github.com/tola-ssg/tola-ssg")[Tola]]
           - *開発環境*  
