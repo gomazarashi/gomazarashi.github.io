@@ -141,6 +141,53 @@
   ]
 
   #html.div(class: "content-section")[
+    #html.p(class: "section-title")[公開ツール]
+    #html.div(class: "simple-grid")[
+      #html.div(class: "simple-card card-accent-soft")[
+        #html.p(class: "card-title")[text-diff]
+        #html.p(class: "tile-copy")[
+          ブラウザ内だけでテキスト差分を比較するツールです。
+        ]
+        #html.p(class: "hero-link")[
+          #link("https://gomazarashi.github.io/text-diff/")[ツールを開く]
+        ]
+        #html.p(class: "tile-copy")[
+          #html.span(class: "inline-link")[
+            #link("https://github.com/gomazarashi/text-diff")[Repository]
+          ]
+        ]
+      ]
+
+      #html.div(class: "simple-card card-neutral")[
+        #html.p(class: "card-title")[simple-text-counter]
+        #html.p(class: "tile-copy")[
+          入力内容を送信せずに文字数を数える静的ツールです。
+        ]
+        #html.p(class: "hero-link")[
+          #link("https://gomazarashi.com/simple-text-counter/")[ツールを開く]
+        ]
+        #html.p(class: "tile-copy")[
+          #html.span(class: "inline-link")[
+            #link("https://github.com/gomazarashi/simple-text-counter")[Repository]
+          ]
+        ]
+      ]
+
+      #html.div(class: "simple-card card-muted")[
+        #html.p(class: "card-title")[nata]
+        #html.p(class: "tile-copy")[
+          PDFをページ単位で扱う Rust 製CLIツールです。
+        ]
+        #html.p(class: "tile-copy")[
+          #html.span(class: "inline-link")[
+            #link("https://github.com/gomazarashi/nata")[Repository]
+          ]
+        ]
+      ]
+    ]
+  ]
+
+  #html.div(class: "content-section")[
     #html.p(class: "section-title")[最新記事]
     #html.div(class: "simple-grid")[
       #html.div(class: "simple-card card-accent-soft")[
