@@ -1,7 +1,11 @@
 // content/posts.typ
 
 #import "../templates/page.typ": page
-#show: page.with(title: [Posts])
+#show: page.with(
+  title: "Posts",
+  description: "公開済みの技術記事、翻訳、作成資料を一覧でまとめています。",
+  path: "/posts/",
+)
 
 #html.div(class: "content-shell")[
   #html.div(class: "content-section")[

@@ -1,14 +1,17 @@
 # tola.toml
 
 [site.info]
-title = "gomazarashi.com"
+title = "gomazarashi Lab"
 author = "gomazarashi"
-description = "個人サイト（仮）"
+description = "技術記事、翻訳、作成した資料、個人開発の内容をまとめる個人サイトです。"
 language = "ja"
 url = "https://gomazarashi.com"
 
 [site.header]
 styles = ["assets/styles/site.css"]
+
+[site.seo]
+auto_og = false
 
 [site.seo.sitemap]
 enable = true

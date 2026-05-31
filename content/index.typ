@@ -2,7 +2,11 @@
 
 #import "../templates/page.typ": page
 #import "@preview/booticons:0.0.1": bsicon
-#show: page.with(title: [gomazarashi Labs])
+#show: page.with(
+  title: "gomazarashi Lab",
+  description: "技術記事、翻訳、作成した資料、個人開発の内容をまとめる個人サイトです。",
+  path: "/",
+)
 
 #let github-link(url, label) = link(url)[
   #html.span(class: "github-link")[
