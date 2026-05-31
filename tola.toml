@@ -10,8 +10,15 @@ url = "https://gomazarashi.com"
 [site.header]
 styles = ["assets/styles/site.css"]
 
+[site.seo.sitemap]
+enable = true
+path = "sitemap.xml"
+
 [build]
 content = "content"
 output = "docs"
 deps = ["templates", "utils"]
-assets.nested = ["assets/styles"]
+
+[build.assets]
+nested = ["assets/styles"]
+flatten = ["assets/robots.txt"]
