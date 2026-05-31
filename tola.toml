@@ -10,6 +10,9 @@ url = "https://gomazarashi.com"
 [site.header]
 styles = ["assets/styles/site.css"]
 
+[site]
+not_found = "content/404.typ"
+
 [site.seo]
 auto_og = false
 
