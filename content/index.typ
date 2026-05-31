@@ -158,6 +158,7 @@
 
   #html.div(class: "content-section")[
     #html.p(class: "section-title")[公開ツール]
+    #html.p(class: "hero-link")[#link("/tools/")[ツール一覧を見る]]
     #html.div(class: "simple-grid")[
       #html.div(class: "simple-card tool-card tool-card-text-diff")[
         #html.p(class: "card-title")[text-diff]

@@ -22,6 +22,8 @@
                 #html.a(href: "/")[ホーム]
                 #html.span(class: "site-nav-separator")[#text("/")]
                 #html.a(href: "/posts/")[記事一覧]
+                #html.span(class: "site-nav-separator")[#text("/")]
+                #html.a(href: "/tools/")[ツール]
               ]
               #html.button(
                 class: "theme-toggle",
