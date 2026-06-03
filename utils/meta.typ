@@ -51,6 +51,10 @@
   html.elem("link", attrs: (rel: "canonical", href: url))
 }
 
+#let viewport-meta() = {
+  html.elem("meta", attrs: (name: "viewport", content: "width=device-width, initial-scale=1"))
+}
+
 #let page-head(title: none, description: none, path: "/", meta-type: "website") = {
   let description = if description == none or str(description) == "" {
     default-description
@@ -62,6 +66,7 @@
 
   [
     #html.title[#resolved-title]
+    #viewport-meta()
     #meta-tag("description", description)
     #canonical-link(canonical)
     #property-tag("og:title", resolved-title)

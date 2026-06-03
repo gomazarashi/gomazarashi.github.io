@@ -439,6 +439,9 @@ a,
 .github-link {
   display: inline-flex;
   align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  max-width: 100%;
   text-decoration: none;
 }
 
@@ -487,11 +490,30 @@ a,
   }
 
   .site-shell {
-    padding: 1rem 1rem 1.75rem;
+    width: 100%;
+    padding: 0.9rem 0.85rem 1.5rem;
   }
 
   .site-nav-inner {
+    gap: 0.9rem;
     align-items: flex-start;
+  }
+
+  .site-nav-links {
+    row-gap: 0.5rem;
+  }
+
+  .page-header,
+  .post-header,
+  .simple-card,
+  .post-body {
+    padding-left: 0.95rem;
+    padding-right: 0.95rem;
+  }
+
+  .hero-link a {
+    width: 100%;
+    text-align: center;
   }
 
   .simple-grid {
