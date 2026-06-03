@@ -18,7 +18,7 @@
   #html.div(class: "content-section")[
     #html.div(class: "simple-grid")[
       #html.div(class: "simple-card tool-card tool-card-text-diff")[
-        #html.p(class: "card-title")[text-diff]
+        #html.h3(class: "card-title")[text-diff]
         #html.p(class: "tile-copy")[
           ブラウザ内だけでテキスト差分を比較するツールです。
         ]
@@ -26,7 +26,7 @@
           入力内容の外部送信なし、保存なし。
         ]
         #html.p(class: "hero-link")[
-          #link("https://gomazarashi.github.io/text-diff/")[ツールを開く]
+          #link("https://gomazarashi.com/text-diff/")[ツールを開く]
         ]
         #html.p(class: "tile-copy")[
           #html.span(class: "inline-link")[
@@ -36,7 +36,7 @@
       ]
 
       #html.div(class: "simple-card tool-card tool-card-text-counter")[
-        #html.p(class: "card-title")[simple-text-counter]
+        #html.h3(class: "card-title")[simple-text-counter]
         #html.p(class: "tile-copy")[
           入力内容を送信せずに文字数を数える静的ツールです。
         ]
@@ -54,7 +54,7 @@
       ]
 
       #html.div(class: "simple-card tool-card tool-card-nata")[
-        #html.p(class: "card-title")[nata]
+        #html.h3(class: "card-title")[nata]
         #html.p(class: "tile-copy")[
           PDF をページ単位で扱う Rust 製 CLI ツールです。
         ]

@@ -7,7 +7,7 @@
     #html.div(class: "page-layout")[
       #if title != none [
         #html.div(class: "page-header")[
-          #html.p(class: "page-title")[#title]
+          #html.h1(class: "page-title")[#title]
         ]
       ]
 

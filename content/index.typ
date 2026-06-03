@@ -17,10 +17,10 @@
 
 #html.div(class: "content-shell")[
   #html.div(class: "content-section")[
-    #html.p(class: "section-title")[このサイトについて]
+    #html.h2(class: "section-title")[このサイトについて]
     #html.div(class: "simple-grid simple-grid-stack")[
       #html.div(class: "simple-card card-accent-soft")[
-        #html.p(class: "card-title")[概要]
+        #html.h3(class: "card-title")[概要]
         #html.p(class: "tile-copy")[
           技術記事、翻訳、作成した資料、個人開発の内容をまとめるための個人サイトです。
         ]
@@ -30,7 +30,7 @@
       ]
 
       #html.div(class: "simple-card card-neutral")[
-        #html.p(class: "card-title")[構築環境]
+        #html.h3(class: "card-title")[構築環境]
         #html.div(class: "simple-list")[
           - *コンテンツ・マークアップ*  
             #html.span(class: "inline-link")[#link("https://typst.app")[Typst]]
@@ -54,10 +54,10 @@
   ]
 
   #html.div(class: "content-section")[
-    #html.p(class: "section-title")[技術領域]
+    #html.h2(class: "section-title")[技術領域]
     #html.div(class: "simple-grid")[
       #html.div(class: "simple-card card-accent")[
-        #html.p(class: "card-title")[プログラミング / マークアップ]
+        #html.h3(class: "card-title")[プログラミング / マークアップ]
         #html.div(class: "skill-group")[
           #html.p(class: "skill-heading")[よく使う]
           #html.div(class: "simple-list")[
@@ -88,7 +88,7 @@
       ]
 
       #html.div(class: "simple-card card-muted")[
-        #html.p(class: "card-title")[フレームワーク / ライブラリ]
+        #html.h3(class: "card-title")[フレームワーク / ライブラリ]
         #html.div(class: "skill-group")[
           #html.p(class: "skill-heading")[よく使う]
           #html.div(class: "simple-list")[
@@ -98,7 +98,7 @@
       ]
 
       #html.div(class: "simple-card card-accent")[
-        #html.p(class: "card-title")[開発環境 / OS / ツール]
+        #html.h3(class: "card-title")[開発環境 / OS / ツール]
         #html.div(class: "skill-group")[
           #html.p(class: "skill-heading")[よく使う]
           #html.div(class: "simple-list")[
@@ -118,7 +118,7 @@
       ]
 
       #html.div(class: "simple-card card-muted")[
-        #html.p(class: "card-title")[配信 / 運用]
+        #html.h3(class: "card-title")[配信 / 運用]
         #html.div(class: "skill-group")[
           #html.p(class: "skill-heading")[よく使う]
           #html.div(class: "simple-list")[
@@ -135,7 +135,7 @@
       ]
 
       #html.div(class: "simple-card card-neutral")[
-        #html.p(class: "card-title")[データベース]
+        #html.h3(class: "card-title")[データベース]
         #html.div(class: "skill-group")[
           #html.p(class: "skill-heading")[勉強中]
           #html.div(class: "simple-list")[
@@ -145,7 +145,7 @@
       ]
 
       #html.div(class: "simple-card card-accent-soft")[
-        #html.p(class: "card-title")[監視・可観測性]
+        #html.h3(class: "card-title")[監視・可観測性]
         #html.div(class: "skill-group")[
           #html.p(class: "skill-heading")[経験あり]
           #html.div(class: "simple-list")[
@@ -157,16 +157,16 @@
   ]
 
   #html.div(class: "content-section")[
-    #html.p(class: "section-title")[公開ツール]
+    #html.h2(class: "section-title")[公開ツール]
     #html.p(class: "hero-link")[#link("/tools/")[ツール一覧を見る]]
     #html.div(class: "simple-grid")[
       #html.div(class: "simple-card tool-card tool-card-text-diff")[
-        #html.p(class: "card-title")[text-diff]
+        #html.h3(class: "card-title")[text-diff]
         #html.p(class: "tile-copy")[
           ブラウザ内だけでテキスト差分を比較するツールです。
         ]
         #html.p(class: "hero-link")[
-          #link("https://gomazarashi.github.io/text-diff/")[ツールを開く]
+          #link("https://gomazarashi.com/text-diff/")[ツールを開く]
         ]
         #html.p(class: "tile-copy")[
           #html.span(class: "inline-link")[
@@ -176,7 +176,7 @@
       ]
 
       #html.div(class: "simple-card tool-card tool-card-text-counter")[
-        #html.p(class: "card-title")[simple-text-counter]
+        #html.h3(class: "card-title")[simple-text-counter]
         #html.p(class: "tile-copy")[
           入力内容を送信せずに文字数を数える静的ツールです。
         ]
@@ -191,7 +191,7 @@
       ]
 
       #html.div(class: "simple-card tool-card tool-card-nata")[
-        #html.p(class: "card-title")[nata]
+        #html.h3(class: "card-title")[nata]
         #html.p(class: "tile-copy")[
           PDFをページ単位で扱う Rust 製CLIツールです。
         ]
@@ -205,18 +205,18 @@
   ]
 
   #html.div(class: "content-section")[
-    #html.p(class: "section-title")[最新記事]
+    #html.h2(class: "section-title")[最新記事]
     #html.div(class: "simple-grid")[
       #html.div(class: "simple-card card-accent-soft")[
         #html.p(class: "entry-date")[2026-04-12]
-        #html.p(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
+        #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
         #html.p(class: "tile-copy")[
           サイト公開時に作成した最初の記事です。今後はこの欄を起点に新着記事を整理します。
         ]
       ]
 
       #html.div(class: "simple-card card-neutral")[
-        #html.p(class: "card-title")[記事一覧]
+        #html.h3(class: "card-title")[記事一覧]
         #html.p(class: "tile-copy")[
           公開済みの記事は一覧ページにまとめています。古い記事もここからたどれます。
         ]

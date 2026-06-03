@@ -13,6 +13,7 @@ check:
 
 build:
   tola build
+  ./scripts/remove-404-from-sitemap.sh
 
 serve:
   tola serve
