@@ -4,7 +4,7 @@
 #import "@preview/booticons:0.0.1": bsicon
 #show: page.with(
   title: "gomazarashi Lab",
-  description: "技術記事、翻訳、作成した資料、個人開発の内容をまとめる個人サイトです。",
+  description: "Typst・Pythonを中心に、技術記事や個人開発ツールを公開している個人サイトです。",
   path: "/",
 )
 
@@ -22,10 +22,10 @@
       #html.div(class: "simple-card card-accent-soft")[
         #html.h3(class: "card-title")[概要]
         #html.p(class: "tile-copy")[
-          技術記事、翻訳、作成した資料、個人開発の内容をまとめるための個人サイトです。
+          Typst・Pythonを中心に、技術記事や個人開発ツールを公開している個人サイトです。
         ]
         #html.p(class: "tile-copy")[
-          自サイト内の記事に加えて、関連する外部の情報も順次整理していきます。
+          参考になる外部記事やドキュメントへのリンクも随時追加していきます。
         ]
       ]
 
@@ -45,7 +45,7 @@
           - *ホスティング・デプロイ*  
             #html.span(class: "inline-link")[#link("https://pages.github.com")[GitHub Pages]]
         ]
-        #html.p(class: "card-note")[Repository]
+        #html.p(class: "card-note")[ソースコード]
         #html.p(class: "tile-copy")[
           #html.span(class: "inline-link")[#github-link("https://github.com/gomazarashi/gomazarashi.github.io", [github.com/gomazarashi/gomazarashi.github.io])]
         ]
@@ -170,7 +170,7 @@
         ]
         #html.p(class: "tile-copy")[
           #html.span(class: "inline-link")[
-            #link("https://github.com/gomazarashi/text-diff")[Repository]
+            #link("https://github.com/gomazarashi/text-diff")[ソースコード]
           ]
         ]
       ]
@@ -178,14 +178,14 @@
       #html.div(class: "simple-card tool-card tool-card-text-counter")[
         #html.h3(class: "card-title")[simple-text-counter]
         #html.p(class: "tile-copy")[
-          入力内容を送信せずに文字数を数える静的ツールです。
+          入力内容をサーバーに送信せず、ブラウザ内だけで文字数を数えるツールです。
         ]
         #html.p(class: "hero-link")[
           #link("https://gomazarashi.com/simple-text-counter/")[ツールを開く]
         ]
         #html.p(class: "tile-copy")[
           #html.span(class: "inline-link")[
-            #link("https://github.com/gomazarashi/simple-text-counter")[Repository]
+            #link("https://github.com/gomazarashi/simple-text-counter")[ソースコード]
           ]
         ]
       ]
@@ -197,7 +197,7 @@
         ]
         #html.p(class: "tile-copy")[
           #html.span(class: "inline-link")[
-            #link("https://github.com/gomazarashi/nata")[Repository]
+            #link("https://github.com/gomazarashi/nata")[ソースコード]
           ]
         ]
       ]
@@ -218,7 +218,7 @@
       #html.div(class: "simple-card card-neutral")[
         #html.h3(class: "card-title")[記事一覧]
         #html.p(class: "tile-copy")[
-          公開済みの記事は一覧ページにまとめています。古い記事もここからたどれます。
+          公開済みの記事はすべて一覧ページにまとめています。
         ]
         #html.p(class: "hero-link")[#link("/posts/")[記事一覧を見る]]
       ]

@@ -11,7 +11,7 @@
 #html.div(class: "content-shell")[
   #html.div(class: "content-section")[
     #html.p(class: "page-lead")[
-      公開しているツールを一覧でまとめています。用途や公開先、Repository をここから確認できます。
+      公開しているツールを一覧でまとめています。用途や公開先、ソースコードをここから確認できます。
     ]
   ]
 
@@ -30,7 +30,7 @@
         ]
         #html.p(class: "tile-copy")[
           #html.span(class: "inline-link")[
-            #link("https://github.com/gomazarashi/text-diff")[Repository]
+            #link("https://github.com/gomazarashi/text-diff")[ソースコード]
           ]
         ]
       ]
@@ -38,7 +38,7 @@
       #html.div(class: "simple-card tool-card tool-card-text-counter")[
         #html.h3(class: "card-title")[simple-text-counter]
         #html.p(class: "tile-copy")[
-          入力内容を送信せずに文字数を数える静的ツールです。
+          入力内容をサーバーに送信せず、ブラウザ内だけで文字数を数えるツールです。
         ]
         #html.p(class: "tile-copy")[
           ブラウザ内処理、外部送信なし。
@@ -48,7 +48,7 @@
         ]
         #html.p(class: "tile-copy")[
           #html.span(class: "inline-link")[
-            #link("https://github.com/gomazarashi/simple-text-counter")[Repository]
+            #link("https://github.com/gomazarashi/simple-text-counter")[ソースコード]
           ]
         ]
       ]
@@ -60,7 +60,7 @@
         ]
         #html.p(class: "tile-copy")[
           #html.span(class: "inline-link")[
-            #link("https://github.com/gomazarashi/nata")[Repository]
+            #link("https://github.com/gomazarashi/nata")[ソースコード]
           ]
         ]
       ]

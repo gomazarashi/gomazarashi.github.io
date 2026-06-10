@@ -3,7 +3,7 @@
 [site.info]
 title = "gomazarashi Lab"
 author = "gomazarashi"
-description = "技術記事、翻訳、作成した資料、個人開発の内容をまとめる個人サイトです。"
+description = "Typst・Pythonを中心に、技術記事や個人開発ツールを公開している個人サイトです。"
 language = "ja"
 url = "https://gomazarashi.com"
 

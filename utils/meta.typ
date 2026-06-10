@@ -2,7 +2,7 @@
 
 #let site-name = "gomazarashi Lab"
 #let site-url = "https://gomazarashi.com"
-#let default-description = "技術記事、翻訳、作成した資料、個人開発の内容をまとめる個人サイトです。"
+#let default-description = "Typst・Pythonを中心に、技術記事や個人開発ツールを公開している個人サイトです。"
 #let site-locale = "ja_JP"
 #let twitter-card = "summary_large_image"
 
