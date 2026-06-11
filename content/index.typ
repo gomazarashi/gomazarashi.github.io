@@ -157,6 +157,41 @@
   ]
 
   #html.div(class: "content-section")[
+    #html.h2(class: "section-title")[外部活動]
+    #html.div(class: "simple-grid")[
+      #html.div(class: "simple-card card-accent-soft")[
+        #html.h3(class: "card-title")[Qiita]
+        #html.p(class: "tile-copy")[
+          Typst を中心とした技術記事を投稿しています。
+        ]
+        #html.p(class: "hero-link")[
+          #link("https://qiita.com/gomazarashi")[記事一覧を見る]
+        ]
+      ]
+
+      #html.div(class: "simple-card card-neutral")[
+        #html.h3(class: "card-title")[Docswell]
+        #html.p(class: "tile-copy")[
+          勉強会などで使用したスライド資料を公開しています。
+        ]
+        #html.p(class: "hero-link")[
+          #link("https://www.docswell.com/user/gomazarashi")[スライド一覧を見る]
+        ]
+      ]
+
+      #html.div(class: "simple-card card-muted")[
+        #html.h3(class: "card-title")[OUCRC（岡山大学電子計算機研究会）]
+        #html.p(class: "tile-copy")[
+          所属サークルのサイトに技術記事を投稿しています。
+        ]
+        #html.p(class: "hero-link")[
+          #link("https://oucrc.net/members/b6bud_yjl4q6/")[投稿記事を見る]
+        ]
+      ]
+    ]
+  ]
+
+  #html.div(class: "content-section")[
     #html.h2(class: "section-title")[公開ツール]
     #html.p(class: "hero-link")[#link("/tools/")[ツール一覧を見る]]
     #html.div(class: "simple-grid")[
