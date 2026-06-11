@@ -40,8 +40,6 @@
             JavaScript
           - *静的サイト生成*  
             #html.span(class: "inline-link")[#link("https://github.com/tola-ssg/tola-ssg")[Tola]]
-          - *開発環境*  
-            #html.span(class: "inline-link")[#link("https://nixos.org")[Nix]]
           - *ホスティング・デプロイ*  
             #html.span(class: "inline-link")[#link("https://pages.github.com")[GitHub Pages]]
         ]
@@ -103,7 +101,6 @@
           #html.p(class: "skill-heading")[よく使う]
           #html.div(class: "simple-list")[
             - Ubuntu
-            - Nix / NixOS
             - uv
             - pytest
           ]

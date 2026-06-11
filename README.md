@@ -11,20 +11,14 @@ https://gomazarashi.com/
 
 - Typst
 - Tola
-- Nix (`nix develop`)
 - just
 - GitHub Pages
 
 ## 初回セットアップ
 
 1. リポジトリをクローンする。
-2. 開発シェルに入る。
-
-```bash
-nix develop
-```
-
-3. ツールが揃っているか確認する。
+2. `typst`、`tola`、`just` をインストールする。
+3. 必要なコマンドが揃っているか確認する。
 
 ```bash
 just doctor
