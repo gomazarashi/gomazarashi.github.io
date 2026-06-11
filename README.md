@@ -7,11 +7,11 @@ Typst / Tola を使って静的サイトを生成し、GitHub Pages で公開す
 
 https://gomazarashi.com/
 
-## 使用技術
+## 開発環境
 
-- Typst
-- Tola
-- just
+- Typst 0.14.2
+- Tola 0.7.1
+- just 1.52.0
 - GitHub Pages
 
 ## 初回セットアップ
@@ -22,9 +22,9 @@ https://gomazarashi.com/
 
 各コマンドの導入方法は以下を参照する。
 
-- `typst`: <https://github.com/typst/typst>
-- `tola`: Rust/Cargo 環境がある場合は `cargo install tola`
-- `just`: <https://just.systems/>
+- `typst`: <https://github.com/typst/typst> から 0.14.2 を導入する
+- `tola`: Rust/Cargo 環境がある場合は `cargo install --locked tola --version 0.7.1`
+- `just`: <https://just.systems/> から 1.52.0 を導入する
 
 ```bash
 just doctor
