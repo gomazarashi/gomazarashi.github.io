@@ -20,6 +20,12 @@ https://gomazarashi.com/
 2. `typst`、`tola`、`just` をインストールする。
 3. 必要なコマンドが揃っているか確認する。
 
+各コマンドの導入方法は以下を参照する。
+
+- `typst`: <https://github.com/typst/typst>
+- `tola`: Rust/Cargo 環境がある場合は `cargo install tola`
+- `just`: <https://just.systems/>
+
 ```bash
 just doctor
 ```
