@@ -9,28 +9,15 @@
 )
 
 #html.div(class: "content-shell")[
-  #html.div(class: "content-section")[
-    #html.p(class: "page-lead")[
-      お探しのページは見つかりませんでした。URLが変更されたか、存在しないページを開いている可能性があります。
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[ページが見つかりません]
     ]
-  ]
-
-  #html.div(class: "content-section")[
-    #html.div(class: "simple-grid")[
-      #html.div(class: "simple-card card-accent-soft")[
-        #html.h3(class: "card-title")[トップページ]
-        #html.p(class: "tile-copy")[
-          サイト全体の入口に戻って、公開中の内容や最新記事を確認できます。
-        ]
-        #html.p(class: "hero-link")[#link("/")[トップページへ戻る]]
-      ]
-
-      #html.div(class: "simple-card card-neutral")[
-        #html.h3(class: "card-title")[記事一覧]
-        #html.p(class: "tile-copy")[
-          公開済みの記事を一覧で見たい場合は、記事一覧ページから探すことができます。
-        ]
-        #html.p(class: "hero-link")[#link("/posts/")[記事一覧を見る]]
+    #html.div(class: "section-content")[
+      #html.p(class: "page-lead")[URLが変更されたか、存在しないページです。]
+      #html.div(class: "action-row")[
+        #html.p(class: "button-link")[#link("/")[トップへ戻る]]
+        #html.p(class: "button-link")[#link("/posts/")[記事一覧を見る]]
       ]
     ]
   ]

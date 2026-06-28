@@ -4,15 +4,10 @@
 
 #let post(title: none, description: none, path: "/", body) = {
   site(title: title, description: description, path: path, meta-type: "article")[
-    #html.div(class: "post-layout")[
+    #html.article(class: "post-layout")[
       #if title != none [
-        #html.div(class: "post-header")[
-          #html.p(class: "section-kicker")[post]
+        #html.header(class: "post-header")[
           #html.h1(class: "page-title")[#title]
-          #html.div(class: "post-meta")[
-            #html.p(class: "meta-chip")[typst / tola]
-            #html.p(class: "meta-text")[個人サイトの記事ページ]
-          ]
         ]
       ]
 

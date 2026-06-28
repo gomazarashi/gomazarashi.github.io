@@ -6,7 +6,7 @@
   site(title: title, description: description, path: path, meta-type: "website")[
     #html.div(class: "page-layout")[
       #if title != none [
-        #html.div(class: "page-header")[
+        #html.header(class: "page-header")[
           #html.h1(class: "page-title")[#title]
         ]
       ]

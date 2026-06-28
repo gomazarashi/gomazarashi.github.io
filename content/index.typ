@@ -16,243 +16,250 @@
 ]
 
 #html.div(class: "content-shell")[
-  #html.div(class: "content-section")[
-    #html.h2(class: "section-title")[このサイトについて]
-    #html.div(class: "simple-grid simple-grid-stack")[
-      #html.div(class: "simple-card card-accent-soft")[
-        #html.h3(class: "card-title")[概要]
-        #html.p(class: "tile-copy")[
-          Typst・Pythonを中心に、技術記事や個人開発ツールを公開している個人サイトです。
-        ]
-        #html.p(class: "tile-copy")[
-          参考になる外部記事やドキュメントへのリンクも随時追加していきます。
-        ]
+  #html.header(class: "intro-block")[
+    #html.div(class: "intro-copy")[
+      #html.p(class: "lede")[
+        Typst、Python、個人開発ツールを中心に、作ったものを整理しています。
       ]
-
-      #html.div(class: "simple-card card-neutral")[
-        #html.h3(class: "card-title")[構築環境]
-        #html.div(class: "simple-list")[
-          - *コンテンツ・マークアップ*  
-            #html.span(class: "inline-link")[#link("https://typst.app")[Typst]]
-          - *スタイリング*  
-            CSS
-          - *クライアントサイド*  
-            JavaScript
-          - *静的サイト生成*  
-            #html.span(class: "inline-link")[#link("https://github.com/tola-ssg/tola-ssg")[Tola]]
-          - *ホスティング・デプロイ*  
-            #html.span(class: "inline-link")[#link("https://pages.github.com")[GitHub Pages]]
-        ]
-        #html.p(class: "card-note")[ソースコード]
-        #html.p(class: "tile-copy")[
-          #html.span(class: "inline-link")[#github-link("https://github.com/gomazarashi/gomazarashi.github.io", [github.com/gomazarashi/gomazarashi.github.io])]
-        ]
-      ]
+    ]
+    #html.div(class: "action-row")[
+      #html.p(class: "button-link")[#link("/posts/")[記事を読む]]
+      #html.p(class: "button-link")[#link("/tools/")[ツールを見る]]
     ]
   ]
 
-  #html.div(class: "content-section")[
-    #html.h2(class: "section-title")[技術領域]
-    #html.div(class: "simple-grid")[
-      #html.div(class: "simple-card card-accent")[
-        #html.h3(class: "card-title")[プログラミング / マークアップ]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[よく使う]
-          #html.div(class: "simple-list")[
-            - Typst
-            - TeX
-            - Python
-            - HTML
-            - CSS
-            - JavaScript
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[このサイトについて]
+    ]
+    #html.div(class: "section-content")[
+      #html.div(class: "profile-list")[
+        #html.article(class: "profile-item")[
+          #html.p(class: "label")[概要]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[技術記事、公開ツール、外部活動のまとめ。]
           ]
         ]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[経験あり]
-          #html.div(class: "simple-list")[
-            - C++
-            - C
-            - R
-            - P4
-          ]
-        ]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[勉強中]
-          #html.div(class: "simple-list")[
-            - Rust
-            - TypeScript
-          ]
-        ]
-      ]
 
-      #html.div(class: "simple-card card-muted")[
-        #html.h3(class: "card-title")[フレームワーク / ライブラリ]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[よく使う]
-          #html.div(class: "simple-list")[
-            - Django
-          ]
-        ]
-      ]
-
-      #html.div(class: "simple-card card-accent")[
-        #html.h3(class: "card-title")[開発環境 / OS / ツール]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[よく使う]
-          #html.div(class: "simple-list")[
-            - Ubuntu
-            - uv
-            - pytest
-          ]
-        ]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[経験あり]
-          #html.div(class: "simple-list")[
-            - Git
-            - Docker / Docker Compose
-          ]
-        ]
-      ]
-
-      #html.div(class: "simple-card card-muted")[
-        #html.h3(class: "card-title")[配信 / 運用]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[よく使う]
-          #html.div(class: "simple-list")[
-            - GitHub Pages
-          ]
-        ]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[経験あり]
-          #html.div(class: "simple-list")[
-            - GitHub Actions
-            - Nginx
-          ]
-        ]
-      ]
-
-      #html.div(class: "simple-card card-neutral")[
-        #html.h3(class: "card-title")[データベース]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[勉強中]
-          #html.div(class: "simple-list")[
-            - PostgreSQL
-          ]
-        ]
-      ]
-
-      #html.div(class: "simple-card card-accent-soft")[
-        #html.h3(class: "card-title")[監視・可観測性]
-        #html.div(class: "skill-group")[
-          #html.p(class: "skill-heading")[経験あり]
-          #html.div(class: "simple-list")[
-            - Grafana
+        #html.article(class: "profile-item")[
+          #html.p(class: "label")[構築環境]
+          #html.div(class: "item-body")[
+            #html.ul(class: "tag-list")[
+              #html.li[Typst]
+              #html.li[CSS]
+              #html.li[JavaScript]
+              #html.li[Tola]
+              #html.li[GitHub Pages]
+            ]
+            #html.p(class: "copy")[
+              #html.span(class: "inline-link")[#github-link("https://github.com/gomazarashi/gomazarashi.github.io", [github.com/gomazarashi/gomazarashi.github.io])]
+            ]
           ]
         ]
       ]
     ]
   ]
 
-  #html.div(class: "content-section")[
-    #html.h2(class: "section-title")[外部活動]
-    #html.div(class: "simple-grid")[
-      #html.div(class: "simple-card card-accent-soft")[
-        #html.h3(class: "card-title")[Qiita]
-        #html.p(class: "tile-copy")[
-          Typst を中心とした技術記事を投稿しています。
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[技術領域]
+    ]
+    #html.div(class: "section-content")[
+      #html.div(class: "skill-list")[
+        #html.article(class: "skill-item")[
+          #html.p(class: "label")[プログラミング / マークアップ]
+          #html.div(class: "detail-stack")[
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[よく使う]
+              #html.ul(class: "tag-list")[
+                #html.li[Typst]
+                #html.li[TeX]
+                #html.li[Python]
+                #html.li[HTML]
+                #html.li[CSS]
+                #html.li[JavaScript]
+              ]
+            ]
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[経験あり]
+              #html.ul(class: "tag-list")[
+                #html.li[C++]
+                #html.li[C]
+                #html.li[R]
+                #html.li[P4]
+              ]
+            ]
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[勉強中]
+              #html.ul(class: "tag-list")[
+                #html.li[Rust]
+                #html.li[TypeScript]
+              ]
+            ]
+          ]
         ]
-        #html.p(class: "hero-link")[
-          #link("https://qiita.com/gomazarashi")[記事一覧を見る]
-        ]
-      ]
 
-      #html.div(class: "simple-card card-neutral")[
-        #html.h3(class: "card-title")[Docswell]
-        #html.p(class: "tile-copy")[
-          勉強会などで使用したスライド資料を公開しています。
+        #html.article(class: "skill-item")[
+          #html.p(class: "label")[フレームワーク / ライブラリ]
+          #html.div(class: "detail-group")[
+            #html.p(class: "skill-heading")[よく使う]
+            #html.ul(class: "tag-list")[
+              #html.li[Django]
+            ]
+          ]
         ]
-        #html.p(class: "hero-link")[
-          #link("https://www.docswell.com/user/gomazarashi")[スライド一覧を見る]
-        ]
-      ]
 
-      #html.div(class: "simple-card card-muted")[
-        #html.h3(class: "card-title")[OUCRC（岡山大学電子計算機研究会）]
-        #html.p(class: "tile-copy")[
-          所属サークルのサイトに技術記事を投稿しています。
+        #html.article(class: "skill-item")[
+          #html.p(class: "label")[開発環境 / OS / ツール]
+          #html.div(class: "detail-stack")[
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[よく使う]
+              #html.ul(class: "tag-list")[
+                #html.li[Ubuntu]
+                #html.li[uv]
+                #html.li[pytest]
+              ]
+            ]
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[経験あり]
+              #html.ul(class: "tag-list")[
+                #html.li[Git]
+                #html.li[Docker]
+                #html.li[Docker Compose]
+              ]
+            ]
+          ]
         ]
-        #html.p(class: "hero-link")[
-          #link("https://oucrc.net/members/b6bud_yjl4q6/")[投稿記事を見る]
+
+        #html.article(class: "skill-item")[
+          #html.p(class: "label")[配信 / 運用]
+          #html.div(class: "detail-stack")[
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[よく使う]
+              #html.ul(class: "tag-list")[
+                #html.li[GitHub Pages]
+              ]
+            ]
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[経験あり]
+              #html.ul(class: "tag-list")[
+                #html.li[GitHub Actions]
+                #html.li[Nginx]
+              ]
+            ]
+          ]
+        ]
+
+        #html.article(class: "skill-item")[
+          #html.p(class: "label")[データベース / 監視]
+          #html.div(class: "detail-stack")[
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[勉強中]
+              #html.ul(class: "tag-list")[
+                #html.li[PostgreSQL]
+              ]
+            ]
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[経験あり]
+              #html.ul(class: "tag-list")[
+                #html.li[Grafana]
+              ]
+            ]
+          ]
         ]
       ]
     ]
   ]
 
-  #html.div(class: "content-section")[
-    #html.h2(class: "section-title")[公開ツール]
-    #html.p(class: "hero-link")[#link("/tools/")[ツール一覧を見る]]
-    #html.div(class: "simple-grid")[
-      #html.div(class: "simple-card tool-card tool-card-text-diff")[
-        #html.h3(class: "card-title")[text-diff]
-        #html.p(class: "tile-copy")[
-          ブラウザ内だけでテキスト差分を比較するツールです。
-        ]
-        #html.p(class: "hero-link")[
-          #link("https://gomazarashi.com/text-diff/")[ツールを開く]
-        ]
-        #html.p(class: "tile-copy")[
-          #html.span(class: "inline-link")[
-            #link("https://github.com/gomazarashi/text-diff")[ソースコード]
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[外部活動]
+    ]
+    #html.div(class: "section-content")[
+      #html.div(class: "activity-list")[
+        #html.article(class: "activity-item")[
+          #html.p(class: "label")[Qiita]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[Typst を中心とした技術記事を投稿しています。]
+            #html.p(class: "hero-link")[#link("https://qiita.com/gomazarashi")[記事一覧を見る]]
           ]
         ]
-      ]
 
-      #html.div(class: "simple-card tool-card tool-card-text-counter")[
-        #html.h3(class: "card-title")[simple-text-counter]
-        #html.p(class: "tile-copy")[
-          入力内容をサーバーに送信せず、ブラウザ内だけで文字数を数えるツールです。
-        ]
-        #html.p(class: "hero-link")[
-          #link("https://gomazarashi.com/simple-text-counter/")[ツールを開く]
-        ]
-        #html.p(class: "tile-copy")[
-          #html.span(class: "inline-link")[
-            #link("https://github.com/gomazarashi/simple-text-counter")[ソースコード]
+        #html.article(class: "activity-item")[
+          #html.p(class: "label")[Docswell]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[勉強会などで使用したスライド資料を公開しています。]
+            #html.p(class: "hero-link")[#link("https://www.docswell.com/user/gomazarashi")[スライド一覧を見る]]
           ]
         ]
-      ]
 
-      #html.div(class: "simple-card tool-card tool-card-nata")[
-        #html.h3(class: "card-title")[nata]
-        #html.p(class: "tile-copy")[
-          PDFをページ単位で扱う Rust 製CLIツールです。
-        ]
-        #html.p(class: "tile-copy")[
-          #html.span(class: "inline-link")[
-            #link("https://github.com/gomazarashi/nata")[ソースコード]
+        #html.article(class: "activity-item")[
+          #html.p(class: "label")[OUCRC]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[所属サークルのサイトに技術記事を投稿しています。]
+            #html.p(class: "hero-link")[#link("https://oucrc.net/members/b6bud_yjl4q6/")[投稿記事を見る]]
           ]
         ]
       ]
     ]
   ]
 
-  #html.div(class: "content-section")[
-    #html.h2(class: "section-title")[最新記事]
-    #html.div(class: "simple-grid")[
-      #html.div(class: "simple-card card-accent-soft")[
-        #html.p(class: "entry-date")[2026-04-12]
-        #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
-        #html.p(class: "tile-copy")[
-          サイト公開時に作成した最初の記事です。今後はこの欄を起点に新着記事を整理します。
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[公開ツール]
+      #html.p(class: "hero-link")[#link("/tools/")[ツール一覧を見る]]
+    ]
+    #html.div(class: "section-content")[
+      #html.div(class: "tool-list")[
+        #html.article(class: "tool-item")[
+          #html.p(class: "tool-code")[text-diff]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[ブラウザ内だけでテキスト差分を比較するツールです。]
+            #html.p(class: "inline-links")[
+              #html.span(class: "inline-link")[#link("https://gomazarashi.com/text-diff/")[ツールを開く]]
+              #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/text-diff")[ソースコード]]
+            ]
+          ]
+        ]
+
+        #html.article(class: "tool-item")[
+          #html.p(class: "tool-code")[simple-text-counter]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[入力内容をサーバーに送信せず、ブラウザ内だけで文字数を数えるツールです。]
+            #html.p(class: "inline-links")[
+              #html.span(class: "inline-link")[#link("https://gomazarashi.com/simple-text-counter/")[ツールを開く]]
+              #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/simple-text-counter")[ソースコード]]
+            ]
+          ]
+        ]
+
+        #html.article(class: "tool-item")[
+          #html.p(class: "tool-code")[nata]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[PDFをページ単位で扱う Rust 製CLIツールです。]
+            #html.p(class: "inline-links")[
+              #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/nata")[ソースコード]]
+            ]
+          ]
         ]
       ]
+    ]
+  ]
 
-      #html.div(class: "simple-card card-neutral")[
-        #html.h3(class: "card-title")[記事一覧]
-        #html.p(class: "tile-copy")[
-          公開済みの記事はすべて一覧ページにまとめています。
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[最新記事]
+      #html.p(class: "hero-link")[#link("/posts/")[記事一覧を見る]]
+    ]
+    #html.div(class: "section-content")[
+      #html.div(class: "post-list")[
+        #html.article(class: "post-list-item")[
+          #html.p(class: "entry-date")[2026-04-12]
+          #html.div(class: "item-body")[
+            #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
+            #html.p(class: "copy")[サイト公開時に作成した最初の記事です。今後はこの欄を起点に新着記事を整理します。]
+          ]
         ]
-        #html.p(class: "hero-link")[#link("/posts/")[記事一覧を見る]]
       ]
     ]
   ]
