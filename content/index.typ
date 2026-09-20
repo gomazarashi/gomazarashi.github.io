@@ -19,12 +19,12 @@
   #html.header(class: "intro-block")[
     #html.div(class: "intro-copy")[
       #html.p(class: "lede")[
-        Typst、Python、個人開発ツールを中心に、作ったものを整理しています。
+        Typst・Pythonを中心に、技術記事や個人開発ツールを公開しています。
       ]
     ]
     #html.div(class: "action-row")[
-      #html.p(class: "button-link")[#link("/posts/")[記事を読む]]
-      #html.p(class: "button-link")[#link("/tools/")[ツールを見る]]
+      #html.p(class: "button-link")[#link("/posts/")[記事一覧を見る]]
+      #html.p(class: "button-link")[#link("/tools/")[ツール一覧を見る]]
     ]
   ]
 
@@ -254,10 +254,10 @@
     #html.div(class: "section-content")[
       #html.div(class: "list")[
         #html.article(class: "list-item list-item-wide")[
-          #html.p(class: "entry-date")[2026-04-12]
+          #html.p(class: "entry-date")[2026年4月12日]
           #html.div(class: "item-body")[
             #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
-            #html.p(class: "copy")[サイト公開時に作成した最初の記事です。今後はこの欄を起点に新着記事を整理します。]
+            #html.p(class: "copy")[サイト公開時に作成した最初の記事です。]
           ]
         ]
       ]

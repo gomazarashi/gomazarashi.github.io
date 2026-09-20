@@ -14,7 +14,7 @@
       #html.h2(class: "section-title")[ページが見つかりません]
     ]
     #html.div(class: "section-content")[
-      #html.p(class: "page-lead")[URLが変更されたか、存在しないページです。]
+      #html.p(class: "page-lead")[URLが変更されたか、ページが削除された可能性があります。]
       #html.div(class: "action-row")[
         #html.p(class: "button-link")[#link("/")[トップへ戻る]]
         #html.p(class: "button-link")[#link("/posts/")[記事一覧を見る]]
