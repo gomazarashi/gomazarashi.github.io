@@ -51,6 +51,12 @@ html {
     var(--bg);
 }
 
+html[data-theme="dark"] {
+  background:
+    radial-gradient(circle at 12% -8%, rgba(115, 199, 184, 0.10), transparent 27rem),
+    var(--bg);
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -96,7 +102,12 @@ html[data-theme="dark"] body::before {
   top: 0;
   z-index: 20;
   padding: 0.85rem 0;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter: blur(18px);
+}
+
+html[data-theme="dark"] .site-nav {
+  background: var(--bg);
 }
 
 .site-nav-inner {
