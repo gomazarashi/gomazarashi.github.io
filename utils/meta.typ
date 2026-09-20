@@ -35,15 +35,9 @@
   }
 }
 
-#let meta-tag(name, content) = {
+#let head-meta(attrs, content) = {
   if content != none and str(content) != "" {
-    html.elem("meta", attrs: (name: name, content: str(content)))
-  }
-}
-
-#let property-tag(name, content) = {
-  if content != none and str(content) != "" {
-    html.elem("meta", attrs: (property: name, content: str(content)))
+    html.elem("meta", attrs: attrs + (content: str(content)))
   }
 }
 
@@ -67,14 +61,14 @@
   [
     #html.title[#resolved-title]
     #viewport-meta()
-    #meta-tag("description", description)
+    #head-meta((name: "description"), description)
     #canonical-link(canonical)
-    #property-tag("og:title", resolved-title)
-    #property-tag("og:description", description)
-    #property-tag("og:url", canonical)
-    #property-tag("og:type", meta-type)
-    #property-tag("og:site_name", site-name)
-    #property-tag("og:locale", site-locale)
-    #meta-tag("twitter:card", twitter-card)
+    #head-meta((property: "og:title"), resolved-title)
+    #head-meta((property: "og:description"), description)
+    #head-meta((property: "og:url"), canonical)
+    #head-meta((property: "og:type"), meta-type)
+    #head-meta((property: "og:site_name"), site-name)
+    #head-meta((property: "og:locale"), site-locale)
+    #head-meta((name: "twitter:card"), twitter-card)
   ]
 }

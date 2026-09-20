@@ -13,8 +13,8 @@
       #html.h2(class: "section-title")[記事一覧]
     ]
     #html.div(class: "section-content")[
-      #html.div(class: "post-list")[
-        #html.article(class: "post-list-item")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item list-item-wide")[
           #html.p(class: "entry-date")[2026-04-12]
           #html.div(class: "item-body")[
             #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]

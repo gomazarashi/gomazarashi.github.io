@@ -33,15 +33,15 @@
       #html.h2(class: "section-title")[このサイトについて]
     ]
     #html.div(class: "section-content")[
-      #html.div(class: "profile-list")[
-        #html.article(class: "profile-item")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[概要]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[技術記事、公開ツール、外部活動のまとめ。]
           ]
         ]
 
-        #html.article(class: "profile-item")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[構築環境]
           #html.div(class: "item-body")[
             #html.ul(class: "tag-list")[
@@ -65,8 +65,8 @@
       #html.h2(class: "section-title")[技術領域]
     ]
     #html.div(class: "section-content")[
-      #html.div(class: "skill-list")[
-        #html.article(class: "skill-item")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[プログラミング / マークアップ]
           #html.div(class: "detail-stack")[
             #html.div(class: "detail-group")[
@@ -99,7 +99,7 @@
           ]
         ]
 
-        #html.article(class: "skill-item")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[フレームワーク / ライブラリ]
           #html.div(class: "detail-group")[
             #html.p(class: "skill-heading")[よく使う]
@@ -109,7 +109,7 @@
           ]
         ]
 
-        #html.article(class: "skill-item")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[開発環境 / OS / ツール]
           #html.div(class: "detail-stack")[
             #html.div(class: "detail-group")[
@@ -131,7 +131,7 @@
           ]
         ]
 
-        #html.article(class: "skill-item")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[配信 / 運用]
           #html.div(class: "detail-stack")[
             #html.div(class: "detail-group")[
@@ -150,7 +150,7 @@
           ]
         ]
 
-        #html.article(class: "skill-item")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[データベース / 監視]
           #html.div(class: "detail-stack")[
             #html.div(class: "detail-group")[
@@ -176,8 +176,8 @@
       #html.h2(class: "section-title")[外部活動]
     ]
     #html.div(class: "section-content")[
-      #html.div(class: "activity-list")[
-        #html.article(class: "activity-item")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[Qiita]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[Typst を中心とした技術記事を投稿しています。]
@@ -185,7 +185,7 @@
           ]
         ]
 
-        #html.article(class: "activity-item")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[Docswell]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[勉強会などで使用したスライド資料を公開しています。]
@@ -193,7 +193,7 @@
           ]
         ]
 
-        #html.article(class: "activity-item")[
+        #html.article(class: "list-item")[
           #html.p(class: "label")[OUCRC]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[所属サークルのサイトに技術記事を投稿しています。]
@@ -210,8 +210,8 @@
       #html.p(class: "hero-link")[#link("/tools/")[ツール一覧を見る]]
     ]
     #html.div(class: "section-content")[
-      #html.div(class: "tool-list")[
-        #html.article(class: "tool-item")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item list-item-wide")[
           #html.p(class: "tool-code")[text-diff]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[ブラウザ内だけでテキスト差分を比較するツールです。]
@@ -222,7 +222,7 @@
           ]
         ]
 
-        #html.article(class: "tool-item")[
+        #html.article(class: "list-item list-item-wide")[
           #html.p(class: "tool-code")[simple-text-counter]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[入力内容をサーバーに送信せず、ブラウザ内だけで文字数を数えるツールです。]
@@ -233,7 +233,7 @@
           ]
         ]
 
-        #html.article(class: "tool-item")[
+        #html.article(class: "list-item list-item-wide")[
           #html.p(class: "tool-code")[nata]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[PDFをページ単位で扱う Rust 製CLIツールです。]
@@ -252,8 +252,8 @@
       #html.p(class: "hero-link")[#link("/posts/")[記事一覧を見る]]
     ]
     #html.div(class: "section-content")[
-      #html.div(class: "post-list")[
-        #html.article(class: "post-list-item")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item list-item-wide")[
           #html.p(class: "entry-date")[2026-04-12]
           #html.div(class: "item-body")[
             #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]

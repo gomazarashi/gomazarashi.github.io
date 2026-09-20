@@ -14,8 +14,8 @@
       #html.h2(class: "section-title")[公開ツール]
     ]
     #html.div(class: "section-content")[
-      #html.div(class: "tool-list")[
-        #html.article(class: "tool-item")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item list-item-wide")[
           #html.p(class: "tool-code")[text-diff]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[ブラウザ内だけでテキスト差分を比較。]
@@ -26,7 +26,7 @@
           ]
         ]
 
-        #html.article(class: "tool-item")[
+        #html.article(class: "list-item list-item-wide")[
           #html.p(class: "tool-code")[simple-text-counter]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[ブラウザ内だけで文字数をカウント。]
@@ -37,7 +37,7 @@
           ]
         ]
 
-        #html.article(class: "tool-item")[
+        #html.article(class: "list-item list-item-wide")[
           #html.p(class: "tool-code")[nata]
           #html.div(class: "item-body")[
             #html.p(class: "copy")[PDFをページ単位で扱う Rust 製CLI。]

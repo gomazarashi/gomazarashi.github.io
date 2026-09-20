@@ -312,7 +312,6 @@ html[data-theme="dark"] .theme-toggle-knob {
 }
 
 .page-lead,
-.section-lead,
 .copy {
   margin: 0;
   color: var(--muted);
@@ -377,23 +376,13 @@ html[data-theme="dark"] .theme-toggle-knob {
   gap: 1.6rem;
 }
 
-.profile-list,
-.skill-list,
-.activity-list,
-.tool-list,
-.post-list,
-.link-list {
+.list {
   display: grid;
   gap: 0;
   border-top: 1px solid var(--line);
 }
 
-.profile-item,
-.skill-item,
-.activity-item,
-.tool-item,
-.post-list-item,
-.link-item {
+.list-item {
   display: grid;
   grid-template-columns: minmax(10rem, 0.42fr) minmax(0, 1fr);
   gap: 0.9rem 1.5rem;
@@ -401,14 +390,12 @@ html[data-theme="dark"] .theme-toggle-knob {
   border-bottom: 1px solid var(--line);
 }
 
-.tool-item,
-.post-list-item {
+.list-item-wide {
   grid-template-columns: minmax(12rem, 0.36fr) minmax(0, 1fr);
 }
 
 .label,
 .entry-date,
-.card-note,
 .skill-heading {
   margin: 0;
   color: var(--subtle);
@@ -421,7 +408,6 @@ html[data-theme="dark"] .theme-toggle-knob {
   gap: 0.65rem;
 }
 
-.card-title,
 .entry-title {
   margin: 0;
   font-size: 1.04rem;
@@ -461,16 +447,6 @@ html[data-theme="dark"] .theme-toggle-knob {
   gap: 0.4rem;
 }
 
-.simple-list ul {
-  margin: 0;
-  padding-left: 1.15rem;
-}
-
-.simple-list li+li {
-  margin-top: 0.25rem;
-}
-
-.tool-meta,
 .inline-links {
   display: flex;
   flex-wrap: wrap;
@@ -528,12 +504,7 @@ a,
 
   .intro-block,
   .section-block,
-  .profile-item,
-  .skill-item,
-  .activity-item,
-  .tool-item,
-  .post-list-item,
-  .link-item {
+  .list-item {
     grid-template-columns: 1fr;
   }
 
