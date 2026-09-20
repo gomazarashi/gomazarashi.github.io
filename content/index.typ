@@ -23,8 +23,8 @@
       ]
     ]
     #html.div(class: "action-row")[
-      #html.p(class: "button-link")[#link("/posts/")[記事一覧を見る]]
-      #html.p(class: "button-link")[#link("/tools/")[ツール一覧を見る]]
+      #html.p(class: "button-link")[#link("/posts/")[記事を読む]]
+      #html.p(class: "button-link")[#link("/tools/")[ツールを見る]]
     ]
   ]
 
