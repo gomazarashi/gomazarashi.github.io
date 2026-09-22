@@ -26,12 +26,13 @@
     "/"
   }
 
-  let nav-link(href, label, active) = {
+  let nav-link(href, label, sub, active) = {
     let label-content = html.span(class: "site-nav-label")[#label]
+    let sub-content = html.span(class: "site-nav-sub", lang: "ja", aria-hidden: true)[#sub]
     if active {
-      html.a(href: href, aria-current: "page")[#label-content]
+      html.a(href: href, aria-current: "page", lang: "en")[#label-content#sub-content]
     } else {
-      html.a(href: href)[#label-content]
+      html.a(href: href, lang: "en")[#label-content#sub-content]
     }
   }
 
@@ -65,10 +66,10 @@
             ]
             #html.div(class: "site-nav-actions")[
               #html.div(class: "site-nav-links")[
-                #nav-link("/", [ホーム], current-path == "/")
-                #nav-link("/projects/", [Projects], str(current-path).starts-with("/projects/"))
-                #nav-link("/posts/", [記事], str(current-path).starts-with("/posts/"))
-                #nav-link("/about/", [About], str(current-path).starts-with("/about/"))
+                #nav-link("/", [Home], [ホーム], current-path == "/")
+                #nav-link("/projects/", [Projects], [プロジェクト], str(current-path).starts-with("/projects/"))
+                #nav-link("/posts/", [Posts], [記事], str(current-path).starts-with("/posts/"))
+                #nav-link("/about/", [About], [サイトについて], str(current-path).starts-with("/about/"))
               ]
               #html.button(
                 class: "theme-toggle",

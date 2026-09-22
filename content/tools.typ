@@ -5,6 +5,8 @@
 
 #show: page.with(
   title: "ツール一覧",
+  heading: "Tools",
+  heading-sub: "ツール一覧",
   description: "公開している小さなツールをまとめています。ブラウザで使えるWebツールとCLIツールの一覧です。",
 )
 
