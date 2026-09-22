@@ -35,7 +35,7 @@ FONT_CANDIDATES = ("Noto Sans JP", "Noto Sans CJK JP")
 
 # Versions documented in README.md / AGENTS.md. Mismatches are reported as
 # warnings (not build failures) because tool upgrades are a separate decision.
-EXPECTED_TYPST_VERSION = "0.14.2"
+EXPECTED_TYPST_VERSION = "0.15.0"
 EXPECTED_TOLA_VERSION = "0.7.1"
 
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"

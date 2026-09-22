@@ -6,7 +6,7 @@
 
 主な開発環境は次のとおりです。
 
-* Typst 0.14.2
+* Typst 0.15.0
 * Tola 0.7.1
 * just 1.52.0
 * GitHub Pages
