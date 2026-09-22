@@ -129,28 +129,19 @@ html[data-theme="dark"] body::before {
   display: inline-flex;
   color: var(--header-text);
   font-family: "Gugi", "Noto Sans JP", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
-.site-brand-content {
-  display: inline-flex;
-  gap: 0.55rem;
-  align-items: center;
+.site-brand-label {
+  margin: 0;
 }
 
-.site-brand-image {
-  flex: none;
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid var(--header-line);
-  border-radius: 50%;
-  background: var(--header-text);
-  color: transparent;
-  font-size: 0;
-  object-fit: cover;
+.site-brand-label a {
+  color: var(--header-text);
+  text-decoration: none;
 }
 
-.site-brand:focus-visible {
+.site-brand a:focus-visible {
   outline: 2px solid var(--header-text);
   outline-offset: 0.25rem;
 }
@@ -587,11 +578,6 @@ a,
 
   .site-nav-inner {
     align-items: flex-start;
-  }
-
-  .site-brand-image {
-    width: 1.75rem;
-    height: 1.75rem;
   }
 
   .profile-image {
