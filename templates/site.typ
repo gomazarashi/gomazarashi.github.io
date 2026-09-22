@@ -53,6 +53,9 @@
       #html.script(src: "/styles/theme.js")[]
     ]
     #html.body[
+      #html.div(class: "skip-link-wrap")[
+        #html.a(class: "skip-link", href: "#main-content")[メインコンテンツへスキップ]
+      ]
       #html.header(class: "site-header")[
         #html.nav(class: "site-nav", aria-label: "主要ナビゲーション")[
           #html.div(class: "site-nav-inner")[
@@ -83,7 +86,7 @@
         ]
       ]
       #html.div(class: "site-shell")[
-        #html.main(class: "site-main")[
+        #html.main(class: "site-main", id: "main-content")[
           #body
         ]
       ]
