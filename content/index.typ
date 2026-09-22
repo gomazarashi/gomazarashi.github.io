@@ -1,6 +1,7 @@
 // content/index.typ
 
 #import "../templates/page.typ": page
+#import "../utils/articles.typ": latest-articles, article-list-item
 #import "@preview/booticons:0.0.1": bsicon
 #show: page.with(
   title: "gomazarashi Lab",
@@ -10,7 +11,7 @@
 
 #let github-link(url, label) = link(url)[
   #html.span(class: "github-link")[
-    #html.span(class: "github-link-icon")[#bsicon("github", height: 0.9em)]
+    #html.span(class: "github-link-icon", aria-hidden: true)[#bsicon("github", height: 0.9em)]
     #html.span(class: "github-link-label")[#label]
   ]
 ]
@@ -121,12 +122,8 @@
     ]
     #html.div(class: "section-content")[
       #html.div(class: "list")[
-        #html.article(class: "list-item list-item-wide")[
-          #html.p(class: "entry-date")[#html.elem("time", attrs: (datetime: "2026-04-12"))[2026年4月12日]]
-          #html.div(class: "item-body")[
-            #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
-            #html.p(class: "copy")[サイト公開時に作成した最初の記事です。]
-          ]
+        #for article in latest-articles() [
+          #article-list-item(article)
         ]
       ]
     ]

@@ -12,8 +12,6 @@ Checks:
 Usage: python3 scripts/validate-og.py
 """
 
-from __future__ import annotations
-
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -312,7 +310,10 @@ def check_redirect_pages(report: Report, expected_paths: set[Path]) -> None:
             if "property=\"og:" in text or "property='og:" in text:
                 report.error(f"{rel}: redirect/alias page must not contain OG tags")
         else:
-            report.warning(f"{rel}: HTML page is not covered by OG validation")
+            report.error(
+                f"{rel}: HTML page is not covered by OG validation; add it to "
+                "FIXED_PAGES in scripts/validate-og.py (or make it an alias)"
+            )
 
 
 def check_stale_pngs(report: Report, manifest: dict) -> tuple[int, int]:

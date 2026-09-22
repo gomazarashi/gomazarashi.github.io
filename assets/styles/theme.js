@@ -18,9 +18,16 @@ function syncToggle(button, theme) {
   button.setAttribute("title", `${nextThemeLabel}に切り替え`);
 }
 
-const savedTheme = localStorage.getItem(themeStorageKey);
-const initialTheme = savedTheme === darkTheme ? darkTheme : lightTheme;
-applyTheme(initialTheme);
+function resolveInitialTheme() {
+  const savedTheme = localStorage.getItem(themeStorageKey);
+  if (savedTheme === darkTheme || savedTheme === lightTheme) {
+    return savedTheme;
+  }
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return prefersDark ? darkTheme : lightTheme;
+}
+
+applyTheme(resolveInitialTheme());
 
 document.addEventListener("DOMContentLoaded", () => {
   const button = document.getElementById("theme-toggle");

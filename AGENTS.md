@@ -6,7 +6,7 @@
 
 主な開発環境は次のとおりです。
 
-* Typst 0.14.2
+* Typst 0.15.0
 * Tola 0.7.1
 * just 1.52.0
 * GitHub Pages
@@ -76,9 +76,11 @@ just check
 python3 scripts/build-og.py
 rm -rf docs/images/og
 tola build --skip-drafts
+touch docs/.nojekyll
 ./scripts/remove-404-from-sitemap.sh
+./scripts/add-tools-to-sitemap.sh
 python3 scripts/validate-og.py
-# docs/CNAME の存在と内容の確認
+# docs/.nojekyll と docs/CNAME の存在確認、CNAME の内容確認
 ```
 
 公開用の確認では、原則として `tola build` を直接実行するのではなく `just build` を使用してください。
@@ -87,6 +89,9 @@ python3 scripts/validate-og.py
 
 OG画像だけを再生成する場合（記事の title / summary / date / tags 変更後など）は
 `just og` を使用します。`docs/` への反映には `just build` が必要です。
+
+OGテンプレートを変更した場合は `just test-og` でfixtureテストを実行してください
+（一時データのみ使用し、公開contentには触れません）。
 
 ## OG画像（OGP）
 
@@ -130,42 +135,40 @@ GitHub Pagesの公開元は `main` ブランチの `/docs` です。
 * `docs/` をGit管理しない方式へ変更する
 * `gh-pages` ブランチを導入する
 
-## `docs/.tola/` に関する注意
+## `docs/.tola/` と `docs/.nojekyll`
 
-Tolaが生成するHTMLは、現在次のようなファイルを参照します。
+このサイトはTolaが完成した静的HTMLを生成しており、Jekyllによる追加処理を使用しません。
+
+公開方式はGitHub Pagesのbranch publishing（`main` ブランチの `/docs`）のまま維持します。branch publishingでは、`docs/.nojekyll` がないとGitHub PagesがJekyll処理を行い、`.`で始まるディレクトリが公開artifactから除外されます。
+
+Tolaが生成するHTMLは、次のような公開アセットを参照します。
 
 ```text
 /.tola/enhance-6b400663.css
 ```
 
-対応するファイルは `docs/.tola/` に生成されます。
+対応するファイルは `docs/.tola/` に生成されます。`docs/.tola/` はTola生成HTMLが参照する公開アセットであり、`.nojekyll` によって本番でも配信されます。
 
-一方、現在のGitHub Pagesは `docs/` をJekyllで処理しており、実際のPages公開artifactには `.tola/` が含まれていません。
+そのため、次の運用を守ってください。
 
-そのため、`docs/.tola/` にファイルが存在することだけを理由に、本番環境でも利用可能だと判断しないでください。
-
-`.nojekyll` の追加やカスタムGitHub Actionsへの移行はデプロイ方式に関わるため、明示的な依頼がない限り実施しないでください。
+* `docs/.nojekyll` はGitHub PagesによるJekyll処理を無効化するために必要。
+* `docs/.nojekyll` は `just build`（および `just rebuild`）が `tola build --skip-drafts` の後に生成し、build時に存在を検証する。手動で維持・編集しない。
+* `docs/.nojekyll` を削除しない。
+* `docs/.tola/` にファイルが存在することを理由に本番での配信可否を判断しない（`.nojekyll` により配信される）。
+* GitHub Actions deploymentへの移行は行わない。
 
 ## `docs/CNAME` を保護する
 
 カスタムドメインは `gomazarashi.com` です。
 
-`docs/CNAME` は削除・変更しないでください。現在の内容は次のとおりです。
+`docs/CNAME` の内容は次のとおりです。
 
 ```text
 gomazarashi.com
 ```
 
-`just clean` は次を実行します。
+Tola 0.7.1 は `tola.toml` の `[site.info].url` から `docs/CNAME` を毎回の `tola build` で自動生成します（`[build.assets].flatten` に CNAME の source がないため）。`just build` はビルド後に存在と内容を検証します。
 
-```bash
-rm -rf docs .tola
-```
+`just clean` は `rm -rf docs .tola` を、`just rebuild` はその後に build を実行しますが、`tola build` が CNAME を再生成するため `just rebuild` は動作します（確認済み）。ただし CNAME は公開ドメインに直結するため、clean / rebuild 後は内容が `gomazarashi.com` であることを確認してください。
 
-また、`just rebuild` は `clean` の後に `build` を実行します。
-
-現在、`CNAME` を `docs/` へ自動生成またはコピーする設定はないため、`just clean` または `just rebuild` を実行すると `docs/CNAME` が失われる可能性があります。
-
-通常の作業では必要がない限り `just clean` や `just rebuild` を使用せず、`just build` を使用してください。
-
-`just clean` または `just rebuild` を実行した場合は、作業完了前に `docs/CNAME` が存在し、内容が `gomazarashi.com` であることを必ず確認してください。
+`docs/CNAME` は build のたびに上書きされるため、直接編集しないでください。

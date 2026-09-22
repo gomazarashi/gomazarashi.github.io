@@ -4,8 +4,6 @@
 Standard library only. Requires Python 3.11+ (tomllib).
 """
 
-from __future__ import annotations
-
 import json
 import struct
 import subprocess
@@ -35,10 +33,15 @@ PNG_SIZE_ERROR_BYTES = 1024 * 1024
 
 FONT_CANDIDATES = ("Noto Sans JP", "Noto Sans CJK JP")
 
+# Versions documented in README.md / AGENTS.md. Mismatches are reported as
+# warnings (not build failures) because tool upgrades are a separate decision.
+EXPECTED_TYPST_VERSION = "0.15.0"
+EXPECTED_TOLA_VERSION = "0.7.1"
+
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 
 
-def fail(message: str) -> "None":
+def fail(message: str) -> None:
     print(f"error: {message}", file=sys.stderr)
     raise SystemExit(1)
 
@@ -47,21 +50,33 @@ def warn(message: str) -> None:
     print(f"warning: {message}", file=sys.stderr)
 
 
-def run(cmd: list[str]) -> subprocess.CompletedProcess:
-    """Run a command in the repository root; fail with its output on error."""
-    proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
-    if proc.returncode != 0:
-        detail = (proc.stderr or proc.stdout or "").strip()
-        fail(f"command failed ({proc.returncode}): {' '.join(cmd)}\n{detail}")
-    return proc
-
-
 def require_commands(*names: str) -> None:
     from shutil import which
 
     missing = [name for name in names if which(name) is None]
     if missing:
         fail(f"required command(s) not found: {', '.join(missing)}")
+
+
+def command_version(command: str) -> str:
+    proc = subprocess.run(
+        [command, "--version"], cwd=ROOT, capture_output=True, text=True
+    )
+    output = (proc.stdout or proc.stderr).strip()
+    return output.splitlines()[0] if output else "unknown"
+
+
+def documented_version_mismatches() -> list[str]:
+    """Return human-readable mismatches against the documented tool versions."""
+    mismatches = []
+    for tool, expected in (
+        ("typst", EXPECTED_TYPST_VERSION),
+        ("tola", EXPECTED_TOLA_VERSION),
+    ):
+        version = command_version(tool)
+        if expected not in version:
+            mismatches.append(f"{version} (documented: {expected})")
+    return mismatches
 
 
 def load_config() -> dict:

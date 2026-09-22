@@ -11,8 +11,6 @@ Usage:
     python3 scripts/build-og.py --check-env      # environment check only
 """
 
-from __future__ import annotations
-
 import argparse
 import json
 import re
@@ -44,17 +42,17 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def command_version(command: str) -> str:
-    proc = subprocess.run(
-        [command, "--version"], cwd=og.ROOT, capture_output=True, text=True
-    )
-    output = (proc.stdout or proc.stderr).strip()
-    return output.splitlines()[0] if output else "unknown"
-
-
 def check_env() -> str:
     og.require_commands("typst", "tola")
     return og.detect_og_font()
+
+
+def report_version_mismatches() -> None:
+    for mismatch in og.documented_version_mismatches():
+        og.warn(
+            f"tool version differs from the documented one: {mismatch}; "
+            "OG output may differ from the committed artifacts"
+        )
 
 
 def text_field(item: dict, key: str, errors: list[str]) -> str | None:
@@ -72,12 +70,17 @@ def derive_stem(path: str) -> str:
     return filename[:-4] if filename.endswith(".typ") else filename
 
 
-def normalize_record(item: dict, *, include_drafts: bool) -> dict | None:
+def record_path(item: dict) -> tuple[str, str]:
+    """Validate a `tola query` path and return (path, stem)."""
     path = item.get("path")
     if not isinstance(path, str) or not path.startswith("content/posts/"):
         og.fail(f"unexpected `tola query` path: {path!r}")
+    return path, derive_stem(path)
+
+
+def normalize_record(item: dict, *, include_drafts: bool) -> dict | None:
+    path, stem = record_path(item)
     filename = path.rsplit("/", 1)[-1]
-    stem = derive_stem(path)
     draft = bool(item.get("draft", False))
     errors: list[str] = []
 
@@ -160,17 +163,19 @@ def normalize_record(item: dict, *, include_drafts: bool) -> dict | None:
 
 def query_posts() -> list[dict]:
     og.OG_WORK_DIR.mkdir(parents=True, exist_ok=True)
-    og.run(
-        [
-            "tola",
-            "query",
-            "content/posts",
-            "--drafts",
-            "--pretty",
-            "--output",
-            str(og.POSTS_JSON.relative_to(og.ROOT)),
-        ]
-    )
+    cmd = [
+        "tola",
+        "query",
+        "content/posts",
+        "--drafts",
+        "--pretty",
+        "--output",
+        str(og.POSTS_JSON.relative_to(og.ROOT)),
+    ]
+    proc = subprocess.run(cmd, cwd=og.ROOT, capture_output=True, text=True)
+    if proc.returncode != 0:
+        detail = (proc.stderr or proc.stdout or "").strip()
+        og.fail(f"command failed ({proc.returncode}): {' '.join(cmd)}\n{detail}")
     if not og.POSTS_JSON.exists():
         og.POSTS_JSON.write_text("[]\n", encoding="utf-8")
     data = og.read_json(og.POSTS_JSON)
@@ -229,11 +234,17 @@ def main() -> None:
 
     if args.check_env:
         print(f"python: {sys.version.split()[0]}")
-        print(f"typst: {command_version('typst')}")
-        print(f"tola: {command_version('tola')}")
+        for tool, expected in (
+            ("typst", og.EXPECTED_TYPST_VERSION),
+            ("tola", og.EXPECTED_TOLA_VERSION),
+        ):
+            version = og.command_version(tool)
+            marker = "" if expected in version else f" [documented: {expected} -> mismatch]"
+            print(f"{tool}: {version}{marker}")
         print(f"og-font: {font}")
         return
 
+    report_version_mismatches()
     author = og.site_author() or "gomazarashi"
 
     # Recreate generated directories so stale files can never survive a build.
@@ -248,10 +259,7 @@ def main() -> None:
     # including collisions between a draft and a published article.
     stem_sources: dict[str, str] = {}
     for item in raw_records:
-        path = item.get("path")
-        if not isinstance(path, str) or not path.startswith("content/posts/"):
-            og.fail(f"unexpected `tola query` path: {path!r}")
-        stem = derive_stem(path)
+        path, stem = record_path(item)
         if stem in stem_sources:
             og.fail(
                 f"duplicate OG source stem {stem!r}: "

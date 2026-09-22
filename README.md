@@ -9,7 +9,7 @@ https://gomazarashi.com/
 
 ## 開発環境
 
-- Typst 0.14.2
+- Typst 0.15.0
 - Tola 0.7.1
 - just 1.52.0
 - Python 3.11+（OG画像のbuild補助。標準ライブラリのみ使用）
@@ -23,6 +23,10 @@ OG画像の生成には次の日本語フォントが必要です（リポジト
 どちらも `typst fonts` から見つからない場合、`just og` / `just build` は明示的に失敗します。
 OS標準フォントへはフォールバックしません。
 
+`scripts/og_common.py` にドキュメント上のツールバージョン（Typst 0.15.0 / Tola 0.7.1）を
+記録しています。実際のバージョンと異なる場合、`just doctor` は `mismatch` を表示し、
+`just og` / `just build` は警告を出します（buildは継続します）。
+
 ## 初回セットアップ
 
 1. リポジトリをクローンする。
@@ -31,7 +35,7 @@ OS標準フォントへはフォールバックしません。
 
 各コマンドの導入方法は以下を参照する。
 
-- `typst`: <https://github.com/typst/typst> から 0.14.2 を導入する
+- `typst`: <https://github.com/typst/typst> から 0.15.0 を導入する
 - `tola`: Rust/Cargo 環境がある場合は `cargo install --locked tola --version 0.7.1`
 - `just`: <https://just.systems/> から 1.52.0 を導入する
 
@@ -47,7 +51,8 @@ just build
 
 - サイトをビルドする（出力: `docs/`）。
 - OG画像の生成 → `docs/images/og/` の掃除 → `tola build --skip-drafts` →
-  sitemap修正 → OG/HTML validation → CNAME確認、までを実行する。
+  `docs/.nojekyll` の生成 → sitemap修正 → OG/HTML validation →
+  `.nojekyll` / CNAMEの確認、までを実行する。
 
 ```bash
 just og
@@ -61,6 +66,14 @@ just validate-og
 ```
 
 - 生成済み `docs/` に対してOG metadataとPNGを検証する（build後のみ）。
+
+```bash
+just test-og
+```
+
+- OGテンプレートのfixtureテスト。一時JSONからPNGを生成し、タイトル折り返し・
+  タグの省略・長いトークン・オーバーフロー失敗系を検証する。
+  公開contentや `docs/` には書き込まない。
 
 ```bash
 just serve
@@ -95,6 +108,8 @@ https://gomazarashi.com/images/og/...
 - 記事metadataの single source of truth は `content/posts/*.typ`。
 - OG画像用にmetadataを別ファイルへ手入力しない。
 - 記事metadataの抽出は `tola query` を使用し、独自parserは使わない。
+- 記事一覧（`/posts/`）とトップの最新記事は `@tola/pages` から生成し、
+  一覧側へtitle / date / summaryを手入力しない。
 - HTML側のOGPは `utils/meta.typ` に集約している。
 
 ### 公開URL
@@ -171,6 +186,7 @@ OG画像やmetadataを更新しても、SNS側のcacheが残ることがある�
 - `.tola/` は Tola の内部作業ディレクトリ。
 - `docs/` は Git 管理し、`just build` で更新してから commit / push する。
 - GitHub Pages は `Deploy from a branch` を選び、公開元を `main` ブランチの `/docs` に設定する。
+- `docs/.nojekyll` は GitHub Pages の Jekyll 処理を無効化して `docs/.tola/` を配信するために必要な空ファイル。`just build` / `just rebuild` が生成するため、手動で編集・削除しない。
 - `public/` は旧ビルド出力先として不要だが、誤生成された場合に備えて引き続き Git 管理しない。
 - `.tola/` は Git 管理しない運用（`.gitignore` 設定済み）。
 - `assets/images/og/` と `.og/` はOG生成用の中間ファイルであり、Git 管理しない。

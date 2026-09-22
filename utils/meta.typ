@@ -13,7 +13,6 @@
 #let default-description = site-info.description
 #let site-author = site-info.author
 #let og-locale = site-info.extra.at("og_locale", default: "ja_JP")
-#let twitter-card = "summary_large_image"
 
 // v1: every fixed page shares this image; one PNG per published article.
 #let default-og-image = "/images/og/default.png"
@@ -29,20 +28,14 @@
   }
 }
 
-#let is-absolute-url(path) = {
-  let path = str(path)
-  path.starts-with("https://") or path.starts-with("http://")
-}
-
 #let absolute-url(path) = {
-  if is-absolute-url(path) {
-    str(path)
+  let path = str(path)
+  if path.starts-with("https://") or path.starts-with("http://") {
+    path
   } else {
     site-url + ensure-leading-slash(path)
   }
 }
-
-#let canonical-url(path) = absolute-url(path)
 
 #let page-title(title, path: "/") = {
   let normalized = ensure-leading-slash(path)
@@ -74,14 +67,6 @@
   }
 }
 
-#let canonical-link(url) = {
-  html.elem("link", attrs: (rel: "canonical", href: url))
-}
-
-#let viewport-meta() = {
-  html.elem("meta", attrs: (name: "viewport", content: "width=device-width, initial-scale=1"))
-}
-
 #let page-head(
   title: none,
   description: none,
@@ -108,7 +93,7 @@
   } else {
     str(description)
   }
-  let canonical = canonical-url(current-path)
+  let canonical = absolute-url(current-path)
   let resolved-title = page-title(title, path: current-path)
   let social = if social-title != none and str(social-title) != "" {
     str(social-title)
@@ -137,12 +122,12 @@
   [
     #html.elem("meta", attrs: (charset: "utf-8"))
     #html.title[#resolved-title]
-    #viewport-meta()
+    #html.elem("meta", attrs: (name: "viewport", content: "width=device-width, initial-scale=1"))
     #html.elem("link", attrs: (rel: "preconnect", href: "https://fonts.googleapis.com"))
     #html.elem("link", attrs: (rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous"))
     #html.elem("link", attrs: (rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"))
     #head-meta((name: "description"), description)
-    #canonical-link(canonical)
+    #html.elem("link", attrs: (rel: "canonical", href: canonical))
     #html.elem("link", attrs: (rel: "icon", href: "/images/favicon.ico", sizes: "any"))
     #html.elem("link", attrs: (rel: "icon", type: "image/png", sizes: "96x96", href: "/images/favicon-96.png"))
     #html.elem("link", attrs: (rel: "apple-touch-icon", sizes: "180x180", href: "/images/apple-touch-icon.png"))
@@ -157,7 +142,7 @@
     #head-meta((property: "og:image:height"), og-image-height)
     #head-meta((property: "og:image:type"), image-type-value)
     #head-meta((property: "og:image:alt"), image-alt)
-    #head-meta((name: "twitter:card"), twitter-card)
+    #head-meta((name: "twitter:card"), "summary_large_image")
     #head-meta((name: "twitter:title"), social)
     #head-meta((name: "twitter:description"), description)
     #head-meta((name: "twitter:image"), image-url)
