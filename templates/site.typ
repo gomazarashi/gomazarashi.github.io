@@ -17,7 +17,19 @@
       #html.header(class: "site-header")[
         #html.nav(class: "site-nav", aria-label: "主要ナビゲーション")[
           #html.div(class: "site-nav-inner")[
-            #html.a(class: "site-brand", href: "/")[gomazarashi Lab]
+            #html.a(
+              class: "site-brand",
+              href: "/",
+            )[
+              #html.span(class: "site-brand-content")[
+                #html.elem("img", attrs: (
+                  class: "site-brand-image",
+                  src: "/images/gomazarashi.jpg",
+                  alt: "gomazarashi",
+                ))
+                #html.span(class: "site-brand-label")[gomazarashi Lab]
+              ]
+            ]
             #html.div(class: "site-nav-actions")[
               #html.div(class: "site-nav-links")[
                 #html.a(href: "/")[ホーム]
