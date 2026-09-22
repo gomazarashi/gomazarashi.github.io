@@ -67,6 +67,7 @@
                 #nav-link("/", [ホーム], current-path == "/")
                 #nav-link("/posts/", [記事一覧], str(current-path).starts-with("/posts/"))
                 #nav-link("/tools/", [ツール], str(current-path).starts-with("/tools/"))
+                #nav-link("/about/", [About], str(current-path).starts-with("/about/"))
               ]
               #html.button(
                 class: "theme-toggle",
