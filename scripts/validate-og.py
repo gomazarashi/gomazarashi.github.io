@@ -12,8 +12,6 @@ Checks:
 Usage: python3 scripts/validate-og.py
 """
 
-from __future__ import annotations
-
 import sys
 from html.parser import HTMLParser
 from pathlib import Path

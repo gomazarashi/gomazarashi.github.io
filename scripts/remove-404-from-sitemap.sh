@@ -8,4 +8,17 @@ if [[ ! -f "$sitemap_path" ]]; then
   exit 0
 fi
 
-perl -0pi -e 's#<url>\s*<loc>[^<]*/404\.html/?</loc>(?:\s*<lastmod>[^<]*</lastmod>)?\s*</url>##g' "$sitemap_path"
+python3 - "$sitemap_path" <<'PY'
+import re
+import sys
+from pathlib import Path
+
+path = Path(sys.argv[1])
+text = path.read_text(encoding="utf-8")
+text = re.sub(
+    r"<url>\s*<loc>[^<]*/404\.html/?</loc>(?:\s*<lastmod>[^<]*</lastmod>)?\s*</url>",
+    "",
+    text,
+)
+path.write_text(text, encoding="utf-8")
+PY

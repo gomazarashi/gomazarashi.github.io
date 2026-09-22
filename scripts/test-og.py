@@ -8,8 +8,6 @@ Production content is never touched.
 Usage: python3 scripts/test-og.py   (or: just test-og)
 """
 
-from __future__ import annotations
-
 import json
 import shutil
 import subprocess

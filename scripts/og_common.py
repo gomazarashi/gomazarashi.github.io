@@ -4,8 +4,6 @@
 Standard library only. Requires Python 3.11+ (tomllib).
 """
 
-from __future__ import annotations
-
 import json
 import struct
 import subprocess
@@ -43,22 +41,13 @@ EXPECTED_TOLA_VERSION = "0.7.1"
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 
 
-def fail(message: str) -> "None":
+def fail(message: str) -> None:
     print(f"error: {message}", file=sys.stderr)
     raise SystemExit(1)
 
 
 def warn(message: str) -> None:
     print(f"warning: {message}", file=sys.stderr)
-
-
-def run(cmd: list[str]) -> subprocess.CompletedProcess:
-    """Run a command in the repository root; fail with its output on error."""
-    proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
-    if proc.returncode != 0:
-        detail = (proc.stderr or proc.stdout or "").strip()
-        fail(f"command failed ({proc.returncode}): {' '.join(cmd)}\n{detail}")
-    return proc
 
 
 def require_commands(*names: str) -> None:
