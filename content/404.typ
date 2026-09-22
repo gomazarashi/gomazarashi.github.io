@@ -6,6 +6,7 @@
   title: "404 Not Found",
   description: "お探しのページは見つかりませんでした。",
   path: "/404.html",
+  noindex: true,
 )
 
 #html.div(class: "content-shell")[

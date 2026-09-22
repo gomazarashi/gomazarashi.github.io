@@ -4,7 +4,6 @@
 #show: page.with(
   title: "記事一覧",
   description: "公開済みの技術記事、翻訳、作成資料を一覧でまとめています。",
-  path: "/posts/",
 )
 
 #html.div(class: "content-shell")[

@@ -5,7 +5,6 @@
 #show: page.with(
   title: "ツール一覧",
   description: "公開しているツールを一覧でまとめています。",
-  path: "/tools/",
 )
 
 #html.div(class: "content-shell")[

@@ -5,7 +5,6 @@
 #show: page.with(
   title: "gomazarashi Lab",
   description: "gomazarashiのWebサイトです。",
-  path: "/",
   show-title: false,
 )
 

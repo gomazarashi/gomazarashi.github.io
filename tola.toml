@@ -7,6 +7,10 @@ description = "gomazarashiのWebサイトです。"
 language = "ja"
 url = "https://gomazarashi.com"
 
+[site.info.extra]
+# Used for og:locale. Keep separate from the HTML lang attribute (`ja`).
+og_locale = "ja_JP"
+
 [site.header]
 styles = ["assets/styles/site.css"]
 

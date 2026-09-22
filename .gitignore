@@ -8,5 +8,13 @@
 # tola working files
 /.tola/
 
+# generated OG sources (tracked public artifacts live in docs/images/og/)
+/assets/images/og/
+/.og/
+
+# python
+__pycache__/
+*.pyc
+
 # codex
 .codex
