@@ -88,6 +88,9 @@ python3 scripts/validate-og.py
 OG画像だけを再生成する場合（記事の title / summary / date / tags 変更後など）は
 `just og` を使用します。`docs/` への反映には `just build` が必要です。
 
+OGテンプレートを変更した場合は `just test-og` でfixtureテストを実行してください
+（一時データのみ使用し、公開contentには触れません）。
+
 ## OG画像（OGP）
 
 OG画像とOGP metadataは次のpipelineで生成します。
@@ -150,22 +153,14 @@ Tolaが生成するHTMLは、現在次のようなファイルを参照します
 
 カスタムドメインは `gomazarashi.com` です。
 
-`docs/CNAME` は削除・変更しないでください。現在の内容は次のとおりです。
+`docs/CNAME` の内容は次のとおりです。
 
 ```text
 gomazarashi.com
 ```
 
-`just clean` は次を実行します。
+Tola 0.7.1 は `tola.toml` の `[site.info].url` から `docs/CNAME` を毎回の `tola build` で自動生成します（`[build.assets].flatten` に CNAME の source がないため）。`just build` はビルド後に存在と内容を検証します。
 
-```bash
-rm -rf docs .tola
-```
+`just clean` は `rm -rf docs .tola` を、`just rebuild` はその後に build を実行しますが、`tola build` が CNAME を再生成するため `just rebuild` は動作します（確認済み）。ただし CNAME は公開ドメインに直結するため、clean / rebuild 後は内容が `gomazarashi.com` であることを確認してください。
 
-また、`just rebuild` は `clean` の後に `build` を実行します。
-
-現在、`CNAME` を `docs/` へ自動生成またはコピーする設定はないため、`just clean` または `just rebuild` を実行すると `docs/CNAME` が失われる可能性があります。
-
-通常の作業では必要がない限り `just clean` や `just rebuild` を使用せず、`just build` を使用してください。
-
-`just clean` または `just rebuild` を実行した場合は、作業完了前に `docs/CNAME` が存在し、内容が `gomazarashi.com` であることを必ず確認してください。
+`docs/CNAME` は build のたびに上書きされるため、直接編集しないでください。

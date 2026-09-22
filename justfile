@@ -27,6 +27,10 @@ og:
   just check
   python3 scripts/build-og.py
 
+test-og:
+  just check
+  python3 scripts/test-og.py
+
 validate-og:
   python3 scripts/validate-og.py
 
