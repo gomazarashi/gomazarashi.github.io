@@ -51,7 +51,8 @@ just build
 
 - サイトをビルドする（出力: `docs/`）。
 - OG画像の生成 → `docs/images/og/` の掃除 → `tola build --skip-drafts` →
-  sitemap修正 → OG/HTML validation → CNAME確認、までを実行する。
+  `docs/.nojekyll` の生成 → sitemap修正 → OG/HTML validation →
+  `.nojekyll` / CNAMEの確認、までを実行する。
 
 ```bash
 just og
@@ -185,6 +186,7 @@ OG画像やmetadataを更新しても、SNS側のcacheが残ることがある�
 - `.tola/` は Tola の内部作業ディレクトリ。
 - `docs/` は Git 管理し、`just build` で更新してから commit / push する。
 - GitHub Pages は `Deploy from a branch` を選び、公開元を `main` ブランチの `/docs` に設定する。
+- `docs/.nojekyll` は GitHub Pages の Jekyll 処理を無効化して `docs/.tola/` を配信するために必要な空ファイル。`just build` / `just rebuild` が生成するため、手動で編集・削除しない。
 - `public/` は旧ビルド出力先として不要だが、誤生成された場合に備えて引き続き Git 管理しない。
 - `.tola/` は Git 管理しない運用（`.gitignore` 設定済み）。
 - `assets/images/og/` と `.og/` はOG生成用の中間ファイルであり、Git 管理しない。
