@@ -4,6 +4,8 @@
 
 #show: page.with(
   title: "バナー配布",
+  heading: "Banners",
+  heading-sub: "バナー配布",
   description: "gomazarashi Lab のリンク用バナーを配布しています。",
 )
 

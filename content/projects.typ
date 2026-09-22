@@ -5,6 +5,7 @@
 
 #show: page.with(
   title: "Projects",
+  heading-sub: "プロジェクト",
   description: "gomazarashi の制作物をまとめています。位置情報付きメッセージアプリ Machibumi と、公開中の小さなツールを掲載しています。",
 )
 

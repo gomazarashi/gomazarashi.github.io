@@ -4,6 +4,7 @@
 #import "../utils/components.typ": github-link
 #show: page.with(
   title: "About",
+  heading-sub: "サイトについて",
   description: "gomazarashi のプロフィール、活動・コミュニティ、技術領域、このサイトについてをまとめています。",
 )
 
