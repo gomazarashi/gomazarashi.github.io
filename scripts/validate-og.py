@@ -46,6 +46,7 @@ FIXED_PAGES = (
     ("/posts/", "posts/index.html"),
     ("/tools/", "tools/index.html"),
     ("/banners/", "banners/index.html"),
+    ("/about/", "about/index.html"),
     ("/404.html", "404.html"),
 )
 
