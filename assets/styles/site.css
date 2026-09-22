@@ -1,19 +1,17 @@
 /* assets/styles/site.css */
 
-@import url("https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+JP:wght@400;500;700;800&display=swap");
-
 :root {
   --bg: #f7f6f2;
   --surface: rgba(255, 255, 255, 0.72);
   --surface-strong: #ffffff;
   --text: #1d2329;
   --muted: #65717a;
-  --subtle: #8a949c;
+  --subtle: #65717a;
   --line: #d8d4cb;
   --line-strong: #bdb7ad;
   --accent: #0b6b62;
   --accent-soft: #dcebe7;
-  --accent-warm: #c85f3f;
+  --accent-warm: #b24e32;
   --link: #0b6b62;
   --header-bg: #0b6b62;
   --header-text: #ffffff;
@@ -191,7 +189,7 @@ html[data-theme="dark"] body::before {
 }
 
 .theme-toggle:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--header-text);
   outline-offset: 0.25rem;
 }
 
@@ -256,6 +254,13 @@ html[data-theme="dark"] .theme-toggle-knob {
 
 .theme-toggle-icon-moon::before {
   content: "\263E";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle-track,
+  .theme-toggle-knob {
+    transition: none;
+  }
 }
 
 .page-layout,

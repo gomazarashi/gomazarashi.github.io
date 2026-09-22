@@ -62,6 +62,9 @@
     #html.elem("meta", attrs: (charset: "utf-8"))
     #html.title[#resolved-title]
     #viewport-meta()
+    #html.elem("link", attrs: (rel: "preconnect", href: "https://fonts.googleapis.com"))
+    #html.elem("link", attrs: (rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous"))
+    #html.elem("link", attrs: (rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"))
     #head-meta((name: "description"), description)
     #canonical-link(canonical)
     #html.elem("link", attrs: (rel: "icon", href: "/images/favicon.ico", sizes: "any"))
