@@ -303,6 +303,7 @@
   #html.section(class: "section-block")[
     #html.header(class: "section-heading")[
       #html.h2(class: "section-title")[Links]
+      #html.p(class: "hero-link")[#link("/banners/")[バナー配布]]
     ]
     #html.div(class: "section-content")[
       #html.div(class: "link-banners")[
