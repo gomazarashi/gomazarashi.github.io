@@ -20,13 +20,15 @@
             #html.a(
               class: "site-brand",
               href: "/",
-              aria-label: "gomazarashi Lab",
             )[
-              #html.elem("img", attrs: (
-                class: "site-brand-image",
-                src: "/images/gomazarashi.jpg",
-                alt: "gomazarashi",
-              ))
+              #html.span(class: "site-brand-content")[
+                #html.elem("img", attrs: (
+                  class: "site-brand-image",
+                  src: "/images/gomazarashi.jpg",
+                  alt: "gomazarashi",
+                ))
+                #html.span(class: "site-brand-label")[gomazarashi Lab]
+              ]
             ]
             #html.div(class: "site-nav-actions")[
               #html.div(class: "site-nav-links")[
