@@ -3,13 +3,15 @@
 [site.info]
 title = "gomazarashi Lab"
 author = "gomazarashi"
-description = "gomazarashiのWebサイトです。"
+description = "ネットワーク・SDNを研究するgomazarashiの個人サイトです。Webアプリや小さな開発ツール、Typst・TeXに関する記事や成果物を公開しています。"
 language = "ja"
 url = "https://gomazarashi.com"
 
 [site.info.extra]
 # Used for og:locale. Keep separate from the HTML lang attribute (`ja`).
 og_locale = "ja_JP"
+# Public GitHub profile, used for structured data (Person.sameAs).
+github = "https://github.com/gomazarashi"
 
 [site.header]
 styles = ["assets/styles/site.css"]
