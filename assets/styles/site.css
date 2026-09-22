@@ -1,6 +1,7 @@
 /* assets/styles/site.css */
 
 :root {
+  color-scheme: light;
   --bg: #f7f6f2;
   --surface: rgba(255, 255, 255, 0.72);
   --surface-strong: #ffffff;
@@ -23,6 +24,7 @@
 }
 
 html[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #111413;
   --surface: rgba(27, 31, 30, 0.72);
   --surface-strong: #1b1f1e;
@@ -90,6 +92,26 @@ html[data-theme="dark"] body::before {
   background-image:
     linear-gradient(rgba(237, 240, 235, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(237, 240, 235, 0.03) 1px, transparent 1px);
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--header-text);
+  border-radius: 0.4rem;
+  background: var(--header-bg);
+  color: var(--header-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .site-shell {

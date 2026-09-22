@@ -9,7 +9,7 @@ https://gomazarashi.com/
 
 ## 開発環境
 
-- Typst 0.14.2
+- Typst 0.15.0
 - Tola 0.7.1
 - just 1.52.0
 - Python 3.11+（OG画像のbuild補助。標準ライブラリのみ使用）
@@ -23,7 +23,7 @@ OG画像の生成には次の日本語フォントが必要です（リポジト
 どちらも `typst fonts` から見つからない場合、`just og` / `just build` は明示的に失敗します。
 OS標準フォントへはフォールバックしません。
 
-`scripts/og_common.py` にドキュメント上のツールバージョン（Typst 0.14.2 / Tola 0.7.1）を
+`scripts/og_common.py` にドキュメント上のツールバージョン（Typst 0.15.0 / Tola 0.7.1）を
 記録しています。実際のバージョンと異なる場合、`just doctor` は `mismatch` を表示し、
 `just og` / `just build` は警告を出します（buildは継続します）。
 
@@ -35,7 +35,7 @@ OS標準フォントへはフォールバックしません。
 
 各コマンドの導入方法は以下を参照する。
 
-- `typst`: <https://github.com/typst/typst> から 0.14.2 を導入する
+- `typst`: <https://github.com/typst/typst> から 0.15.0 を導入する
 - `tola`: Rust/Cargo 環境がある場合は `cargo install --locked tola --version 0.7.1`
 - `just`: <https://just.systems/> から 1.52.0 を導入する
 

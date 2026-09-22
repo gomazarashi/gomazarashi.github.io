@@ -19,6 +19,7 @@ build:
   tola build --skip-drafts
   touch docs/.nojekyll
   ./scripts/remove-404-from-sitemap.sh
+  ./scripts/add-tools-to-sitemap.sh
   python3 scripts/validate-og.py
   test -f docs/.nojekyll
   test -f docs/CNAME

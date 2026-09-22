@@ -11,7 +11,7 @@
 
 #let github-link(url, label) = link(url)[
   #html.span(class: "github-link")[
-    #html.span(class: "github-link-icon")[#bsicon("github", height: 0.9em)]
+    #html.span(class: "github-link-icon", aria-hidden: true)[#bsicon("github", height: 0.9em)]
     #html.span(class: "github-link-label")[#label]
   ]
 ]

@@ -6,7 +6,7 @@
 
 主な開発環境は次のとおりです。
 
-* Typst 0.14.2
+* Typst 0.15.0
 * Tola 0.7.1
 * just 1.52.0
 * GitHub Pages
@@ -78,6 +78,7 @@ rm -rf docs/images/og
 tola build --skip-drafts
 touch docs/.nojekyll
 ./scripts/remove-404-from-sitemap.sh
+./scripts/add-tools-to-sitemap.sh
 python3 scripts/validate-og.py
 # docs/.nojekyll と docs/CNAME の存在確認、CNAME の内容確認
 ```
