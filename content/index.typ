@@ -1,6 +1,7 @@
 // content/index.typ
 
 #import "../templates/page.typ": page
+#import "../utils/articles.typ": latest-articles, format-jp-date
 #import "@preview/booticons:0.0.1": bsicon
 #show: page.with(
   title: "gomazarashi Lab",
@@ -121,11 +122,17 @@
     ]
     #html.div(class: "section-content")[
       #html.div(class: "list")[
-        #html.article(class: "list-item list-item-wide")[
-          #html.p(class: "entry-date")[#html.elem("time", attrs: (datetime: "2026-04-12"))[2026年4月12日]]
-          #html.div(class: "item-body")[
-            #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
-            #html.p(class: "copy")[サイト公開時に作成した最初の記事です。]
+        #for article in latest-articles(limit: 1) [
+          #html.article(class: "list-item list-item-wide")[
+            #html.p(class: "entry-date")[
+              #html.elem("time", attrs: (datetime: article.at("date", default: "")))[
+                #format-jp-date(article.at("date", default: ""))
+              ]
+            ]
+            #html.div(class: "item-body")[
+              #html.h3(class: "entry-title")[#link(article.permalink)[#article.title]]
+              #html.p(class: "copy")[#article.at("summary", default: "")]
+            ]
           ]
         ]
       ]
