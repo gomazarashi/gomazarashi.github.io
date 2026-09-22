@@ -19,14 +19,14 @@
   #html.header(class: "profile-block")[
     #html.elem("img", attrs: (
       class: "profile-image",
-      src: "/images/gomazarashi.webp",
+      src: "/images/gomazarashi.jpg",
       alt: "gomazarashi",
     ))
     #html.div(class: "profile-copy")[
       #html.p(class: "profile-name")[gomazarashi]
       #html.div(class: "profile-bio")[
-        #html.p[ネットワーク分野の大学院生です。SDN / P4を研究し、趣味でも P4 のコードを書いています。]
-        #html.p[組版や、自分が欲しい小さなツールの個人開発にも興味があります。]
+        #html.p[ネットワーク分野の大学院生です。研究分野はSoftware Defined Network(SDN)です。]
+        #html.p[趣味においてはネットワークや小さなツール開発、TeXやTypstなどの組版システムに興味があります。]
       ]
       #html.p(class: "inline-links")[
         #html.span(class: "inline-link")[#github-link("https://github.com/gomazarashi", [GitHub])]

@@ -24,7 +24,7 @@
             )[
               #html.elem("img", attrs: (
                 class: "site-brand-image",
-                src: "/images/gomazarashi.webp",
+                src: "/images/gomazarashi.jpg",
                 alt: "gomazarashi",
               ))
             ]
