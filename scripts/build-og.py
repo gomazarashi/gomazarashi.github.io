@@ -94,8 +94,6 @@ def normalize_record(item: dict, *, include_drafts: bool) -> dict | None:
     update = text_field(item, "update", errors)
     author = text_field(item, "author", errors)
     og_title = text_field(item, "og-title", errors)
-    og_image = text_field(item, "og-image", errors)
-    og_image_alt = text_field(item, "og-image-alt", errors)
 
     if title is None:
         errors.append("title is required")
@@ -126,14 +124,6 @@ def normalize_record(item: dict, *, include_drafts: bool) -> dict | None:
     if not isinstance(permalink, str) or not permalink.startswith("/"):
         errors.append(f"invalid permalink: {permalink!r}")
 
-    if og_image is not None and og_image.startswith("/"):
-        candidates = (
-            og.ROOT / "assets" / og_image.lstrip("/"),
-            og.ROOT / "docs" / og_image.lstrip("/"),
-        )
-        if not any(candidate.exists() for candidate in candidates):
-            errors.append(f"og-image {og_image!r} not found under assets/ or docs/")
-
     if errors:
         if draft:
             for error in errors:
@@ -156,8 +146,6 @@ def normalize_record(item: dict, *, include_drafts: bool) -> dict | None:
         "draft": draft,
         "tags": tags,
         "og-title": og_title,
-        "og-image": og_image,
-        "og-image-alt": og_image_alt,
     }
 
 
@@ -289,42 +277,18 @@ def main() -> None:
     )
 
     manifest_entries = []
-    generated = 0
     for record in records:
         stem = record["stem"]
-        custom = record["og-image"]
-        if custom:
-            image = custom
-            generated_now = False
-        else:
-            image = og.ARTICLE_IMAGE_DIR + stem + ".png"
-            compile_png(
-                og.ROOT / "og" / "post.typ",
-                og.OG_ASSET_DIR / "posts" / f"{stem}.png",
-                font,
-                author,
-                {"data": WORK_POSTS_INPUT, "stem": stem},
-                context=record["path"],
-            )
-            generated_now = True
-            generated += 1
+        compile_png(
+            og.ROOT / "og" / "post.typ",
+            og.OG_ASSET_DIR / "posts" / f"{stem}.png",
+            font,
+            author,
+            {"data": WORK_POSTS_INPUT, "stem": stem},
+            context=record["path"],
+        )
         manifest_entries.append(
-            {
-                "stem": stem,
-                "path": record["path"],
-                "permalink": record["permalink"],
-                "title": record["title"],
-                "summary": record["summary"],
-                "date": record["date"],
-                "update": record["update"],
-                "author": record["author"],
-                "draft": record["draft"],
-                "tags": record["tags"],
-                "og-title": record["og-title"],
-                "og-image-alt": record["og-image-alt"],
-                "image": image,
-                "generated": generated_now,
-            }
+            {**record, "image": og.ARTICLE_IMAGE_DIR + stem + ".png"}
         )
 
     manifest = {
@@ -340,7 +304,7 @@ def main() -> None:
 
     draft_note = " (drafts included)" if args.include_drafts else ""
     print(
-        f"og: generated default.png and {generated} article image(s){draft_note}"
+        f"og: generated default.png and {len(records)} article image(s){draft_note}"
     )
 
 

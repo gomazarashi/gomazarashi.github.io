@@ -114,7 +114,6 @@ def detect_og_font() -> str:
         "no supported OG font found; install one of: "
         + ", ".join(FONT_CANDIDATES)
     )
-    raise AssertionError("unreachable")
 
 
 def png_dimensions(path: Path) -> tuple[int, int]:
@@ -134,7 +133,6 @@ def read_json(path: Path) -> object:
         fail(f"missing {path.relative_to(ROOT)}; run `just og` first")
     except json.JSONDecodeError as exc:
         fail(f"invalid JSON in {path.relative_to(ROOT)}: {exc}")
-    raise AssertionError("unreachable")
 
 
 def relative(path: Path) -> str:

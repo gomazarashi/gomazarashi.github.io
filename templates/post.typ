@@ -15,8 +15,6 @@
   permalink: none,
   aliases: (),
   og-title: none,
-  og-image: none,
-  og-image-alt: none,
   path: none,
   body,
 ) = {
@@ -33,11 +31,8 @@
     permalink: permalink,
     aliases: aliases,
     og-title: og-title,
-    og-image: og-image,
-    og-image-alt: og-image-alt,
   )) <tola-meta>]
 
-  let custom-image = og-image != none and str(og-image) != ""
   let file-stem = if filename == none {
     none
   } else {
@@ -45,9 +40,7 @@
     if name.ends-with(".typ") { name.slice(0, name.len() - 4) } else { name }
   }
   // Article OG images are keyed by the source stem under content/posts/.
-  let image-path = if custom-image {
-    og-image
-  } else if file-stem != none {
+  let image-path = if file-stem != none {
     "/images/og/posts/" + file-stem + ".png"
   } else {
     none
@@ -62,9 +55,6 @@
     meta-type: "article",
     social-title: if og-title != none and str(og-title) != "" { og-title } else { title },
     og-image: image-path,
-    og-image-alt: og-image-alt,
-    og-image-width: if custom-image { none } else { 1200 },
-    og-image-height: if custom-image { none } else { 630 },
     article: (
       published: published,
       modified: modified,
