@@ -90,4 +90,51 @@
       ]
     ]
   ]
+
+  // 5. Links
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[リンク]
+      #html.p(class: "hero-link")[#link("/banners/")[リンク用バナーはこちら]]
+    ]
+    #html.div(class: "section-content")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item")[
+          #html.p(class: "label")[相互リンク]
+          #html.div(class: "item-body")[
+            #html.div(class: "link-banners")[
+              #html.a(class: "link-banner", href: "https://hinshiba.net/")[
+                #html.elem("img", attrs: (
+                  src: "/images/links/hinshibanet_banner.webp",
+                  alt: "hinshiba.net",
+                  width: "200",
+                  height: "40",
+                  loading: "lazy",
+                ))
+              ]
+              #html.a(class: "link-banner", href: "https://kemokemo.net/")[
+                #html.elem("img", attrs: (
+                  class: "kemokemo-banner",
+                  src: "/images/links/kemokemo-banner.svg",
+                  alt: "KEMOKEMO.net",
+                  width: "927",
+                  height: "130",
+                  loading: "lazy",
+                ))
+              ]
+              #html.a(class: "link-banner", href: "https://parallellollipoland.web.fc2.com/link/index.html")[
+                #html.elem("img", attrs: (
+                  src: "/images/links/parallel-lollipop-land-banner.png",
+                  alt: "ぱられるろりぽらんど",
+                  width: "200",
+                  height: "40",
+                  loading: "lazy",
+                ))
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
 ]
