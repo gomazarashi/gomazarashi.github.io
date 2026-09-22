@@ -227,6 +227,9 @@ html[data-theme="dark"] body::before {
 
 .site-nav-links a[aria-current="page"] {
   color: var(--header-text);
+}
+
+.site-nav-links a[aria-current="page"] .site-nav-label {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.35rem;

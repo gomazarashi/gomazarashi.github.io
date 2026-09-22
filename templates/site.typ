@@ -27,10 +27,11 @@
   }
 
   let nav-link(href, label, active) = {
+    let label-content = html.span(class: "site-nav-label")[#label]
     if active {
-      html.a(href: href, aria-current: "page")[#label]
+      html.a(href: href, aria-current: "page")[#label-content]
     } else {
-      html.a(href: href)[#label]
+      html.a(href: href)[#label-content]
     }
   }
 
