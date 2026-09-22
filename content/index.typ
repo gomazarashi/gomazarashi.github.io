@@ -31,8 +31,8 @@
     #html.div(class: "profile-copy")[
       #html.h1(class: "profile-name")[gomazarashi]
       #html.div(class: "profile-bio")[
-        #html.p[ネットワーク分野の大学院生です。研究分野はSoftware Defined Network(SDN)です。]
-        #html.p[趣味においてはネットワークや小さなツール開発、TeXやTypstなどの組版システムに興味があります。]
+        #html.p[ネットワーク分野の大学院生です。研究分野は Software-Defined Networking (SDN) です。]
+        #html.p[趣味ではネットワークや小さなツール開発、TeX・Typst などの組版システムに興味があります。]
       ]
       #html.p(class: "inline-links")[
         #html.span(class: "inline-link")[#github-link("https://github.com/gomazarashi", [GitHub])]
