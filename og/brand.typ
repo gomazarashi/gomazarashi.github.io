@@ -80,13 +80,17 @@
   image-radius: 8pt,
 )
 
+// Layout metrics derived from the card and mascot panel.
+#let inner-width = card.width - 2 * card.inset
+#let inner-height = card.height - 2 * card.inset
+#let text-width = inner-width - mascot.panel-width - 16pt
+
 // Type scale, tuned against the reference OG designs.
 #let type = (
   small: 13pt,
   meta: 13pt,
   description: 16pt,
   tag: 10.5pt,
-  default-title: 44pt,
 )
 
 // Article title candidate sizes in pt (60..36 px at 144 ppi).

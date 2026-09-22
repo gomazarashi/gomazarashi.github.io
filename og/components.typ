@@ -19,12 +19,6 @@
   body
 }
 
-#let rainbow-strip(width) = rect(
-  width: width,
-  height: brand.rainbow-strip-height,
-  fill: brand.rainbow-gradient,
-)
-
 #let card-surface(body) = block(
   width: brand.card.width,
   height: brand.card.height,
@@ -33,7 +27,14 @@
   stroke: 1pt + brand.colors.border,
   clip: true,
 )[
-  #place(bottom + left, rainbow-strip(brand.card.width))
+  #place(
+    bottom + left,
+    rect(
+      width: brand.card.width,
+      height: brand.rainbow-strip-height,
+      fill: brand.rainbow-gradient,
+    ),
+  )
   #place(
     top + left,
     dx: brand.card.inset,
@@ -151,7 +152,7 @@
 // for the image only. The HTML title string is never modified.
 #let breakable-chars = ("/", ".", "-", "_", ":", "+")
 
-#let break-tokens(value, max-run: 14) = {
+#let break-tokens(value) = {
   let clusters = str(value).clusters()
   let parts = ()
   let run = 0
@@ -162,7 +163,7 @@
       run = 0
     } else {
       run += 1
-      if run >= max-run {
+      if run >= 14 {
         parts.push(h(0pt, weak: true))
         run = 0
       }
@@ -186,7 +187,7 @@
   ]).height
 }
 
-#let title-block(value, size, width: auto) = block(width: width)[
+#let title-block(value, size, width) = block(width: width)[
   #set par(leading: brand.title-leading)
   #text(size: size, weight: 700, break-tokens(value))
 ]
@@ -199,7 +200,7 @@
 #let fit-title(value, width, height, max-lines, sizes: brand.title-sizes) = {
   let best = none
   for size in sizes {
-    let candidate = title-block(value, size, width: width)
+    let candidate = title-block(value, size, width)
     let measured = measure(candidate).height
     if measured > height {
       continue

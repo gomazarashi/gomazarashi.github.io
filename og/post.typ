@@ -29,23 +29,19 @@
 #let author = if author == none or author == "" { brand.author } else { author }
 #let tags = record.at("tags", default: ())
 
-#let inner-width = brand.card.width - 2 * brand.card.inset
-#let inner-height = brand.card.height - 2 * brand.card.inset
-#let text-width = inner-width - brand.mascot.panel-width - 16pt
-
 #context {
   let head = text(size: brand.type.small, fill: brand.colors.secondary)[#brand.copy.posts-context]
   let meta = text(size: brand.type.meta, fill: brand.colors.secondary)[#date · #author]
-  let tag-row = if tags.len() > 0 { fit-tags(tags, text-width) } else { none }
+  let tag-row = if tags.len() > 0 { fit-tags(tags, brand.text-width) } else { none }
   let tag-height = if tag-row == none { 0pt } else { measure(tag-row).height + brand.spacing }
 
   let fixed-height = measure(head).height + brand.spacing + measure(meta).height + tag-height
-  let available-with-tags = inner-height - fixed-height - brand.spacing
-  let available-without-tags = inner-height - (fixed-height - tag-height) - brand.spacing
+  let available-with-tags = brand.inner-height - fixed-height - brand.spacing
+  let available-without-tags = brand.inner-height - (fixed-height - tag-height) - brand.spacing
 
-  let fitted-with-tags = fit-title(image-title, text-width, available-with-tags, 3)
+  let fitted-with-tags = fit-title(image-title, brand.text-width, available-with-tags, 3)
   let fitted-without-tags = if fitted-with-tags == none {
-    fit-title(image-title, text-width, available-without-tags, 4)
+    fit-title(image-title, brand.text-width, available-without-tags, 4)
   } else {
     none
   }
@@ -60,7 +56,7 @@
   }
 
   place(center + horizon, card[
-    #place(left + horizon, block(width: text-width)[
+    #place(left + horizon, block(width: brand.text-width)[
       #head
       #v(brand.spacing)
       #fitted

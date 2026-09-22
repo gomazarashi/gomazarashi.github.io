@@ -10,15 +10,11 @@
 
 #show: og-page
 
-#let inner-width = brand.card.width - 2 * brand.card.inset
-#let inner-height = brand.card.height - 2 * brand.card.inset
-#let text-width = inner-width - brand.mascot.panel-width - 16pt
-
 #context {
   let title = fit-title(
     brand.copy.title,
-    text-width,
-    inner-height,
+    brand.text-width,
+    brand.inner-height,
     1,
     sizes: brand.default-title-sizes,
   )
@@ -27,7 +23,7 @@
   }
 
   place(center + horizon, card[
-    #place(left + horizon, block(width: text-width)[
+    #place(left + horizon, block(width: brand.text-width)[
       #text(size: brand.type.small, fill: brand.colors.secondary)[#brand.copy.domain]
       #v(brand.spacing)
       #title
