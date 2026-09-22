@@ -67,6 +67,26 @@
   }
 }
 
+// Structured data (JSON-LD). Only values already available from site config
+// and page metadata are emitted; never invent facts.
+#let json-ld-script(data) = {
+  html.elem("script", attrs: (type: "application/ld+json"))[#json.encode(data)]
+}
+
+#let person-structured-data() = {
+  let base = (
+    ("@type"): "Person",
+    name: site-author,
+    url: absolute-url("/about/"),
+  )
+  let github = site-info.extra.at("github", default: none)
+  if github != none and str(github) != "" {
+    (..base, sameAs: (str(github),))
+  } else {
+    base
+  }
+}
+
 #let page-head(
   title: none,
   description: none,
@@ -156,6 +176,35 @@
     ]
     #if noindex [
       #html.elem("meta", attrs: (name: "robots", content: "noindex"))
+    ]
+    #if current-path == "/" [
+      #json-ld-script((
+        ("@context"): "https://schema.org",
+        ("@graph"): (
+          (
+            ("@type"): "WebSite",
+            name: site-name,
+            url: absolute-url("/"),
+            description: description,
+            inLanguage: site-info.language,
+          ),
+          person-structured-data(),
+        ),
+      ))
+    ]
+    #if article != none [
+      #json-ld-script((
+        ("@context"): "https://schema.org",
+        ("@type"): "BlogPosting",
+        headline: title,
+        description: description,
+        inLanguage: site-info.language,
+        mainEntityOfPage: canonical,
+        author: person-structured-data(),
+        ..(if article.at("published", default: none) != none { (datePublished: article.at("published")) } else { (:) }),
+        ..(if article.at("modified", default: none) != none { (dateModified: article.at("modified")) } else { (:) }),
+        ..(if article.at("tags", default: ()).len() > 0 { (keywords: article.at("tags")) } else { (:) }),
+      ))
     ]
   ]
 }

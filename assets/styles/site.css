@@ -120,6 +120,47 @@ html[data-theme="dark"] body::before {
   padding: 3.5rem 2rem 4rem;
 }
 
+.site-footer {
+  border-top: 1px solid var(--line);
+}
+
+.site-footer-inner {
+  width: min(100%, calc(var(--max-width) + 4rem));
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem 2.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.site-footer-note {
+  margin: 0;
+}
+
+.site-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  align-items: center;
+}
+
+.site-footer-nav a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 0.16em;
+}
+
+.site-footer-nav a:hover,
+.site-footer-nav a:focus-visible {
+  color: var(--link);
+  text-decoration-color: currentColor;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -182,6 +223,13 @@ html[data-theme="dark"] body::before {
 
 .site-nav-links a {
   position: relative;
+}
+
+.site-nav-links a[aria-current="page"] {
+  color: var(--header-text);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35rem;
 }
 
 .site-nav-links a+a::before {
@@ -315,6 +363,21 @@ html[data-theme="dark"] .theme-toggle-knob {
   font-size: clamp(2rem, 5.6vw, 3.4rem);
   font-weight: 800;
   line-height: 1.12;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  align-items: baseline;
+  margin: 0;
+  color: var(--subtle);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.post-meta time {
+  font-variant-numeric: tabular-nums;
 }
 
 .page-body,
@@ -517,6 +580,12 @@ html[data-theme="dark"] .theme-toggle-knob {
   grid-template-columns: minmax(12rem, 0.36fr) minmax(0, 1fr);
 }
 
+.item-head {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+}
+
 .label,
 .entry-date,
 .skill-heading {
@@ -683,6 +752,11 @@ a,
   }
 
   .site-nav-inner {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .site-footer-inner {
     padding-right: 1rem;
     padding-left: 1rem;
   }

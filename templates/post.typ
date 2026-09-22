@@ -1,6 +1,7 @@
 // templates/post.typ
 
 #import "site.typ": site
+#import "../utils/articles.typ": format-jp-date
 #import "@tola/current:0.0.0": filename
 
 #let post(
@@ -74,6 +75,23 @@
       #if title != none [
         #html.header(class: "post-header")[
           #html.h1(class: "page-title")[#title]
+          #if published != none [
+            #html.div(class: "post-meta")[
+              #html.elem("time", attrs: (datetime: published))[#format-jp-date(published)]
+              #if modified != none [
+                #html.span(class: "post-meta-update")[
+                  更新: #html.elem("time", attrs: (datetime: modified))[#format-jp-date(modified)]
+                ]
+              ]
+            ]
+          ]
+          #if tags.len() > 0 [
+            #html.ul(class: "tag-list")[
+              #for tag in tags [
+                #html.li[#tag]
+              ]
+            ]
+          ]
         ]
       ]
 
