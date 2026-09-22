@@ -15,6 +15,10 @@
   --accent-soft: #dcebe7;
   --accent-warm: #c85f3f;
   --link: #0b6b62;
+  --header-bg: #0b6b62;
+  --header-text: #ffffff;
+  --header-muted: #d7ece8;
+  --header-line: rgba(255, 255, 255, 0.28);
   --shadow: 0 1.2rem 3rem rgba(39, 42, 45, 0.08);
   --max-width: 70rem;
   --content-width: 46rem;
@@ -33,6 +37,10 @@ html[data-theme="dark"] {
   --accent-soft: #203935;
   --accent-warm: #f08a68;
   --link: #86d9c9;
+  --header-bg: #173d38;
+  --header-text: #f4f8f6;
+  --header-muted: #c7ded8;
+  --header-line: rgba(244, 248, 246, 0.24);
   --shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.22);
 }
 
@@ -89,43 +97,38 @@ html[data-theme="dark"] body::before {
 .site-shell {
   width: min(100%, calc(var(--max-width) + 4rem));
   margin: 0 auto;
-  padding: 1.25rem 2rem 4rem;
+  padding: 3.5rem 2rem 4rem;
 }
 
-.site-frame {
-  display: grid;
-  gap: 3.5rem;
-}
-
-.site-nav {
+.site-header {
   position: sticky;
   top: 0;
   z-index: 20;
-  padding: 0.85rem 0;
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(18px);
+  background: var(--header-bg);
+  box-shadow: 0 0.45rem 1.2rem rgba(20, 35, 32, 0.16);
 }
 
-html[data-theme="dark"] .site-nav {
-  background: var(--bg);
+.site-nav {
+  padding: 0;
 }
 
 .site-nav-inner {
+  width: min(100%, calc(var(--max-width) + 4rem));
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem 1.25rem;
   align-items: center;
   justify-content: space-between;
-  padding: 0.6rem 0;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
+  padding: 0.75rem 2rem;
+  color: var(--header-muted);
   font-size: 0.9rem;
 }
 
 .site-brand {
-  color: var(--text);
+  color: var(--header-text);
   font-family: "Gugi", "Noto Sans JP", sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.5rem;
 }
 
 .site-nav-actions {
@@ -153,13 +156,13 @@ html[data-theme="dark"] .site-nav {
 }
 
 .site-nav-inner a {
-  color: var(--muted);
+  color: var(--header-muted);
   text-decoration: none;
 }
 
 .site-nav-inner a:hover,
 .site-nav-inner a:focus-visible {
-  color: var(--text);
+  color: var(--header-text);
 }
 
 .theme-toggle {
@@ -184,10 +187,10 @@ html[data-theme="dark"] .site-nav {
   width: 3.8rem;
   height: 2rem;
   padding: 0 0.34rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--header-line);
   border-radius: 999px;
-  background: var(--surface-strong);
-  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
   transition:
     background 180ms ease,
     border-color 180ms ease;
@@ -203,8 +206,8 @@ html[data-theme="dark"] .site-nav {
   width: 1.55rem;
   height: 1.55rem;
   border-radius: 999px;
-  background: var(--accent);
-  color: #ffffff;
+  background: var(--header-text);
+  color: var(--header-bg);
   transition:
     transform 180ms ease,
     background 180ms ease;
@@ -501,11 +504,12 @@ a,
 
 @media (max-width: 820px) {
   .site-shell {
-    padding: 0.85rem 1rem 2.5rem;
+    padding: 2.4rem 1rem 2.5rem;
   }
 
-  .site-frame {
-    gap: 2.4rem;
+  .site-nav-inner {
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 
   .page-header,

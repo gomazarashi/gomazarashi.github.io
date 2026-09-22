@@ -59,6 +59,7 @@
   let resolved-title = page-title(title, path: path)
 
   [
+    #html.elem("meta", attrs: (charset: "utf-8"))
     #html.title[#resolved-title]
     #viewport-meta()
     #head-meta((name: "description"), description)
