@@ -31,6 +31,7 @@ just doctor
 * `content/`
 * `templates/`
 * `utils/`
+* `og/`
 * `assets/`
 * `tola.toml`
 * `justfile`
@@ -71,13 +72,46 @@ just build
 `just build` は現在、次の処理を行います。
 
 ```bash
-tola build
+just check
+python3 scripts/build-og.py
+rm -rf docs/images/og
+tola build --skip-drafts
 ./scripts/remove-404-from-sitemap.sh
+python3 scripts/validate-og.py
+# docs/CNAME の存在と内容の確認
 ```
 
 公開用の確認では、原則として `tola build` を直接実行するのではなく `just build` を使用してください。
 
 ビルド後は、意図した変更が `docs/` に反映されていることを確認してください。
+
+OG画像だけを再生成する場合（記事の title / summary / date / tags 変更後など）は
+`just og` を使用します。`docs/` への反映には `just build` が必要です。
+
+## OG画像（OGP）
+
+OG画像とOGP metadataは次のpipelineで生成します。
+
+```text
+content/posts/*.typ の metadata
+        ↓ Tola 標準の <tola-meta>
+tola query（.og/posts.json）
+        ↓ scripts/build-og.py
+og/*.typ（Typst） → assets/images/og/（Git管理しない）
+        ↓ Tola の nested assets
+docs/images/og/（Git管理する公開artifact）
+```
+
+注意事項:
+
+* `docs/images/og/*.png` を直接手編集しない。必ず `og/*.typ` または記事metadataを変更し、`just build` で再生成する。
+* 記事metadataの single source of truth は `content/posts/*.typ`。OG用に別ファイルへ手入力しない。
+* 記事metadataの抽出に独自parserを使わない。`tola query` を使う。
+* OG生成にはPython 3.11+（標準ライブラリのみ）と日本語フォント（`Noto Sans JP` または `Noto Sans CJK JP`）が必要。どちらもない場合buildは失敗する。フォールバックさせない。
+* `assets/images/og/` と `.og/` はGit管理しない。`docs/images/og/` はGit管理する。
+* OG画像は1200x630のPNG。`--ppi 144` を明示して生成する。
+* productionではdraftのHTMLもOG PNGも公開しない（`tola build --skip-drafts`）。
+* `utils/meta.typ` がOGP metadataの責務を持つ。site URL/titleは `tola.toml` と `@tola/site` から取得し、ハードコードしない。
 
 ## デプロイ
 

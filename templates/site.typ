@@ -1,8 +1,31 @@
 // templates/site.typ
 
 #import "../utils/meta.typ": page-head
+#import "@tola/current:0.0.0": current-permalink
 
-#let site(title: none, description: none, path: "/", meta-type: "website", body) = {
+#let site(
+  title: none,
+  description: none,
+  path: none,
+  meta-type: "website",
+  social-title: none,
+  og-image: none,
+  og-image-alt: none,
+  og-image-width: 1200,
+  og-image-height: 630,
+  og-image-type: none,
+  article: none,
+  noindex: false,
+  body,
+) = {
+  let current-path = if path != none {
+    path
+  } else if current-permalink != none {
+    current-permalink
+  } else {
+    "/"
+  }
+
   let nav-link(href, label, active) = {
     if active {
       html.a(href: href, aria-current: "page")[#label]
@@ -16,8 +39,16 @@
       #page-head(
         title: title,
         description: description,
-        path: path,
+        path: current-path,
         meta-type: meta-type,
+        social-title: social-title,
+        og-image: og-image,
+        og-image-alt: og-image-alt,
+        og-image-width: og-image-width,
+        og-image-height: og-image-height,
+        og-image-type: og-image-type,
+        article: article,
+        noindex: noindex,
       )
       #html.script(src: "/styles/theme.js")[]
     ]
@@ -30,9 +61,9 @@
             ]
             #html.div(class: "site-nav-actions")[
               #html.div(class: "site-nav-links")[
-                #nav-link("/", [ホーム], path == "/")
-                #nav-link("/posts/", [記事一覧], str(path).starts-with("/posts/"))
-                #nav-link("/tools/", [ツール], str(path).starts-with("/tools/"))
+                #nav-link("/", [ホーム], current-path == "/")
+                #nav-link("/posts/", [記事一覧], str(current-path).starts-with("/posts/"))
+                #nav-link("/tools/", [ツール], str(current-path).starts-with("/tools/"))
               ]
               #html.button(
                 class: "theme-toggle",
