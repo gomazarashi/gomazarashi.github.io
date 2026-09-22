@@ -1,7 +1,7 @@
 // content/index.typ
 
 #import "../templates/page.typ": page
-#import "../utils/articles.typ": latest-articles, format-jp-date
+#import "../utils/articles.typ": latest-articles, article-list-item
 #import "@preview/booticons:0.0.1": bsicon
 #show: page.with(
   title: "gomazarashi Lab",
@@ -122,18 +122,8 @@
     ]
     #html.div(class: "section-content")[
       #html.div(class: "list")[
-        #for article in latest-articles(limit: 1) [
-          #html.article(class: "list-item list-item-wide")[
-            #html.p(class: "entry-date")[
-              #html.elem("time", attrs: (datetime: article.at("date", default: "")))[
-                #format-jp-date(article.at("date", default: ""))
-              ]
-            ]
-            #html.div(class: "item-body")[
-              #html.h3(class: "entry-title")[#link(article.permalink)[#article.title]]
-              #html.p(class: "copy")[#article.at("summary", default: "")]
-            ]
-          ]
+        #for article in latest-articles() [
+          #article-list-item(article)
         ]
       ]
     ]

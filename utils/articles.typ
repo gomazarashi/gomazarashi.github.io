@@ -32,9 +32,22 @@
   .sorted(key: page => str(page.at("date", default: "")))
   .rev()
 
-// Latest `limit` articles. Safe when no pages are available yet (Tola's scan
-// phase returns an empty list, so slice must not run past the array end).
-#let latest-articles(limit: 1) = {
+// The most recent article, as an array so it can drive a list. Safe when no
+// pages are available yet (Tola's scan phase returns an empty list).
+#let latest-articles() = {
   let articles = all-articles()
-  articles.slice(0, calc.min(limit, articles.len()))
+  articles.slice(0, calc.min(1, articles.len()))
 }
+
+// Shared list item for / and /posts/. Markup lives here once.
+#let article-list-item(article) = html.article(class: "list-item list-item-wide")[
+  #html.p(class: "entry-date")[
+    #html.elem("time", attrs: (datetime: article.at("date", default: "")))[
+      #format-jp-date(article.at("date", default: ""))
+    ]
+  ]
+  #html.div(class: "item-body")[
+    #html.h3(class: "entry-title")[#link(article.permalink)[#article.title]]
+    #html.p(class: "copy")[#article.at("summary", default: "")]
+  ]
+]
