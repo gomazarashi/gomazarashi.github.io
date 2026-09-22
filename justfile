@@ -17,8 +17,10 @@ build:
   python3 scripts/build-og.py
   rm -rf docs/images/og
   tola build --skip-drafts
+  touch docs/.nojekyll
   ./scripts/remove-404-from-sitemap.sh
   python3 scripts/validate-og.py
+  test -f docs/.nojekyll
   test -f docs/CNAME
   test "$(cat docs/CNAME)" = "gomazarashi.com"
   @echo "build complete: docs/ is ready for GitHub Pages"
