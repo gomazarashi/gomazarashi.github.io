@@ -26,5 +26,5 @@ output = "docs"
 deps = ["templates", "utils"]
 
 [build.assets]
-nested = ["assets/styles"]
+nested = ["assets/styles", "assets/images"]
 flatten = ["assets/robots.txt"]

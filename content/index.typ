@@ -16,31 +16,63 @@
 ]
 
 #html.div(class: "content-shell")[
-  #html.header(class: "intro-block")[
-    #html.div(class: "intro-copy")[
-      #html.p(class: "lede")[
-        Typst・Pythonを中心に、技術記事や個人開発ツールを公開しています。
+  #html.header(class: "profile-block")[
+    #html.elem("img", attrs: (
+      class: "profile-image",
+      src: "/images/gomazarashi.jpg",
+      alt: "gomazarashi",
+    ))
+    #html.div(class: "profile-copy")[
+      #html.p(class: "profile-name")[gomazarashi]
+      #html.div(class: "profile-bio")[
+        #html.p[ネットワーク分野の大学院生です。研究分野はSoftware Defined Network(SDN)です。]
+        #html.p[趣味においてはネットワークや小さなツール開発、TeXやTypstなどの組版システムに興味があります。]
       ]
-    ]
-    #html.div(class: "action-row")[
-      #html.p(class: "button-link")[#link("/posts/")[記事を読む]]
-      #html.p(class: "button-link")[#link("/tools/")[ツールを見る]]
+      #html.p(class: "inline-links")[
+        #html.span(class: "inline-link")[#github-link("https://github.com/gomazarashi", [GitHub])]
+      ]
+      #html.div(class: "action-row")[
+        #html.p(class: "button-link")[#link("/posts/")[記事を読む]]
+        #html.p(class: "button-link")[#link("/tools/")[ツールを見る]]
+      ]
     ]
   ]
 
   #html.section(class: "section-block")[
     #html.header(class: "section-heading")[
-      #html.h2(class: "section-title")[このサイトについて]
+      #html.h2(class: "section-title")[活動・コミュニティ]
     ]
     #html.div(class: "section-content")[
       #html.div(class: "list")[
         #html.article(class: "list-item")[
-          #html.p(class: "label")[概要]
+          #html.p(class: "label")[Typst Japanese Community]
           #html.div(class: "item-body")[
-            #html.p(class: "copy")[技術記事、公開ツール、外部活動のまとめ。]
+            #html.p(class: "copy")[Typst Documentation 日本語版のメンテナとして、日本語翻訳・再翻訳・ドキュメントのメンテナンスに参加しています。]
+            #html.p(class: "inline-links")[
+              #html.span(class: "inline-link")[#link("https://github.com/typst-jp")[GitHubで見る]]
+            ]
           ]
         ]
 
+        #html.article(class: "list-item")[
+          #html.p(class: "label")[岡山大学電子計算機研究会（OUCRC）]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[2022年度入部、現在はOBです。技術記事の執筆などを行いました。]
+            #html.p(class: "inline-links")[
+              #html.span(class: "inline-link")[#link("https://oucrc.net/members/b6bud_yjl4q6/")[プロフィールを見る]]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[サイト情報]
+    ]
+    #html.div(class: "section-content")[
+      #html.div(class: "list")[
         #html.article(class: "list-item")[
           #html.p(class: "label")[構築環境]
           #html.div(class: "item-body")[
@@ -173,7 +205,7 @@
 
   #html.section(class: "section-block")[
     #html.header(class: "section-heading")[
-      #html.h2(class: "section-title")[外部活動]
+      #html.h2(class: "section-title")[発信]
     ]
     #html.div(class: "section-content")[
       #html.div(class: "list")[
@@ -190,14 +222,6 @@
           #html.div(class: "item-body")[
             #html.p(class: "copy")[勉強会などで使用したスライド資料を公開しています。]
             #html.p(class: "hero-link")[#link("https://www.docswell.com/user/gomazarashi")[スライド一覧を見る]]
-          ]
-        ]
-
-        #html.article(class: "list-item")[
-          #html.p(class: "label")[OUCRC]
-          #html.div(class: "item-body")[
-            #html.p(class: "copy")[所属サークルのサイトに技術記事を投稿しています。]
-            #html.p(class: "hero-link")[#link("https://oucrc.net/members/b6bud_yjl4q6/")[投稿記事を見る]]
           ]
         ]
       ]
