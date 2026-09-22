@@ -4,6 +4,8 @@
 
 #let page(
   title: none,
+  heading: none,
+  heading-sub: none,
   description: none,
   path: none,
   show-title: true,
@@ -12,6 +14,12 @@
   noindex: false,
   body,
 ) = {
+  let h1-label = if heading != none { heading } else { title }
+  let h1-content = html.span(class: "page-title-label", lang: "en")[#h1-label]
+  if heading-sub != none {
+    h1-content += html.span(class: "page-title-sub")[#heading-sub]
+  }
+
   site(
     title: title,
     description: description,
@@ -24,7 +32,7 @@
     #html.div(class: "page-layout")[
       #if show-title and title != none [
         #html.header(class: "page-header")[
-          #html.h1(class: "page-title")[#title]
+          #html.h1(class: "page-title")[#h1-content]
         ]
       ]
 

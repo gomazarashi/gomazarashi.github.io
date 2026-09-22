@@ -229,10 +229,41 @@ html[data-theme="dark"] body::before {
   color: var(--header-text);
 }
 
+.site-nav-label {
+  font-family: "Gugi", "Noto Sans JP", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.site-nav-sub {
+  position: absolute;
+  top: calc(100% + 0.3rem);
+  left: 50%;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.25rem;
+  background: var(--surface-strong);
+  color: var(--accent);
+  font-size: 0.66rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 0.2rem 0.5rem rgba(20, 35, 32, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+  transition: opacity 0.15s ease;
+}
+
+.site-nav-links a:hover .site-nav-sub,
+.site-nav-links a:focus-visible .site-nav-sub {
+  opacity: 1;
+  visibility: visible;
+}
+
 .site-nav-links a[aria-current="page"] .site-nav-label {
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: 0.35rem;
+  text-underline-offset: 0.25rem;
 }
 
 .site-nav-links a+a::before {
@@ -331,7 +362,8 @@ html[data-theme="dark"] .theme-toggle-knob {
 
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle-track,
-  .theme-toggle-knob {
+  .theme-toggle-knob,
+  .site-nav-sub {
     transition: none;
   }
 }
@@ -352,18 +384,29 @@ html[data-theme="dark"] .theme-toggle-knob {
 }
 
 .page-title {
-  max-width: 12ch;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 16ch;
   margin: 0;
   font-family: "Gugi", "Noto Sans JP", sans-serif;
-  font-size: clamp(2.5rem, 7.2vw, 4.6rem);
+  font-size: clamp(1.9rem, 4.2vw, 2.5rem);
   font-weight: 400;
   line-height: 1;
+}
+
+.page-title-sub {
+  color: var(--muted);
+  font-family: "Noto Sans JP", "Yu Gothic UI", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .post-header .page-title {
   max-width: 16ch;
   font-family: "Noto Sans JP", "Yu Gothic UI", sans-serif;
-  font-size: clamp(2rem, 5.6vw, 3.4rem);
+  font-size: clamp(1.7rem, 3.8vw, 2.25rem);
   font-weight: 800;
   line-height: 1.12;
 }
@@ -443,7 +486,7 @@ html[data-theme="dark"] .theme-toggle-knob {
 .profile-name {
   margin: 0;
   font-family: "Gugi", "Noto Sans JP", sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-size: clamp(1.8rem, 3.8vw, 2.25rem);
   font-weight: 400;
   line-height: 1;
 }
@@ -795,14 +838,6 @@ a,
 
   .profile-image {
     width: 5.25rem;
-  }
-
-  .page-title {
-    font-size: clamp(2.2rem, 13vw, 3.3rem);
-  }
-
-  .post-header .page-title {
-    font-size: clamp(1.8rem, 10vw, 2.7rem);
   }
 
   .featured-project {

@@ -5,6 +5,8 @@
 
 #show: page.with(
   title: "記事一覧",
+  heading: "Posts",
+  heading-sub: "記事一覧",
   description: "公開済みの技術記事、翻訳、作成資料を一覧でまとめています。",
 )
 
