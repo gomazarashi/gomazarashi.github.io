@@ -44,17 +44,17 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def command_version(command: str) -> str:
-    proc = subprocess.run(
-        [command, "--version"], cwd=og.ROOT, capture_output=True, text=True
-    )
-    output = (proc.stdout or proc.stderr).strip()
-    return output.splitlines()[0] if output else "unknown"
-
-
 def check_env() -> str:
     og.require_commands("typst", "tola")
     return og.detect_og_font()
+
+
+def report_version_mismatches() -> None:
+    for mismatch in og.documented_version_mismatches():
+        og.warn(
+            f"tool version differs from the documented one: {mismatch}; "
+            "OG output may differ from the committed artifacts"
+        )
 
 
 def text_field(item: dict, key: str, errors: list[str]) -> str | None:
@@ -229,11 +229,17 @@ def main() -> None:
 
     if args.check_env:
         print(f"python: {sys.version.split()[0]}")
-        print(f"typst: {command_version('typst')}")
-        print(f"tola: {command_version('tola')}")
+        for tool, expected in (
+            ("typst", og.EXPECTED_TYPST_VERSION),
+            ("tola", og.EXPECTED_TOLA_VERSION),
+        ):
+            version = og.command_version(tool)
+            marker = "" if expected in version else f" [documented: {expected} -> mismatch]"
+            print(f"{tool}: {version}{marker}")
         print(f"og-font: {font}")
         return
 
+    report_version_mismatches()
     author = og.site_author() or "gomazarashi"
 
     # Recreate generated directories so stale files can never survive a build.

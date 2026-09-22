@@ -23,6 +23,10 @@ OG画像の生成には次の日本語フォントが必要です（リポジト
 どちらも `typst fonts` から見つからない場合、`just og` / `just build` は明示的に失敗します。
 OS標準フォントへはフォールバックしません。
 
+`scripts/og_common.py` にドキュメント上のツールバージョン（Typst 0.14.2 / Tola 0.7.1）を
+記録しています。実際のバージョンと異なる場合、`just doctor` は `mismatch` を表示し、
+`just og` / `just build` は警告を出します（buildは継続します）。
+
 ## 初回セットアップ
 
 1. リポジトリをクローンする。
@@ -63,6 +67,14 @@ just validate-og
 - 生成済み `docs/` に対してOG metadataとPNGを検証する（build後のみ）。
 
 ```bash
+just test-og
+```
+
+- OGテンプレートのfixtureテスト。一時JSONからPNGを生成し、タイトル折り返し・
+  タグの省略・長いトークン・オーバーフロー失敗系を検証する。
+  公開contentや `docs/` には書き込まない。
+
+```bash
 just serve
 ```
 
@@ -95,6 +107,8 @@ https://gomazarashi.com/images/og/...
 - 記事metadataの single source of truth は `content/posts/*.typ`。
 - OG画像用にmetadataを別ファイルへ手入力しない。
 - 記事metadataの抽出は `tola query` を使用し、独自parserは使わない。
+- 記事一覧（`/posts/`）とトップの最新記事は `@tola/pages` から生成し、
+  一覧側へtitle / date / summaryを手入力しない。
 - HTML側のOGPは `utils/meta.typ` に集約している。
 
 ### 公開URL

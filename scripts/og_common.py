@@ -35,6 +35,11 @@ PNG_SIZE_ERROR_BYTES = 1024 * 1024
 
 FONT_CANDIDATES = ("Noto Sans JP", "Noto Sans CJK JP")
 
+# Versions documented in README.md / AGENTS.md. Mismatches are reported as
+# warnings (not build failures) because tool upgrades are a separate decision.
+EXPECTED_TYPST_VERSION = "0.14.2"
+EXPECTED_TOLA_VERSION = "0.7.1"
+
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 
 
@@ -62,6 +67,27 @@ def require_commands(*names: str) -> None:
     missing = [name for name in names if which(name) is None]
     if missing:
         fail(f"required command(s) not found: {', '.join(missing)}")
+
+
+def command_version(command: str) -> str:
+    proc = subprocess.run(
+        [command, "--version"], cwd=ROOT, capture_output=True, text=True
+    )
+    output = (proc.stdout or proc.stderr).strip()
+    return output.splitlines()[0] if output else "unknown"
+
+
+def documented_version_mismatches() -> list[str]:
+    """Return human-readable mismatches against the documented tool versions."""
+    mismatches = []
+    for tool, expected in (
+        ("typst", EXPECTED_TYPST_VERSION),
+        ("tola", EXPECTED_TOLA_VERSION),
+    ):
+        version = command_version(tool)
+        if expected not in version:
+            mismatches.append(f"{version} (documented: {expected})")
+    return mismatches
 
 
 def load_config() -> dict:
