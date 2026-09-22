@@ -21,8 +21,11 @@
     #html.elem("picture")[
       #html.elem("img", attrs: (
         class: "profile-image",
-        src: "/images/gomazarashi.jpg",
+        src: "/images/gomazarashi-256.webp",
         alt: "gomazarashi",
+        width: "256",
+        height: "256",
+        fetchpriority: "high",
       ))
     ]
     #html.div(class: "profile-copy")[

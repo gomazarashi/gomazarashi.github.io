@@ -331,6 +331,7 @@ html[data-theme="dark"] .theme-toggle-knob {
 .profile-image {
   display: block;
   width: clamp(6rem, 10vw, 8rem);
+  height: auto;
   aspect-ratio: 1;
   border: 1px solid var(--line);
   border-radius: 50%;
