@@ -4,8 +4,9 @@
 #import "@preview/booticons:0.0.1": bsicon
 #show: page.with(
   title: "gomazarashi Lab",
-  description: "Typst・Pythonを中心に、技術記事や個人開発ツールを公開している個人サイトです。",
+  description: "gomazarashiのWebサイトです。",
   path: "/",
+  show-title: false,
 )
 
 #let github-link(url, label) = link(url)[
@@ -16,12 +17,14 @@
 ]
 
 #html.div(class: "content-shell")[
-  #html.header(class: "profile-block")[
-    #html.elem("img", attrs: (
-      class: "profile-image",
-      src: "/images/gomazarashi.jpg",
-      alt: "gomazarashi",
-    ))
+  #html.header(class: "profile-block", aria-label: "プロフィール")[
+    #html.elem("picture")[
+      #html.elem("img", attrs: (
+        class: "profile-image",
+        src: "/images/gomazarashi.jpg",
+        alt: "gomazarashi",
+      ))
+    ]
     #html.div(class: "profile-copy")[
       #html.p(class: "profile-name")[gomazarashi]
       #html.div(class: "profile-bio")[
@@ -34,6 +37,48 @@
       #html.div(class: "action-row")[
         #html.p(class: "button-link")[#link("/posts/")[記事を読む]]
         #html.p(class: "button-link")[#link("/tools/")[ツールを見る]]
+      ]
+    ]
+  ]
+
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[公開ツール]
+      #html.p(class: "hero-link")[#link("/tools/")[ツール一覧を見る]]
+    ]
+    #html.div(class: "section-content")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item list-item-wide")[
+          #html.p(class: "tool-code")[text-diff]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[ブラウザ内だけでテキスト差分を比較するツールです。]
+            #html.p(class: "inline-links")[
+              #html.span(class: "inline-link")[#link("https://gomazarashi.com/text-diff/")[ツールを開く]]
+              #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/text-diff")[ソースコード]]
+            ]
+          ]
+        ]
+
+        #html.article(class: "list-item list-item-wide")[
+          #html.p(class: "tool-code")[simple-text-counter]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[入力内容をサーバーに送信せず、ブラウザ内だけで文字数を数えるツールです。]
+            #html.p(class: "inline-links")[
+              #html.span(class: "inline-link")[#link("https://gomazarashi.com/simple-text-counter/")[ツールを開く]]
+              #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/simple-text-counter")[ソースコード]]
+            ]
+          ]
+        ]
+
+        #html.article(class: "list-item list-item-wide")[
+          #html.p(class: "tool-code")[nata]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[PDFをページ単位で扱う Rust 製CLIツールです。]
+            #html.p(class: "inline-links")[
+              #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/nata")[ソースコード]]
+            ]
+          ]
+        ]
       ]
     ]
   ]
@@ -69,23 +114,41 @@
 
   #html.section(class: "section-block")[
     #html.header(class: "section-heading")[
-      #html.h2(class: "section-title")[サイト情報]
+      #html.h2(class: "section-title")[最新記事]
+      #html.p(class: "hero-link")[#link("/posts/")[記事一覧を見る]]
+    ]
+    #html.div(class: "section-content")[
+      #html.div(class: "list")[
+        #html.article(class: "list-item list-item-wide")[
+          #html.p(class: "entry-date")[2026年4月12日]
+          #html.div(class: "item-body")[
+            #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
+            #html.p(class: "copy")[サイト公開時に作成した最初の記事です。]
+          ]
+        ]
+      ]
+    ]
+  ]
+
+  #html.section(class: "section-block")[
+    #html.header(class: "section-heading")[
+      #html.h2(class: "section-title")[発信]
     ]
     #html.div(class: "section-content")[
       #html.div(class: "list")[
         #html.article(class: "list-item")[
-          #html.p(class: "label")[構築環境]
+          #html.p(class: "label")[Qiita]
           #html.div(class: "item-body")[
-            #html.ul(class: "tag-list")[
-              #html.li[Typst]
-              #html.li[CSS]
-              #html.li[JavaScript]
-              #html.li[Tola]
-              #html.li[GitHub Pages]
-            ]
-            #html.p(class: "copy")[
-              #html.span(class: "inline-link")[#github-link("https://github.com/gomazarashi/gomazarashi.github.io", [github.com/gomazarashi/gomazarashi.github.io])]
-            ]
+            #html.p(class: "copy")[Typst を中心とした技術記事を投稿しています。]
+            #html.p(class: "hero-link")[#link("https://qiita.com/gomazarashi")[記事一覧を見る]]
+          ]
+        ]
+
+        #html.article(class: "list-item")[
+          #html.p(class: "label")[Docswell]
+          #html.div(class: "item-body")[
+            #html.p(class: "copy")[勉強会などで使用したスライド資料を公開しています。]
+            #html.p(class: "hero-link")[#link("https://www.docswell.com/user/gomazarashi")[スライド一覧を見る]]
           ]
         ]
       ]
@@ -118,6 +181,12 @@
                 #html.li[C++]
                 #html.li[C]
                 #html.li[R]
+              ]
+            ]
+            #html.div(class: "detail-group")[
+              #html.p(class: "skill-heading")[研究・関心]
+              #html.ul(class: "tag-list")[
+                #html.li[SDN]
                 #html.li[P4]
               ]
             ]
@@ -205,83 +274,23 @@
 
   #html.section(class: "section-block")[
     #html.header(class: "section-heading")[
-      #html.h2(class: "section-title")[発信]
+      #html.h2(class: "section-title")[サイト情報]
     ]
     #html.div(class: "section-content")[
       #html.div(class: "list")[
         #html.article(class: "list-item")[
-          #html.p(class: "label")[Qiita]
+          #html.p(class: "label")[構築環境]
           #html.div(class: "item-body")[
-            #html.p(class: "copy")[Typst を中心とした技術記事を投稿しています。]
-            #html.p(class: "hero-link")[#link("https://qiita.com/gomazarashi")[記事一覧を見る]]
-          ]
-        ]
-
-        #html.article(class: "list-item")[
-          #html.p(class: "label")[Docswell]
-          #html.div(class: "item-body")[
-            #html.p(class: "copy")[勉強会などで使用したスライド資料を公開しています。]
-            #html.p(class: "hero-link")[#link("https://www.docswell.com/user/gomazarashi")[スライド一覧を見る]]
-          ]
-        ]
-      ]
-    ]
-  ]
-
-  #html.section(class: "section-block")[
-    #html.header(class: "section-heading")[
-      #html.h2(class: "section-title")[公開ツール]
-      #html.p(class: "hero-link")[#link("/tools/")[ツール一覧を見る]]
-    ]
-    #html.div(class: "section-content")[
-      #html.div(class: "list")[
-        #html.article(class: "list-item list-item-wide")[
-          #html.p(class: "tool-code")[text-diff]
-          #html.div(class: "item-body")[
-            #html.p(class: "copy")[ブラウザ内だけでテキスト差分を比較するツールです。]
-            #html.p(class: "inline-links")[
-              #html.span(class: "inline-link")[#link("https://gomazarashi.com/text-diff/")[ツールを開く]]
-              #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/text-diff")[ソースコード]]
+            #html.ul(class: "tag-list")[
+              #html.li[Typst]
+              #html.li[CSS]
+              #html.li[JavaScript]
+              #html.li[Tola]
+              #html.li[GitHub Pages]
             ]
-          ]
-        ]
-
-        #html.article(class: "list-item list-item-wide")[
-          #html.p(class: "tool-code")[simple-text-counter]
-          #html.div(class: "item-body")[
-            #html.p(class: "copy")[入力内容をサーバーに送信せず、ブラウザ内だけで文字数を数えるツールです。]
-            #html.p(class: "inline-links")[
-              #html.span(class: "inline-link")[#link("https://gomazarashi.com/simple-text-counter/")[ツールを開く]]
-              #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/simple-text-counter")[ソースコード]]
+            #html.p(class: "copy")[
+              #html.span(class: "inline-link")[#github-link("https://github.com/gomazarashi/gomazarashi.github.io", [github.com/gomazarashi/gomazarashi.github.io])]
             ]
-          ]
-        ]
-
-        #html.article(class: "list-item list-item-wide")[
-          #html.p(class: "tool-code")[nata]
-          #html.div(class: "item-body")[
-            #html.p(class: "copy")[PDFをページ単位で扱う Rust 製CLIツールです。]
-            #html.p(class: "inline-links")[
-              #html.span(class: "inline-link")[#link("https://github.com/gomazarashi/nata")[ソースコード]]
-            ]
-          ]
-        ]
-      ]
-    ]
-  ]
-
-  #html.section(class: "section-block")[
-    #html.header(class: "section-heading")[
-      #html.h2(class: "section-title")[最新記事]
-      #html.p(class: "hero-link")[#link("/posts/")[記事一覧を見る]]
-    ]
-    #html.div(class: "section-content")[
-      #html.div(class: "list")[
-        #html.article(class: "list-item list-item-wide")[
-          #html.p(class: "entry-date")[2026年4月12日]
-          #html.div(class: "item-body")[
-            #html.h3(class: "entry-title")[#link("/posts/20260412-first-post/")[最初の記事]]
-            #html.p(class: "copy")[サイト公開時に作成した最初の記事です。]
           ]
         ]
       ]

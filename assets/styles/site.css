@@ -127,15 +127,15 @@ html[data-theme="dark"] body::before {
 
 .site-brand {
   display: inline-flex;
-  gap: 0.55rem;
-  align-items: center;
   color: var(--header-text);
   font-family: "Gugi", "Noto Sans JP", sans-serif;
   font-size: 1.5rem;
 }
 
-.site-brand::after {
-  content: "gomazarashi Lab";
+.site-brand-content {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
 }
 
 .site-brand-image {
