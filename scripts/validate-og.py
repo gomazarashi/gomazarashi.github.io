@@ -249,7 +249,6 @@ def check_article_page(
     entry: dict,
 ) -> None:
     expected_image = absolute_url(str(entry["image"]))
-    generated = bool(entry.get("generated"))
     check_singletons(report, path, parser)
     og_title, _ = check_common_head(report, path, parser, expected_url, expected_image)
 
@@ -260,11 +259,6 @@ def check_article_page(
     social_title = entry.get("og-title") or entry["title"]
     if og_title and og_title != social_title:
         report.error(f"{path}: og:title must be {social_title!r}, got {og_title!r}")
-
-    image_alt = parser.values("property", "og:image:alt")
-    custom_alt = entry.get("og-image-alt")
-    if custom_alt and image_alt and image_alt[0] != custom_alt:
-        report.error(f"{path}: og:image:alt must be {custom_alt!r}")
 
     description = parser.values("property", "og:description")
     if description and description[0] != entry["summary"]:
@@ -292,8 +286,7 @@ def check_article_page(
             f"{list(entry.get('tags', []))!r}"
         )
 
-    if generated:
-        check_generated_image_attributes(report, path, parser)
+    check_generated_image_attributes(report, path, parser)
 
 
 def check_404(report: Report, path: str, parser: HeadParser) -> None:
@@ -322,7 +315,7 @@ def check_stale_pngs(report: Report, manifest: dict) -> tuple[int, int]:
     docs_dir = og.ROOT / "docs"
     expected = {Path("images/og/default.png")}
     for entry in manifest.get("posts", []):
-        if entry.get("draft") or not entry.get("generated"):
+        if entry.get("draft"):
             continue
         url = absolute_url(str(entry["image"]))
         local = url_to_docs_relative(url)
@@ -387,10 +380,9 @@ def main() -> None:
         parser.feed(page.read_text(encoding="utf-8", errors="replace"))
         expected_url = og.site_url() + permalink
         check_article_page(report, f"docs/{rel}", parser, expected_url, entry)
-        if entry.get("generated"):
-            local = url_to_docs_relative(absolute_url(str(entry["image"])))
-            if local is not None:
-                check_png(report, og.ROOT / "docs" / local)
+        local = url_to_docs_relative(absolute_url(str(entry["image"])))
+        if local is not None:
+            check_png(report, og.ROOT / "docs" / local)
         checked_pages += 1
 
     expected_count, actual_count = check_stale_pngs(report, manifest)

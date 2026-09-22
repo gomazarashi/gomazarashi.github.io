@@ -9,8 +9,6 @@
   description: none,
   path: none,
   show-title: true,
-  og-image: none,
-  og-image-alt: none,
   noindex: false,
   body,
 ) = {
@@ -25,8 +23,6 @@
     description: description,
     path: path,
     meta-type: "website",
-    og-image: og-image,
-    og-image-alt: og-image-alt,
     noindex: noindex,
   )[
     #html.div(class: "page-layout")[

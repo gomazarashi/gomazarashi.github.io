@@ -156,17 +156,6 @@ og-title: "短縮したタイトル",
 `og-title` はOG画像とsocial title（`og:title` / `twitter:title`）に使われる。
 browserの `<title>` は元のタイトルのまま。
 
-### custom OG image
-
-記事metadataの `og-image` で画像を差し替えられる（将来用）。
-
-```typst
-og-image: "/images/custom/foo.png",
-og-image-alt: "画像の説明",
-```
-
-指定したfileは `assets/` または `docs/` に存在する必要がある。
-
 ### draft
 
 - production build（`just build`）は `tola build --skip-drafts` を使い、

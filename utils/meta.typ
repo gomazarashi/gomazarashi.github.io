@@ -46,19 +46,6 @@
   }
 }
 
-#let image-type(path) = {
-  let path = str(path)
-  if path.ends-with(".jpg") or path.ends-with(".jpeg") {
-    "image/jpeg"
-  } else if path.ends-with(".webp") {
-    "image/webp"
-  } else if path.ends-with(".gif") {
-    "image/gif"
-  } else {
-    "image/png"
-  }
-}
-
 #let default-og-image-alt = site-name + " — Network research, Typst, and small web tools のOG画像"
 
 #let head-meta(attrs, content) = {
@@ -94,10 +81,6 @@
   meta-type: "website",
   social-title: none,
   og-image: none,
-  og-image-alt: none,
-  og-image-width: 1200,
-  og-image-height: 630,
-  og-image-type: none,
   article: none,
   noindex: false,
 ) = {
@@ -126,14 +109,7 @@
     str(og-image)
   }
   let image-url = absolute-url(image-path)
-  let image-type-value = if og-image-type != none {
-    str(og-image-type)
-  } else {
-    image-type(image-path)
-  }
-  let image-alt = if og-image-alt != none and str(og-image-alt) != "" {
-    str(og-image-alt)
-  } else if article != none and title != none {
+  let image-alt = if article != none and title != none {
     "「" + str(title) + "」— " + site-author + " の記事OG画像"
   } else {
     default-og-image-alt
@@ -158,9 +134,9 @@
     #head-meta((property: "og:site_name"), site-name)
     #head-meta((property: "og:locale"), og-locale)
     #head-meta((property: "og:image"), image-url)
-    #head-meta((property: "og:image:width"), og-image-width)
-    #head-meta((property: "og:image:height"), og-image-height)
-    #head-meta((property: "og:image:type"), image-type-value)
+    #head-meta((property: "og:image:width"), "1200")
+    #head-meta((property: "og:image:height"), "630")
+    #head-meta((property: "og:image:type"), "image/png")
     #head-meta((property: "og:image:alt"), image-alt)
     #head-meta((name: "twitter:card"), "summary_large_image")
     #head-meta((name: "twitter:title"), social)
