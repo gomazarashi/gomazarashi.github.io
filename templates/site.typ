@@ -19,9 +19,9 @@
         path: path,
         meta-type: meta-type,
       )
+      #html.script(src: "/styles/theme.js")[]
     ]
     #html.body[
-      #html.script(src: "/styles/theme.js")[]
       #html.header(class: "site-header")[
         #html.nav(class: "site-nav", aria-label: "主要ナビゲーション")[
           #html.div(class: "site-nav-inner")[
