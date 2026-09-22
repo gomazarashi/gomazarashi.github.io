@@ -9,6 +9,9 @@
 // Render an ISO date (YYYY-MM-DD) as a Japanese date. Uses integer conversion
 // so leading zeros disappear (2026-04-05 -> 2026年4月5日).
 #let format-jp-date(iso) = {
+  if iso == none {
+    return ""
+  }
   let parts = str(iso).split("-")
   if parts.len() != 3 {
     return str(iso)
@@ -26,10 +29,19 @@
   )
 }
 
-// All articles, newest first (date descending).
+// Sort key for articles. Tola's scan phase can expose pages before their
+// metadata is resolved; treat a missing date as empty so lists stay stable.
+#let date-key(page) = {
+  let date = page.at("date", default: none)
+  if date == none { "" } else { str(date) }
+}
+
+// All articles, newest first (date descending). Pages without a date are
+// skipped: Tola's scan phase exposes unresolved placeholders without one.
 #let all-articles() = pages()
   .filter(is-article)
-  .sorted(key: page => str(page.at("date", default: "")))
+  .filter(page => page.at("date", default: none) != none)
+  .sorted(key: date-key)
   .rev()
 
 // The most recent article, as an array so it can drive a list. Safe when no
@@ -39,15 +51,23 @@
   articles.slice(0, calc.min(1, articles.len()))
 }
 
-// Shared list item for / and /posts/. Markup lives here once.
-#let article-list-item(article) = html.article(class: "list-item list-item-wide")[
-  #html.p(class: "entry-date")[
-    #html.elem("time", attrs: (datetime: article.at("date", default: "")))[
-      #format-jp-date(article.at("date", default: ""))
+// Shared list item for / and /posts/. Markup lives here once. Incomplete pages
+// from Tola's scan phase (no title or date) are skipped.
+#let article-list-item(article) = {
+  let date = article.at("date", default: none)
+  let title = article.at("title", default: none)
+  if date == none or title == none {
+    return
+  }
+  html.article(class: "list-item list-item-wide")[
+    #html.p(class: "entry-date")[
+      #html.elem("time", attrs: (datetime: date))[
+        #format-jp-date(date)
+      ]
+    ]
+    #html.div(class: "item-body")[
+      #html.h3(class: "entry-title")[#link(article.permalink)[#article.title]]
+      #html.p(class: "copy")[#article.at("summary", default: "")]
     ]
   ]
-  #html.div(class: "item-body")[
-    #html.h3(class: "entry-title")[#link(article.permalink)[#article.title]]
-    #html.p(class: "copy")[#article.at("summary", default: "")]
-  ]
-]
+}
