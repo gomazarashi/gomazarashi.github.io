@@ -44,8 +44,7 @@ TWITTER_SINGLETONS = (
 FIXED_PAGES = (
     ("/", "index.html"),
     ("/posts/", "posts/index.html"),
-    ("/tools/", "tools/index.html"),
-    ("/projects/", "projects/index.html"),
+    ("/works/", "works/index.html"),
     ("/banners/", "banners/index.html"),
     ("/about/", "about/index.html"),
     ("/404.html", "404.html"),

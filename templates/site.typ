@@ -60,7 +60,7 @@
             #html.div(class: "site-nav-actions")[
               #html.div(class: "site-nav-links")[
                 #nav-link("/", [Home], [ホーム], current-path == "/")
-                #nav-link("/projects/", [Projects], [プロジェクト], str(current-path).starts-with("/projects/"))
+                #nav-link("/works/", [Works], [制作物], str(current-path).starts-with("/works/"))
                 #nav-link("/posts/", [Posts], [記事], str(current-path).starts-with("/posts/"))
                 #nav-link("/about/", [About], [サイトについて], str(current-path).starts-with("/about/"))
               ]
@@ -78,8 +78,7 @@
         #html.div(class: "site-footer-inner")[
           #html.p(class: "site-footer-note")[© gomazarashi — Built with Typst + Tola]
           #html.nav(class: "site-footer-nav", aria-label: "フッターナビゲーション")[
-            #link("/projects/")[Projects]
-            #link("/tools/")[Tools]
+            #link("/works/")[Works]
             #link("/about/")[About]
             #link("https://github.com/gomazarashi")[GitHub]
             #link("https://github.com/gomazarashi/gomazarashi.github.io")[Source]
