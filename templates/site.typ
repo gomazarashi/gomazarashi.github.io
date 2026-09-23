@@ -1,5 +1,6 @@
 // templates/site.typ
 
+#import "../utils/components.typ": theme-toggle
 #import "../utils/meta.typ": page-head
 #import "@tola/current:0.0.0": current-permalink
 
@@ -59,23 +60,11 @@
             #html.div(class: "site-nav-actions")[
               #html.div(class: "site-nav-links")[
                 #nav-link("/", [Home], [ホーム], current-path == "/")
-                #nav-link("/projects/", [Projects], [プロジェクト], str(current-path).starts-with("/projects/"))
+                #nav-link("/works/", [Works], [制作物], str(current-path).starts-with("/works/"))
                 #nav-link("/posts/", [Posts], [記事], str(current-path).starts-with("/posts/"))
                 #nav-link("/about/", [About], [サイトについて], str(current-path).starts-with("/about/"))
               ]
-              #html.button(
-                class: "theme-toggle",
-                id: "theme-toggle",
-                type: "button",
-                aria-label: "ダークモードに切り替え",
-              )[
-                #html.span(class: "theme-toggle-track")[
-                  #html.span(class: "theme-toggle-icon theme-toggle-icon-sun", aria-hidden: true)[]
-                  #html.span(class: "theme-toggle-knob", aria-hidden: true)[
-                    #html.span(class: "theme-toggle-icon theme-toggle-icon-moon")[]
-                  ]
-                ]
-              ]
+              #theme-toggle()
             ]
           ]
         ]
@@ -89,8 +78,7 @@
         #html.div(class: "site-footer-inner")[
           #html.p(class: "site-footer-note")[© gomazarashi — Built with Typst + Tola]
           #html.nav(class: "site-footer-nav", aria-label: "フッターナビゲーション")[
-            #link("/projects/")[Projects]
-            #link("/tools/")[Tools]
+            #link("/works/")[Works]
             #link("/about/")[About]
             #link("https://github.com/gomazarashi")[GitHub]
             #link("https://github.com/gomazarashi/gomazarashi.github.io")[Source]
