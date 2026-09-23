@@ -1,7 +1,7 @@
-// utils/projects.typ
+// utils/works.typ
 //
-// Single source of truth for public projects and tools. /, /tools/, and
-// /projects/ render from this data; do not duplicate entries in pages.
+// Single source of truth for public works and tools. / and /works/ render
+// from this data; do not duplicate entries in pages.
 
 #let featured = (
   name: "Machibumi",
@@ -38,7 +38,7 @@
   ),
 )
 
-// Featured project block, reused on / and /projects/.
+// Featured project block, reused on / and /works/.
 #let featured-project() = html.article(class: "featured-project")[
   #html.div(class: "featured-project-body")[
     #html.p(class: "featured-project-kicker")[#featured.kicker]
@@ -56,7 +56,7 @@
   ]
 ]
 
-// Tool list item, reused on /, /tools/, and /projects/.
+// Tool list item, reused on / and /works/.
 #let tool-item(tool, show-category: false) = html.article(class: "list-item list-item-wide")[
   #if show-category [
     #html.div(class: "item-head")[
