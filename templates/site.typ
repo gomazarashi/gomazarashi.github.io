@@ -1,5 +1,6 @@
 // templates/site.typ
 
+#import "../utils/components.typ": theme-toggle
 #import "../utils/meta.typ": page-head
 #import "@tola/current:0.0.0": current-permalink
 
@@ -63,19 +64,7 @@
                 #nav-link("/posts/", [Posts], [記事], str(current-path).starts-with("/posts/"))
                 #nav-link("/about/", [About], [サイトについて], str(current-path).starts-with("/about/"))
               ]
-              #html.button(
-                class: "theme-toggle",
-                id: "theme-toggle",
-                type: "button",
-                aria-label: "ダークモードに切り替え",
-              )[
-                #html.span(class: "theme-toggle-track")[
-                  #html.span(class: "theme-toggle-icon theme-toggle-icon-sun", aria-hidden: true)[]
-                  #html.span(class: "theme-toggle-knob", aria-hidden: true)[
-                    #html.span(class: "theme-toggle-icon theme-toggle-icon-moon")[]
-                  ]
-                ]
-              ]
+              #theme-toggle()
             ]
           ]
         ]

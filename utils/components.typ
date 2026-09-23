@@ -37,3 +37,18 @@
   ).join(),
 ))
 
+#let theme-toggle() = html.button(
+  class: "theme-toggle",
+  id: "theme-toggle",
+  type: "button",
+  aria-label: "ダークモードに切り替え",
+  html.span(
+    class: "theme-toggle-track",
+    aria-hidden: true,
+    (
+      html.span(class: "theme-toggle-knob"),
+      html.span(class: "theme-toggle-icon theme-toggle-icon-sun", icon("sun")),
+      html.span(class: "theme-toggle-icon theme-toggle-icon-moon", icon("moon")),
+    ).join(),
+  ),
+)
