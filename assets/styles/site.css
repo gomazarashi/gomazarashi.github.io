@@ -848,13 +848,39 @@ a,
   }
 }
 
+@media (max-width: 640px) {
+  .site-nav-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand toggle"
+      "links links";
+    align-items: center;
+    row-gap: 0.7rem;
+  }
+
+  .site-nav-actions {
+    display: contents;
+  }
+
+  .site-brand {
+    grid-area: brand;
+    min-width: 0;
+  }
+
+  .theme-toggle {
+    grid-area: toggle;
+    justify-self: end;
+  }
+
+  .site-nav-links {
+    grid-area: links;
+  }
+}
+
 @media (max-width: 560px) {
   html {
     font-size: 15px;
-  }
-
-  .site-nav-inner {
-    align-items: flex-start;
   }
 
   .profile-image {
