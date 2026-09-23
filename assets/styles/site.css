@@ -377,6 +377,7 @@ html[data-theme="dark"] .theme-toggle-icon-moon {
   .theme-toggle-track,
   .theme-toggle-knob,
   .theme-toggle-icon,
+  .hero-link a::after,
   .site-nav-sub {
     transition: none;
   }
@@ -533,8 +534,7 @@ html[data-theme="dark"] .theme-toggle-icon-moon {
   align-items: center;
 }
 
-.button-link a,
-.hero-link a {
+.button-link a {
   display: inline-flex;
   align-items: center;
   min-height: 2.75rem;
@@ -547,11 +547,25 @@ html[data-theme="dark"] .theme-toggle-icon-moon {
 }
 
 .button-link a:hover,
-.button-link a:focus-visible,
-.hero-link a:hover,
-.hero-link a:focus-visible {
+.button-link a:focus-visible {
   background: var(--text);
   color: var(--bg);
+}
+
+.hero-link {
+  margin: 0;
+}
+
+.hero-link a::after {
+  display: inline-block;
+  margin-left: 0.35em;
+  content: "→";
+  transition: transform 160ms ease;
+}
+
+.hero-link a:hover::after,
+.hero-link a:focus-visible::after {
+  transform: translateX(0.15em);
 }
 
 .section-block {
@@ -896,8 +910,7 @@ a,
     max-width: 18rem;
   }
 
-  .button-link a,
-  .hero-link a {
+  .button-link a {
     width: 100%;
     justify-content: center;
   }
